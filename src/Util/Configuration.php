@@ -384,7 +384,10 @@ final class Configuration
             $value = $data['value'];
 
             if (\defined($value)) {
-                $value = (string) \constant($value);
+                $constant_value = \constant($value);
+                if($constant_value === null || \is_scalar($constant_value)){
+                    $value = (string) $constant_value;
+                }
             }
 
             \ini_set($name, $value);
