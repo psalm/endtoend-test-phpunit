@@ -335,7 +335,7 @@ final class DocBlock
             
             $constant_value = \constant($message);
             if(\is_string($constant_value)) {
-                return \$constant_value;
+                return $constant_value;
             }
             
             return $message;
