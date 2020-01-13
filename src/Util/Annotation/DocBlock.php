@@ -332,12 +332,11 @@ final class DocBlock
     {
         if (\defined($message) &&
             (\strpos($message, '::') !== false && \substr_count($message, '::') + 1 === 2)) {
-            
             $constant_value = \constant($message);
-            if(\is_string($constant_value)) {
+            if (\is_string($constant_value)) {
                 return $constant_value;
             }
-            
+
             return $message;
         }
 
