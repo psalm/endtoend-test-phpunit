@@ -385,7 +385,8 @@ final class Configuration
 
             if (\defined($value)) {
                 $constant_value = \constant($value);
-                if($constant_value === null || \is_scalar($constant_value)){
+
+                if ($constant_value === null || \is_scalar($constant_value)) {
                     $value = (string) $constant_value;
                 }
             }
