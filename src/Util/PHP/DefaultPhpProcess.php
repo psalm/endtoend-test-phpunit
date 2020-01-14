@@ -62,6 +62,7 @@ class DefaultPhpProcess extends AbstractPhpProcess
         $env = null;
 
         if ($this->env) {
+            /** @psalm-suppress TypeDoesNotContainType */
             $env = $_SERVER ?? [];
             unset($env['argv'], $env['argc']);
             $env = \array_merge($env, $this->env);
