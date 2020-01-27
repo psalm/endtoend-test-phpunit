@@ -1055,6 +1055,15 @@ final class Configuration
             $phpVersionOperator = (string) $node->getAttribute('phpVersionOperator');
         }
 
+        if (!\in_array($phpVersionOperator, ['<', 'lt', '<=', 'le', '>', 'gt', '>=', 'ge', '==', '=', 'eq', '!=', '<>', 'ne'], true)) {
+            throw new \UnexpectedValueException(
+                \sprintf(
+                    'Unsupported version operator "%s" found.',
+                    $phpVersionOperator
+                )
+            );
+        }
+
         return \version_compare(\PHP_VERSION, $phpVersion, $phpVersionOperator);
     }
 
