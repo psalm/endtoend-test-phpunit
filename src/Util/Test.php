@@ -160,7 +160,7 @@ final class Test
         if (!empty($required['PHP'])) {
             $operator = empty($required['PHP']['operator']) ? '>=' : $required['PHP']['operator'];
 
-            self::ensureOperatorIsValid($operator);
+            $operator = self::ensureOperatorIsValid($operator);
 
             if (!\version_compare(\PHP_VERSION, $required['PHP']['version'], $operator)) {
                 $missing[] = \sprintf('PHP %s %s is required.', $operator, $required['PHP']['version']);
@@ -184,7 +184,7 @@ final class Test
 
             $operator = empty($required['PHPUnit']['operator']) ? '>=' : $required['PHPUnit']['operator'];
 
-            self::ensureOperatorIsValid($operator);
+            $operator = self::ensureOperatorIsValid($operator);
 
             if (!\version_compare($phpunitVersion, $required['PHPUnit']['version'], $operator)) {
                 $missing[] = \sprintf('PHPUnit %s %s is required.', $operator, $required['PHPUnit']['version']);
@@ -262,7 +262,7 @@ final class Test
 
                 $operator = empty($req['operator']) ? '>=' : $req['operator'];
 
-                self::ensureOperatorIsValid($operator);
+                $operator = self::ensureOperatorIsValid($operator);
 
                 if ($actualVersion === false || !\version_compare($actualVersion, $req['version'], $operator)) {
                     $missing[] = \sprintf('Extension %s %s %s is required.', $extension, $operator, $req['version']);
@@ -886,8 +886,10 @@ final class Test
 
     /*
      * @throws Exception
+     *
+     * @psalm-return '<'|'lt'|'<='|'le'|'>'|'gt'|'>='|'ge'|'=='|'='|'eq'|'!='|'<>'|'ne'
      */
-    private static function ensureOperatorIsValid(string $operator): void
+    private static function ensureOperatorIsValid(string $operator): string
     {
         if (!\in_array($operator, ['<', 'lt', '<=', 'le', '>', 'gt', '>=', 'ge', '==', '=', 'eq', '!=', '<>', 'ne'])) {
             throw new Exception(
@@ -897,5 +899,7 @@ final class Test
                 )
             );
         }
+
+        return $operator;
     }
 }
