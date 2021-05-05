@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.x-dev@">
+<files psalm-version="dev-master@0c30a94b4adaf4a82a474ecdd7541ea63c0771b4">
   <file src="src/Framework/Assert.php">
     <DeprecatedClass occurrences="12">
       <code>ClassHasAttribute</code>
@@ -527,6 +527,17 @@
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(string) var_export($parameter-&gt;getDefaultValue(), true)</code>
     </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$type instanceof ReflectionUnionType</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$type instanceof ReflectionUnionType</code>
+    </TypeDoesNotContainType>
+    <UndefinedClass occurrences="3">
+      <code>ReflectionUnionType</code>
+      <code>ReflectionUnionType</code>
+      <code>ReflectionUnionType</code>
+    </UndefinedClass>
   </file>
   <file src="src/Framework/MockObject/MockObject.php">
     <MissingParamType occurrences="1">
@@ -797,6 +808,12 @@
       <code>explode('::', $value)</code>
     </ArgumentTypeCoercion>
   </file>
+  <file src="src/Metadata/Parser/AttributeParser.php">
+    <UndefinedMethod occurrences="2">
+      <code>getAttributes</code>
+      <code>getAttributes</code>
+    </UndefinedMethod>
+  </file>
   <file src="src/Runner/CodeCoverage.php">
     <InvalidNullableReturnType occurrences="2">
       <code>Driver</code>
@@ -822,17 +839,11 @@
     <MissingReturnType occurrences="1">
       <code>doAccept</code>
     </MissingReturnType>
-    <UndefinedInterfaceMethod occurrences="1">
-      <code>current</code>
-    </UndefinedInterfaceMethod>
   </file>
   <file src="src/Runner/Filter/NameFilterIterator.php">
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;filter</code>
     </PossiblyNullArgument>
-    <UndefinedInterfaceMethod occurrences="1">
-      <code>current</code>
-    </UndefinedInterfaceMethod>
   </file>
   <file src="src/Runner/Hook/TestListenerAdapter.php">
     <DeprecatedClass occurrences="3">
