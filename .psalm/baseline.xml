@@ -446,6 +446,9 @@
       <code>$id</code>
       <code>$id</code>
     </MissingParamType>
+    <ParamNameMismatch occurrences="1">
+      <code>public function method($constraint): self</code>
+    </ParamNameMismatch>
   </file>
   <file src="src/Framework/MockObject/Builder/InvocationStubber.php">
     <MissingParamType occurrences="2">
