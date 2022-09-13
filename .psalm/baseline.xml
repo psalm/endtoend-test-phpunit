@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.x-dev@">
+<files psalm-version="dev-master@6ade142c22e767e4eca9f048c5e137acf74bef0e">
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
     <UndefinedInterfaceMethod occurrences="1">
       <code>notify</code>
     </UndefinedInterfaceMethod>
+  </file>
+  <file src="src/Event/Events/EventCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Event/Events/EventCollectionIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
   </file>
   <file src="src/Event/Facade.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -28,6 +38,26 @@
       <code>fromBytes</code>
     </ImpureMethodCall>
   </file>
+  <file src="src/Event/Value/Test/TestCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Event/Value/Test/TestCollectionIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Event/Value/Test/TestData/TestDataCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Event/Value/Test/TestData/TestDataCollectionIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Event/Value/Test/TestMethod.php">
     <ImpureMethodCall occurrences="4">
       <code>dataFromDataProvider</code>
@@ -43,13 +73,25 @@
       <code>$testSuite-&gt;getName()</code>
       <code>$testSuite-&gt;getName()</code>
     </ArgumentTypeCoercion>
+    <RedundantCast occurrences="2">
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Event/Value/TestSuite/TestSuiteForTestMethodWithDataProvider.php">
     <PropertyTypeCoercion occurrences="1">
       <code>$className</code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/Framework/Assert.php">
+    <InvalidThrow occurrences="1">
+      <code>\PHPUnit\Util\Exception</code>
+    </InvalidThrow>
+  </file>
   <file src="src/Framework/Assert/Functions.php">
+    <InvalidThrow occurrences="1">
+      <code>\PHPUnit\Util\Exception</code>
+    </InvalidThrow>
     <TooManyArguments occurrences="14">
       <code>Assert::anything(...func_get_args())</code>
       <code>Assert::directoryExists(...func_get_args())</code>
@@ -100,14 +142,28 @@
     <PossiblyNullArgument occurrences="1">
       <code>$client-&gt;__getFunctions()</code>
     </PossiblyNullArgument>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assert(class_exists($type))</code>
-    </RedundantConditionGivenDocblockType>
+    <RedundantCast occurrences="12">
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Framework/MockObject/Invocation.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$types</code>
     </ArgumentTypeCoercion>
+    <RedundantCast occurrences="1">
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Framework/MockObject/Matcher.php">
     <InvalidNullableReturnType occurrences="1">
@@ -134,12 +190,22 @@
       <code>MockObject&amp;MockedType</code>
       <code>MockObject&amp;MockedType</code>
     </InvalidReturnType>
+    <RedundantCast occurrences="2">
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Framework/MockObject/MockMethod.php">
     <InvalidArgument occurrences="1"/>
     <PossiblyFalseOperand occurrences="1">
       <code>strpos($parameterAsString, '&lt;optional&gt; ')</code>
     </PossiblyFalseOperand>
+    <RedundantCast occurrences="1">
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
+    <UndefinedMethod occurrences="1">
+      <code>fromParameterTypes</code>
+    </UndefinedMethod>
   </file>
   <file src="src/Framework/MockObject/Rule/Parameters.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -150,6 +216,11 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$this-&gt;callback</code>
     </PossiblyInvalidOperand>
+  </file>
+  <file src="src/Framework/MockObject/TemplateLoader.php">
+    <RedundantCast occurrences="1">
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Framework/TestBuilder.php">
     <LessSpecificReturnStatement occurrences="1">
@@ -171,14 +242,26 @@
     <InvalidReturnType occurrences="1">
       <code>MockObject&amp;RealInstanceType</code>
     </InvalidReturnType>
+    <InvalidThrow occurrences="2">
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Util\Exception</code>
+    </InvalidThrow>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$outputBufferingLevel</code>
     </PropertyNotSetInConstructor>
+    <RedundantCast occurrences="1">
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Framework/TestRunner.php">
-    <InvalidScalarArgument occurrences="1">
+    <InvalidArgument occurrences="1">
       <code>$var</code>
-    </InvalidScalarArgument>
+    </InvalidArgument>
+    <InvalidThrow occurrences="3">
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Util\Exception</code>
+    </InvalidThrow>
   </file>
   <file src="src/Framework/TestSuite.php">
     <ArgumentTypeCoercion occurrences="3">
@@ -186,13 +269,21 @@
       <code>$this-&gt;name</code>
       <code>$this-&gt;name</code>
     </ArgumentTypeCoercion>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assert(class_exists($className))</code>
-    </RedundantConditionGivenDocblockType>
+    <InvalidThrow occurrences="1">
+      <code>\PHPUnit\Runner\Exception</code>
+    </InvalidThrow>
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
     <UnsafeInstantiation occurrences="2">
       <code>new static($class-&gt;getName())</code>
       <code>new static($name)</code>
     </UnsafeInstantiation>
+  </file>
+  <file src="src/Framework/TestSuiteIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>RecursiveIterator</code>
+    </MissingTemplateParam>
   </file>
   <file src="src/Logging/JUnit/JunitXmlLogger.php">
     <InvalidPropertyAssignmentValue occurrences="1">
@@ -218,6 +309,16 @@
       <code>$value</code>
     </InvalidCast>
   </file>
+  <file src="src/Logging/TestDox/TestMethod/TestResultCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/TestResultCollectionIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Logging/TestDox/TestMethod/TestResultCollector.php">
     <PossiblyNullArgument occurrences="2">
       <code>$this-&gt;status</code>
@@ -228,6 +329,12 @@
     </RedundantCondition>
   </file>
   <file src="src/Metadata/Api/CodeCoverage.php">
+    <RedundantCast occurrences="4">
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
     <RedundantCondition occurrences="4">
       <code>$metadata instanceof CoversFunction</code>
       <code>$metadata instanceof UsesFunction</code>
@@ -261,6 +368,19 @@
       <code>assert($metadata instanceof Uses)</code>
     </RedundantCondition>
   </file>
+  <file src="src/Metadata/Api/HookMethods.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>self::$hookMethods[$className]</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>array{beforeClass: list&lt;non-empty-string&gt;, before: list&lt;non-empty-string&gt;, preCondition: list&lt;non-empty-string&gt;, postCondition: list&lt;non-empty-string&gt;, after: list&lt;non-empty-string&gt;, afterClass: list&lt;non-empty-string&gt;}</code>
+    </MoreSpecificReturnType>
+    <PropertyTypeCoercion occurrences="3">
+      <code>self::$hookMethods</code>
+      <code>self::$hookMethods</code>
+      <code>self::$hookMethods</code>
+    </PropertyTypeCoercion>
+  </file>
   <file src="src/Metadata/Api/Requirements.php">
     <RedundantCondition occurrences="8">
       <code>assert($metadata instanceof RequiresFunction)</code>
@@ -278,6 +398,22 @@
       <code>$className</code>
       <code>$className</code>
     </ArgumentTypeCoercion>
+  </file>
+  <file src="src/Metadata/MetadataCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Metadata/MetadataCollectionIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Metadata/Parser/Annotation/Registry.php">
+    <RedundantCast occurrences="2">
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/Metadata/Parser/AnnotationParser.php">
     <ArgumentTypeCoercion occurrences="7">
@@ -300,16 +436,41 @@
       <code>Driver</code>
       <code>\SebastianBergmann\CodeCoverage\CodeCoverage</code>
     </InvalidNullableReturnType>
+    <InvalidThrow occurrences="7">
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+    </InvalidThrow>
+    <MissingThrowsDocblock occurrences="1">
+      <code>forLineCoverage</code>
+    </MissingThrowsDocblock>
     <NullableReturnStatement occurrences="2">
       <code>self::$driver</code>
       <code>self::$instance</code>
     </NullableReturnStatement>
-    <PossiblyNullReference occurrences="2">
-      <code>start</code>
-      <code>stop</code>
-    </PossiblyNullReference>
+    <UndefinedClass occurrences="2">
+      <code>TestSize</code>
+      <code>TestStatus</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Runner/Extension/ExtensionBootstrapper.php">
+    <InvalidThrow occurrences="1">
+      <code>Exception</code>
+    </InvalidThrow>
+  </file>
+  <file src="src/Runner/Filter/GroupFilterIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>GroupFilterIterator</code>
+    </MissingTemplateParam>
   </file>
   <file src="src/Runner/Filter/NameFilterIterator.php">
+    <MissingTemplateParam occurrences="1">
+      <code>NameFilterIterator</code>
+    </MissingTemplateParam>
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;filter</code>
     </PossiblyNullArgument>
@@ -323,9 +484,29 @@
       <code>RawCodeCoverageData::fromXdebugWithoutPathCoverage([])</code>
       <code>RawCodeCoverageData::fromXdebugWithoutPathCoverage([])</code>
     </InternalMethod>
+    <InvalidArgument occurrences="1">
+      <code>$e</code>
+    </InvalidArgument>
+    <InvalidCatch occurrences="1"/>
+    <InvalidThrow occurrences="5">
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+      <code>Exception</code>
+    </InvalidThrow>
     <PossiblyInvalidArgument occurrences="1">
       <code>$sections['FILEEOF']</code>
     </PossiblyInvalidArgument>
+    <UndefinedClass occurrences="2">
+      <code>TestSize</code>
+      <code>TestStatus</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Runner/ResultCache/DefaultResultCache.php">
+    <InvalidThrow occurrences="1">
+      <code>Exception</code>
+    </InvalidThrow>
   </file>
   <file src="src/Runner/TestResult/Collector.php">
     <RedundantCondition occurrences="1">
@@ -333,6 +514,9 @@
     </RedundantCondition>
   </file>
   <file src="src/Runner/TestSuiteLoader.php">
+    <InvalidThrow occurrences="1">
+      <code>Exception</code>
+    </InvalidThrow>
     <UnresolvableInclude occurrences="1">
       <code>include_once $suiteClassFile</code>
     </UnresolvableInclude>
@@ -341,6 +525,9 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$tests</code>
     </ArgumentTypeCoercion>
+    <InvalidThrow occurrences="1">
+      <code>Exception</code>
+    </InvalidThrow>
     <RedundantCondition occurrences="4">
       <code>$order === self::ORDER_DURATION &amp;&amp; $this-&gt;cache !== null</code>
       <code>$orderDefects === self::ORDER_DEFECTS_FIRST &amp;&amp; $this-&gt;cache !== null</code>
@@ -349,12 +536,25 @@
     </RedundantCondition>
   </file>
   <file src="src/TextUI/Application.php">
+    <InvalidThrow occurrences="2">
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Runner\Exception</code>
+    </InvalidThrow>
+    <MissingThrowsDocblock occurrences="2">
+      <code>run</code>
+      <code>run</code>
+    </MissingThrowsDocblock>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_SERVER['argv']</code>
     </PossiblyUndefinedArrayOffset>
     <UnresolvableInclude occurrences="1">
       <code>include_once $filename</code>
     </UnresolvableInclude>
+  </file>
+  <file src="src/TextUI/Configuration/Cli/Builder.php">
+    <RedundantCast occurrences="1">
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/TextUI/Configuration/Cli/Configuration.php">
     <InvalidNullableReturnType occurrences="2">
@@ -385,26 +585,48 @@
       <code>assert($xmlConfiguration instanceof LoadedFromFileConfiguration)</code>
     </RedundantCondition>
   </file>
+  <file src="src/TextUI/Configuration/TestSuiteBuilder.php">
+    <InvalidThrow occurrences="2">
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Runner\Exception</code>
+    </InvalidThrow>
+  </file>
   <file src="src/TextUI/Configuration/Xml/CodeCoverage/CodeCoverage.php">
     <DeprecatedMethod occurrences="1">
       <code>hasCacheDirectory</code>
     </DeprecatedMethod>
   </file>
+  <file src="src/TextUI/Configuration/Xml/CodeCoverage/Filter/DirectoryCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/CodeCoverage/Filter/DirectoryCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$this-&gt;directories</code>
     </PossiblyNullArrayOffset>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Filesystem/DirectoryCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
   </file>
   <file src="src/TextUI/Configuration/Xml/Filesystem/DirectoryCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -412,10 +634,18 @@
       <code>$this-&gt;directories</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/Filesystem/FileCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/Filesystem/FileCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -423,10 +653,18 @@
       <code>$this-&gt;files</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/Group/GroupCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/Group/GroupCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -440,6 +678,10 @@
       <code>$directoryNode-&gt;getAttribute('phpVersionOperator')</code>
       <code>$fileNode-&gt;getAttribute('phpVersionOperator')</code>
     </ArgumentTypeCoercion>
+    <RedundantCast occurrences="2">
+      <code>(int) $e-&gt;getCode()</code>
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>assert($directoryNode instanceof DOMElement)</code>
       <code>assert($fileNode instanceof DOMElement)</code>
@@ -486,10 +728,18 @@
       <code>removeChild</code>
     </PossiblyNullReference>
   </file>
+  <file src="src/TextUI/Configuration/Xml/PHP/ConstantCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/PHP/ConstantCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -497,10 +747,18 @@
       <code>$this-&gt;constants</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/PHP/IniSettingCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/PHP/IniSettingCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -508,10 +766,18 @@
       <code>$this-&gt;iniSettings</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/PHP/VariableCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/PHP/VariableCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -519,10 +785,18 @@
       <code>$this-&gt;variables</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/PHPUnit/ExtensionBootstrapCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/PHPUnit/ExtensionBootstrapCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -535,10 +809,18 @@
       <code>hasCacheResultFile</code>
     </DeprecatedMethod>
   </file>
+  <file src="src/TextUI/Configuration/Xml/TestSuite/TestDirectoryCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/TestSuite/TestDirectoryCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -546,10 +828,18 @@
       <code>$this-&gt;directories</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/TestSuite/TestFileCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/TestSuite/TestFileCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
@@ -557,16 +847,29 @@
       <code>$this-&gt;files</code>
     </PossiblyNullArrayOffset>
   </file>
+  <file src="src/TextUI/Configuration/Xml/TestSuite/TestSuiteCollection.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/TextUI/Configuration/Xml/TestSuite/TestSuiteCollectionIterator.php">
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>Iterator</code>
+    </MissingTemplateParam>
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;position</code>
     </NullableReturnStatement>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$this-&gt;testSuites</code>
     </PossiblyNullArrayOffset>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/TestSuiteMapper.php">
+    <RedundantCast occurrences="1">
+      <code>(int) $e-&gt;getCode()</code>
+    </RedundantCast>
   </file>
   <file src="src/TextUI/Help.php">
     <PossiblyUndefinedArrayOffset occurrences="2">
@@ -584,9 +887,30 @@
     <InternalMethod occurrences="1">
       <code>nameAndVersion</code>
     </InternalMethod>
+    <InvalidThrow occurrences="2">
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Util\Exception</code>
+    </InvalidThrow>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$printer</code>
     </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Util/ErrorHandler.php">
+    <InvalidThrow occurrences="1">
+      <code>Exception</code>
+    </InvalidThrow>
+  </file>
+  <file src="src/Util/GlobalState.php">
+    <InvalidThrow occurrences="2">
+      <code>Exception</code>
+      <code>Exception</code>
+    </InvalidThrow>
+  </file>
+  <file src="src/Util/PHP/AbstractPhpProcess.php">
+    <InvalidThrow occurrences="2">
+      <code>\PHPUnit\Runner\Exception</code>
+      <code>\PHPUnit\Runner\Exception</code>
+    </InvalidThrow>
   </file>
   <file src="src/Util/PHP/DefaultPhpProcess.php">
     <DocblockTypeContradiction occurrences="1">
@@ -614,5 +938,13 @@
     <DocblockTypeContradiction occurrences="1">
       <code>in_array($operator, ['&lt;', 'lt', '&lt;=', 'le', '&gt;', 'gt', '&gt;=', 'ge', '==', '=', 'eq', '!=', '&lt;&gt;', 'ne'], true)</code>
     </DocblockTypeContradiction>
+    <NoValue occurrences="1">
+      <code>$operator</code>
+    </NoValue>
+  </file>
+  <file src="src/Util/Xml/SnapshotNodeList.php">
+    <MissingTemplateParam occurrences="1">
+      <code>IteratorAggregate</code>
+    </MissingTemplateParam>
   </file>
 </files>
