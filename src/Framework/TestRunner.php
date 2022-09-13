@@ -337,8 +337,8 @@ final class TestRunner
             'codeCoverageFilter'             => $codeCoverageFilter,
             'configurationFilePath'          => $configurationFilePath,
             'name'                           => $test->name(),
-            'offsetSeconds'                  => $offset[0],
-            'offsetNanoseconds'              => $offset[1],
+            'offsetSeconds'                  => (string)$offset[0],
+            'offsetNanoseconds'              => (string)$offset[1],
             'serializedConfiguration'        => $serializedConfiguration,
         ];
 
