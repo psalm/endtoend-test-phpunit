@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@95255667baa1f2120c59a41e5cf112b1962530f0">
+<files psalm-version="dev-master@06621754bd1efa8def8e33e5086dea3d8df636f4">
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
     <MissingThrowsDocblock occurrences="1">
       <code>map</code>
@@ -292,6 +292,9 @@
       <code>$interfaceName</code>
       <code>$type</code>
     </ArgumentTypeCoercion>
+    <InvalidArgument occurrences="1">
+      <code>$e</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="1"/>
     <InvalidReturnType occurrences="1">
       <code>MockObject&amp;RealInstanceType</code>
@@ -300,11 +303,7 @@
     <MoreSpecificReturnType occurrences="1">
       <code>MockObject</code>
     </MoreSpecificReturnType>
-    <PossiblyNullArgument occurrences="1">
-      <code>$client-&gt;__getFunctions()</code>
-    </PossiblyNullArgument>
-    <RedundantCast occurrences="12">
-      <code>(int) $e-&gt;getCode()</code>
+    <RedundantCast occurrences="11">
       <code>(int) $e-&gt;getCode()</code>
       <code>(int) $e-&gt;getCode()</code>
       <code>(int) $e-&gt;getCode()</code>
@@ -317,9 +316,9 @@
       <code>(int) $e-&gt;getCode()</code>
       <code>(int) $e-&gt;getCode()</code>
     </RedundantCast>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>assert(class_exists($type))</code>
-    </RedundantConditionGivenDocblockType>
+    <UndefinedConstant occurrences="1">
+      <code>WSDL_CACHE_NONE</code>
+    </UndefinedConstant>
   </file>
   <file src="src/Framework/MockObject/Invocation.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -367,9 +366,6 @@
     <RedundantCast occurrences="1">
       <code>(int) $e-&gt;getCode()</code>
     </RedundantCast>
-    <UndefinedMethod occurrences="1">
-      <code>fromParameterTypes</code>
-    </UndefinedMethod>
   </file>
   <file src="src/Framework/MockObject/Rule/Parameters.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -490,9 +486,6 @@
     </RedundantCast>
   </file>
   <file src="src/Framework/TestRunner.php">
-    <InvalidArgument occurrences="1">
-      <code>$var</code>
-    </InvalidArgument>
     <MissingThrowsDocblock occurrences="11">
       <code>CodeCoverage::instance()</code>
       <code>CodeCoverage::instance()</code>
@@ -510,9 +503,6 @@
       <code>$this-&gt;name</code>
       <code>$this-&gt;name</code>
     </ArgumentTypeCoercion>
-    <InvalidThrow occurrences="1">
-      <code>\PHPUnit\Runner\Exception</code>
-    </InvalidThrow>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -613,9 +603,8 @@
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;time</code>
     </PossiblyNullArgument>
-    <PropertyTypeCoercion occurrences="2">
+    <PropertyTypeCoercion occurrences="1">
       <code>$this-&gt;testDoubles</code>
-      <code>$this-&gt;tests</code>
     </PropertyTypeCoercion>
     <RedundantCondition occurrences="1">
       <code>assert($test instanceof TestMethod)</code>
@@ -758,15 +747,6 @@
       <code>Driver</code>
       <code>\SebastianBergmann\CodeCoverage\CodeCoverage</code>
     </InvalidNullableReturnType>
-    <InvalidThrow occurrences="7">
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-    </InvalidThrow>
     <MissingThrowsDocblock occurrences="8">
       <code>forLineAndPathCoverage</code>
       <code>forLineAndPathCoverage</code>
@@ -785,17 +765,8 @@
       <code>start</code>
       <code>stop</code>
     </PossiblyNullReference>
-    <UndefinedClass occurrences="2">
-      <code>TestSize</code>
-      <code>TestStatus</code>
-    </UndefinedClass>
   </file>
   <file src="src/Runner/Extension/ExtensionHandler.php">
-    <InvalidThrow occurrences="3">
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-    </InvalidThrow>
     <MissingThrowsDocblock occurrences="1"/>
     <RedundantCast occurrences="1">
       <code>(int) $e-&gt;getCode()</code>
@@ -823,17 +794,6 @@
       <code>RawCodeCoverageData::fromXdebugWithoutPathCoverage([])</code>
       <code>RawCodeCoverageData::fromXdebugWithoutPathCoverage([])</code>
     </InternalMethod>
-    <InvalidArgument occurrences="1">
-      <code>$e</code>
-    </InvalidArgument>
-    <InvalidCatch occurrences="1"/>
-    <InvalidThrow occurrences="5">
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-    </InvalidThrow>
     <MissingThrowsDocblock occurrences="4">
       <code>append</code>
       <code>append</code>
@@ -842,15 +802,6 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$sections['FILEEOF']</code>
     </PossiblyInvalidArgument>
-    <UndefinedClass occurrences="2">
-      <code>TestSize</code>
-      <code>TestStatus</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/Runner/ResultCache/DefaultResultCache.php">
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
   </file>
   <file src="src/Runner/ResultCache/ResultCacheHandler.php">
     <MissingThrowsDocblock occurrences="3">
@@ -872,9 +823,6 @@
     </MissingThrowsDocblock>
   </file>
   <file src="src/Runner/TestSuiteLoader.php">
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
     <MissingThrowsDocblock occurrences="1"/>
     <RedundantCast occurrences="1">
       <code>(int) $e-&gt;getCode()</code>
@@ -887,9 +835,6 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$tests</code>
     </ArgumentTypeCoercion>
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
     <RedundantCondition occurrences="4">
       <code>$order === self::ORDER_DURATION &amp;&amp; $this-&gt;cache !== null</code>
       <code>$orderDefects === self::ORDER_DEFECTS_FIRST &amp;&amp; $this-&gt;cache !== null</code>
@@ -898,7 +843,7 @@
     </RedundantCondition>
   </file>
   <file src="src/TextUI/Application.php">
-    <MissingThrowsDocblock occurrences="12">
+    <MissingThrowsDocblock occurrences="11">
       <code>atLeastVersion</code>
       <code>configuration</code>
       <code>configuration</code>
@@ -906,7 +851,6 @@
       <code>includePath</code>
       <code>iniSettings</code>
       <code>listTestsXml</code>
-      <code>run</code>
       <code>throw new BootstrapException($t);</code>
       <code>throw new InvalidBootstrapException($filename);</code>
       <code>unrecognizedOrderBy</code>
@@ -920,14 +864,14 @@
     </UnresolvableInclude>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestsAsTextCommand.php">
-    <InvalidArgument occurrences="1">
+    <ArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;suite-&gt;getIterator()</code>
-    </InvalidArgument>
+    </ArgumentTypeCoercion>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestsAsXmlCommand.php">
-    <InvalidArgument occurrences="1">
+    <ArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;suite-&gt;getIterator()</code>
-    </InvalidArgument>
+    </ArgumentTypeCoercion>
   </file>
   <file src="src/TextUI/Command/Commands/WarmCodeCoverageCacheCommand.php">
     <MissingThrowsDocblock occurrences="2">
@@ -1066,14 +1010,13 @@
     </RedundantCondition>
   </file>
   <file src="src/TextUI/Configuration/TestSuiteBuilder.php">
-    <MissingThrowsDocblock occurrences="13">
+    <MissingThrowsDocblock occurrences="12">
       <code>addTestFile</code>
       <code>addTestFile</code>
       <code>addTestFiles</code>
       <code>argument</code>
       <code>argument</code>
       <code>defaultTestSuite</code>
-      <code>load</code>
       <code>map</code>
       <code>map</code>
       <code>map</code>
@@ -1399,9 +1342,6 @@
     <InternalMethod occurrences="1">
       <code>nameAndVersion</code>
     </InternalMethod>
-    <InvalidThrow occurrences="1">
-      <code>\PHPUnit\Runner\Exception</code>
-    </InvalidThrow>
     <MissingThrowsDocblock occurrences="52">
       <code>bootstrap</code>
       <code>configurationFile</code>
