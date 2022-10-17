@@ -856,6 +856,9 @@
     <PossiblyNullReference occurrences="1">
       <code>extensions</code>
     </PossiblyNullReference>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_SERVER['argv']</code>
+    </PossiblyUndefinedArrayOffset>
     <UnresolvableInclude occurrences="1">
       <code>include_once $filename</code>
     </UnresolvableInclude>
@@ -1002,6 +1005,9 @@
       <code>text</code>
       <code>xml</code>
     </MissingThrowsDocblock>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$_SERVER['PHP_SELF']</code>
+    </PossiblyUndefinedArrayOffset>
     <RedundantCondition occurrences="1">
       <code>assert($xmlConfiguration instanceof LoadedFromFileConfiguration)</code>
     </RedundantCondition>
@@ -1399,6 +1405,9 @@
     </MissingThrowsDocblock>
   </file>
   <file src="src/Util/PHP/DefaultPhpProcess.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>is_array($envVar)</code>
+    </DocblockTypeContradiction>
     <RedundantCondition occurrences="1">
       <code>$_SERVER</code>
     </RedundantCondition>
