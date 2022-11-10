@@ -102,6 +102,7 @@ final class CodeCoverage
 
         self::$test = $test;
 
+        /** @psalm-suppress PossiblyNullReference */
         self::$instance->start(
             $test->valueObjectForEvents()->id(),
             $size
@@ -131,6 +132,7 @@ final class CodeCoverage
             }
         }
 
+        /** @psalm-suppress PossiblyNullReference */
         /* @noinspection UnusedFunctionResultInspection */
         self::$instance->stop($append, $status, $linesToBeCovered, $linesToBeUsed);
 
