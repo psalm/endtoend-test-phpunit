@@ -259,6 +259,7 @@ final class Invocation implements SelfDescribing
     }
 
     /**
+     * @psalm-assert-if-true non-empty-list<interface-string> $types
      * @psalm-param non-empty-list<string> $types
      */
     private function onlyInterfaces(array $types): bool

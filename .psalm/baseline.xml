@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@6ade142c22e767e4eca9f048c5e137acf74bef0e">
+<files psalm-version="dev-master@2b0e979ee9434afdeb9dd59a3219bf4029c62dc8">
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
     <UndefinedInterfaceMethod occurrences="1">
       <code>notify</code>
@@ -14,6 +14,46 @@
     <MissingTemplateParam occurrences="1">
       <code>Iterator</code>
     </MissingTemplateParam>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/AfterLastTestMethodFinished.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$calledMethods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/AfterTestMethodFinished.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$calledMethods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/BeforeFirstTestMethodFinished.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$calledMethods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/BeforeTestMethodFinished.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$calledMethods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/PostConditionFinished.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$calledMethods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/PreConditionFinished.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$calledMethods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/MockObjectFromWsdlCreated.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$methods</code>
+    </InvalidPropertyAssignmentValue>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/PartialMockObjectCreated.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$methodNames</code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="src/Event/Facade.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -39,6 +79,9 @@
     </ImpureMethodCall>
   </file>
   <file src="src/Event/Value/Test/TestCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$tests</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -49,6 +92,12 @@
     </MissingTemplateParam>
   </file>
   <file src="src/Event/Value/Test/TestData/TestDataCollection.php">
+    <InvalidArgument occurrences="1">
+      <code>$data</code>
+    </InvalidArgument>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$data</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -109,6 +158,9 @@
       <code>Assert::isWritable(...func_get_args())</code>
     </TooManyArguments>
   </file>
+  <file src="src/Framework/Constraint/Operator/BinaryOperator.php">
+    <InvalidPropertyAssignmentValue occurrences="1"/>
+  </file>
   <file src="src/Framework/Constraint/Operator/LogicalXor.php">
     <InvalidArgument occurrences="1">
       <code>bool</code>
@@ -123,6 +175,17 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$className</code>
     </ArgumentTypeCoercion>
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;providedTests</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>list&lt;ExecutionOrderDependency&gt;</code>
+    </InvalidReturnType>
+  </file>
+  <file src="src/Framework/MockObject/Builder/InvocationMocker.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$configurableMethods</code>
+    </InvalidPropertyAssignmentValue>
   </file>
   <file src="src/Framework/MockObject/Generator.php">
     <ArgumentTypeCoercion occurrences="4">
@@ -131,6 +194,10 @@
       <code>$interfaceName</code>
       <code>$type</code>
     </ArgumentTypeCoercion>
+    <InvalidArgument occurrences="2">
+      <code>$e</code>
+      <code>$methods</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="1"/>
     <InvalidReturnType occurrences="1">
       <code>MockObject&amp;RealInstanceType</code>
@@ -139,11 +206,7 @@
     <MoreSpecificReturnType occurrences="1">
       <code>MockObject</code>
     </MoreSpecificReturnType>
-    <PossiblyNullArgument occurrences="1">
-      <code>$client-&gt;__getFunctions()</code>
-    </PossiblyNullArgument>
-    <RedundantCast occurrences="12">
-      <code>(int) $e-&gt;getCode()</code>
+    <RedundantCast occurrences="11">
       <code>(int) $e-&gt;getCode()</code>
       <code>(int) $e-&gt;getCode()</code>
       <code>(int) $e-&gt;getCode()</code>
@@ -156,11 +219,11 @@
       <code>(int) $e-&gt;getCode()</code>
       <code>(int) $e-&gt;getCode()</code>
     </RedundantCast>
+    <UndefinedConstant occurrences="1">
+      <code>WSDL_CACHE_NONE</code>
+    </UndefinedConstant>
   </file>
   <file src="src/Framework/MockObject/Invocation.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$types</code>
-    </ArgumentTypeCoercion>
     <RedundantCast occurrences="1">
       <code>(int) $e-&gt;getCode()</code>
     </RedundantCast>
@@ -203,9 +266,6 @@
     <RedundantCast occurrences="1">
       <code>(int) $e-&gt;getCode()</code>
     </RedundantCast>
-    <UndefinedMethod occurrences="1">
-      <code>fromParameterTypes</code>
-    </UndefinedMethod>
   </file>
   <file src="src/Framework/MockObject/Rule/Parameters.php">
     <PropertyNotSetInConstructor occurrences="1">
@@ -236,14 +296,17 @@
       <code>$originalClassName</code>
       <code>$this-&gt;expectedException</code>
     </ArgumentTypeCoercion>
+    <InvalidPropertyAssignmentValue occurrences="2">
+      <code>$backupGlobalsExcludeList</code>
+      <code>$groups</code>
+    </InvalidPropertyAssignmentValue>
     <InvalidReturnStatement occurrences="1">
       <code>$mockObject</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>MockObject&amp;RealInstanceType</code>
     </InvalidReturnType>
-    <InvalidThrow occurrences="2">
-      <code>\PHPUnit\Runner\Exception</code>
+    <InvalidThrow occurrences="1">
       <code>\PHPUnit\Util\Exception</code>
     </InvalidThrow>
     <PropertyNotSetInConstructor occurrences="1">
@@ -257,9 +320,7 @@
     <InvalidArgument occurrences="1">
       <code>$var</code>
     </InvalidArgument>
-    <InvalidThrow occurrences="3">
-      <code>\PHPUnit\Runner\Exception</code>
-      <code>\PHPUnit\Runner\Exception</code>
+    <InvalidThrow occurrences="1">
       <code>\PHPUnit\Util\Exception</code>
     </InvalidThrow>
   </file>
@@ -269,9 +330,14 @@
       <code>$this-&gt;name</code>
       <code>$this-&gt;name</code>
     </ArgumentTypeCoercion>
-    <InvalidThrow occurrences="1">
-      <code>\PHPUnit\Runner\Exception</code>
-    </InvalidThrow>
+    <InvalidReturnStatement occurrences="2">
+      <code>$this-&gt;providedTests</code>
+      <code>$this-&gt;requiredTests</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>list&lt;ExecutionOrderDependency&gt;</code>
+      <code>list&lt;ExecutionOrderDependency&gt;</code>
+    </InvalidReturnType>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -310,6 +376,9 @@
     </InvalidCast>
   </file>
   <file src="src/Logging/TestDox/TestMethod/TestResultCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$testResults</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -320,6 +389,9 @@
     </MissingTemplateParam>
   </file>
   <file src="src/Logging/TestDox/TestMethod/TestResultCollector.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;testDoubles</code>
+    </InvalidPropertyAssignmentValue>
     <PossiblyNullArgument occurrences="2">
       <code>$this-&gt;status</code>
       <code>$this-&gt;time</code>
@@ -327,6 +399,9 @@
     <RedundantCondition occurrences="1">
       <code>assert($test instanceof TestMethod)</code>
     </RedundantCondition>
+    <UndefinedClass occurrences="1">
+      <code>SoapClient</code>
+    </UndefinedClass>
   </file>
   <file src="src/Metadata/Api/CodeCoverage.php">
     <RedundantCast occurrences="4">
@@ -353,13 +428,13 @@
     </RedundantCondition>
   </file>
   <file src="src/Metadata/Api/Groups.php">
-    <LessSpecificReturnStatement occurrences="2">
+    <InvalidReturnStatement occurrences="2">
       <code>array_unique($groups)</code>
       <code>array_unique($groups)</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
       <code>list&lt;string&gt;</code>
-    </MoreSpecificReturnType>
+    </InvalidReturnType>
     <RedundantCondition occurrences="5">
       <code>$metadata instanceof CoversFunction</code>
       <code>$metadata instanceof UsesFunction</code>
@@ -367,19 +442,6 @@
       <code>assert($metadata instanceof Metadata)</code>
       <code>assert($metadata instanceof Uses)</code>
     </RedundantCondition>
-  </file>
-  <file src="src/Metadata/Api/HookMethods.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>self::$hookMethods[$className]</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1">
-      <code>array{beforeClass: list&lt;non-empty-string&gt;, before: list&lt;non-empty-string&gt;, preCondition: list&lt;non-empty-string&gt;, postCondition: list&lt;non-empty-string&gt;, after: list&lt;non-empty-string&gt;, afterClass: list&lt;non-empty-string&gt;}</code>
-    </MoreSpecificReturnType>
-    <PropertyTypeCoercion occurrences="3">
-      <code>self::$hookMethods</code>
-      <code>self::$hookMethods</code>
-      <code>self::$hookMethods</code>
-    </PropertyTypeCoercion>
   </file>
   <file src="src/Metadata/Api/Requirements.php">
     <RedundantCondition occurrences="8">
@@ -400,6 +462,9 @@
     </ArgumentTypeCoercion>
   </file>
   <file src="src/Metadata/MetadataCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$metadata</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -436,33 +501,15 @@
       <code>Driver</code>
       <code>\SebastianBergmann\CodeCoverage\CodeCoverage</code>
     </InvalidNullableReturnType>
-    <InvalidThrow occurrences="7">
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-    </InvalidThrow>
-    <MissingThrowsDocblock occurrences="1">
-      <code>forLineCoverage</code>
-    </MissingThrowsDocblock>
     <NullableReturnStatement occurrences="2">
       <code>self::$driver</code>
       <code>self::$instance</code>
     </NullableReturnStatement>
-    <UndefinedClass occurrences="2">
-      <code>TestSize</code>
-      <code>TestStatus</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/Runner/Extension/ExtensionBootstrapper.php">
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
   </file>
   <file src="src/Runner/Filter/GroupFilterIterator.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;groupTests</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>GroupFilterIterator</code>
     </MissingTemplateParam>
@@ -484,29 +531,9 @@
       <code>RawCodeCoverageData::fromXdebugWithoutPathCoverage([])</code>
       <code>RawCodeCoverageData::fromXdebugWithoutPathCoverage([])</code>
     </InternalMethod>
-    <InvalidArgument occurrences="1">
-      <code>$e</code>
-    </InvalidArgument>
-    <InvalidCatch occurrences="1"/>
-    <InvalidThrow occurrences="5">
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-      <code>Exception</code>
-    </InvalidThrow>
     <PossiblyInvalidArgument occurrences="1">
       <code>$sections['FILEEOF']</code>
     </PossiblyInvalidArgument>
-    <UndefinedClass occurrences="2">
-      <code>TestSize</code>
-      <code>TestStatus</code>
-    </UndefinedClass>
-  </file>
-  <file src="src/Runner/ResultCache/DefaultResultCache.php">
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
   </file>
   <file src="src/Runner/TestResult/Collector.php">
     <RedundantCondition occurrences="1">
@@ -514,9 +541,6 @@
     </RedundantCondition>
   </file>
   <file src="src/Runner/TestSuiteLoader.php">
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
     <UnresolvableInclude occurrences="1">
       <code>include_once $suiteClassFile</code>
     </UnresolvableInclude>
@@ -525,9 +549,14 @@
     <ArgumentTypeCoercion occurrences="1">
       <code>$tests</code>
     </ArgumentTypeCoercion>
-    <InvalidThrow occurrences="1">
-      <code>Exception</code>
-    </InvalidThrow>
+    <InvalidArgument occurrences="6">
+      <code>$this-&gt;randomize($suite-&gt;tests())</code>
+      <code>$this-&gt;resolveDependencies($tests)</code>
+      <code>$this-&gt;reverse($suite-&gt;tests())</code>
+      <code>$this-&gt;sortByDuration($suite-&gt;tests())</code>
+      <code>$this-&gt;sortBySize($suite-&gt;tests())</code>
+      <code>$this-&gt;sortDefectsFirst($suite-&gt;tests())</code>
+    </InvalidArgument>
     <RedundantCondition occurrences="4">
       <code>$order === self::ORDER_DURATION &amp;&amp; $this-&gt;cache !== null</code>
       <code>$orderDefects === self::ORDER_DEFECTS_FIRST &amp;&amp; $this-&gt;cache !== null</code>
@@ -536,12 +565,7 @@
     </RedundantCondition>
   </file>
   <file src="src/TextUI/Application.php">
-    <InvalidThrow occurrences="2">
-      <code>\PHPUnit\Runner\Exception</code>
-      <code>\PHPUnit\Runner\Exception</code>
-    </InvalidThrow>
-    <MissingThrowsDocblock occurrences="2">
-      <code>run</code>
+    <MissingThrowsDocblock occurrences="1">
       <code>run</code>
     </MissingThrowsDocblock>
     <PossiblyUndefinedArrayOffset occurrences="1">
@@ -552,6 +576,10 @@
     </UnresolvableInclude>
   </file>
   <file src="src/TextUI/Configuration/Cli/Builder.php">
+    <InvalidArgument occurrences="2">
+      <code>$parameters</code>
+      <code>array_merge(self::LONG_OPTIONS, $additionalLongOptions)</code>
+    </InvalidArgument>
     <RedundantCast occurrences="1">
       <code>(int) $e-&gt;getCode()</code>
     </RedundantCast>
@@ -567,6 +595,14 @@
     </NullableReturnStatement>
   </file>
   <file src="src/TextUI/Configuration/Configuration.php">
+    <InvalidReturnStatement occurrences="2">
+      <code>$this-&gt;testsCovering</code>
+      <code>$this-&gt;testsUsing</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>list&lt;string&gt;</code>
+      <code>list&lt;string&gt;</code>
+    </InvalidReturnType>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>$columns</code>
     </PossiblyInvalidPropertyAssignmentValue>
@@ -586,10 +622,9 @@
     </RedundantCondition>
   </file>
   <file src="src/TextUI/Configuration/TestSuiteBuilder.php">
-    <InvalidThrow occurrences="2">
-      <code>\PHPUnit\Runner\Exception</code>
-      <code>\PHPUnit\Runner\Exception</code>
-    </InvalidThrow>
+    <InvalidArgument occurrences="1">
+      <code>$this-&gt;testSuffixes($cliConfiguration)</code>
+    </InvalidArgument>
   </file>
   <file src="src/TextUI/Configuration/Xml/CodeCoverage/CodeCoverage.php">
     <DeprecatedMethod occurrences="1">
@@ -597,6 +632,9 @@
     </DeprecatedMethod>
   </file>
   <file src="src/TextUI/Configuration/Xml/CodeCoverage/Filter/DirectoryCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$directories</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -616,6 +654,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/Filesystem/DirectoryCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$directories</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -635,6 +676,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/Filesystem/FileCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$files</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -654,6 +698,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/Group/GroupCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$groups</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -729,6 +776,9 @@
     </PossiblyNullReference>
   </file>
   <file src="src/TextUI/Configuration/Xml/PHP/ConstantCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$constants</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -748,6 +798,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/PHP/IniSettingCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$iniSettings</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -767,6 +820,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/PHP/VariableCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$variables</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -786,6 +842,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/PHPUnit/ExtensionBootstrapCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$extensionBootstraps</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -810,6 +869,9 @@
     </DeprecatedMethod>
   </file>
   <file src="src/TextUI/Configuration/Xml/TestSuite/TestDirectoryCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$directories</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -829,6 +891,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/TestSuite/TestFileCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$files</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -848,6 +913,9 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="src/TextUI/Configuration/Xml/TestSuite/TestSuiteCollection.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$testSuites</code>
+    </InvalidPropertyAssignmentValue>
     <MissingTemplateParam occurrences="1">
       <code>IteratorAggregate</code>
     </MissingTemplateParam>
@@ -887,8 +955,7 @@
     <InternalMethod occurrences="1">
       <code>nameAndVersion</code>
     </InternalMethod>
-    <InvalidThrow occurrences="2">
-      <code>\PHPUnit\Runner\Exception</code>
+    <InvalidThrow occurrences="1">
       <code>\PHPUnit\Util\Exception</code>
     </InvalidThrow>
     <PropertyNotSetInConstructor occurrences="1">
@@ -904,12 +971,6 @@
     <InvalidThrow occurrences="2">
       <code>Exception</code>
       <code>Exception</code>
-    </InvalidThrow>
-  </file>
-  <file src="src/Util/PHP/AbstractPhpProcess.php">
-    <InvalidThrow occurrences="2">
-      <code>\PHPUnit\Runner\Exception</code>
-      <code>\PHPUnit\Runner\Exception</code>
     </InvalidThrow>
   </file>
   <file src="src/Util/PHP/DefaultPhpProcess.php">
