@@ -402,7 +402,7 @@ final class Generator
 
         try {
             $client   = new SoapClient($wsdlFile, $options);
-            $_methods = array_unique($client->__getFunctions());
+            $_methods = array_unique($client->__getFunctions() ?? []);
             unset($client);
         } catch (SoapFault $e) {
             throw new RuntimeException(
@@ -1048,7 +1048,7 @@ final class Generator
                 } catch (\ReflectionException $e) {
                     throw new ReflectionException(
                         $e->getMessage(),
-                        (int) $e->getCode(),
+                        $e->getCode(),
                         $e
                     );
                 }
