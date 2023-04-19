@@ -343,6 +343,7 @@
     </InvalidReturnType>
     <MissingThrowsDocblock>
       <code>getMethod</code>
+      <code>runTest</code>
     </MissingThrowsDocblock>
     <PropertyNotSetInConstructor>
       <code>$outputBufferingLevel</code>
@@ -354,6 +355,11 @@
     <RedundantCast>
       <code><![CDATA[(int) $e->getCode()]]></code>
     </RedundantCast>
+    <UndefinedDocblockClass>
+      <code>\SebastianBergmann\ObjectEnumerator\InvalidArgumentException</code>
+      <code>\SebastianBergmann\ObjectEnumerator\InvalidArgumentException</code>
+      <code>\SebastianBergmann\ObjectEnumerator\InvalidArgumentException</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Framework/TestRunner.php">
     <InvalidArgument>
