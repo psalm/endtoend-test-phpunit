@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
     <UndefinedInterfaceMethod>
       <code>notify</code>
@@ -165,6 +165,11 @@
             )]]></code>
     </TooManyArguments>
   </file>
+  <file src="src/Framework/Constraint/Message/MessageMatchesRegularExpression.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->regularExpression]]></code>
+    </ArgumentTypeCoercion>
+  </file>
   <file src="src/Framework/Constraint/ObjectEquals.php">
     <MissingThrowsDocblock>
       <code>getMethod</code>
@@ -185,6 +190,17 @@
     <InvalidArgument>
       <code>bool</code>
     </InvalidArgument>
+  </file>
+  <file src="src/Framework/Constraint/String/RegularExpression.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$this->pattern]]></code>
+    </ArgumentTypeCoercion>
+  </file>
+  <file src="src/Framework/Constraint/String/StringMatchesFormatDescription.php">
+    <ArgumentTypeCoercion>
+      <code>$line</code>
+      <code><![CDATA[$this->regularExpression]]></code>
+    </ArgumentTypeCoercion>
   </file>
   <file src="src/Framework/Constraint/Type/IsInstanceOf.php">
     <ArgumentTypeCoercion>
@@ -215,6 +231,9 @@
       <code>$methods</code>
       <code>$type</code>
     </ArgumentTypeCoercion>
+    <InvalidArgument>
+      <code>$e</code>
+    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$this->getMock(
                 $originalClassName,
@@ -247,6 +266,9 @@
     <MoreSpecificReturnType>
       <code>MockObject</code>
     </MoreSpecificReturnType>
+    <UndefinedConstant>
+      <code>WSDL_CACHE_NONE</code>
+    </UndefinedConstant>
   </file>
   <file src="src/Framework/MockObject/Invocation.php">
     <RedundantCast>
@@ -435,12 +457,12 @@
       <code><![CDATA[$this->status]]></code>
       <code><![CDATA[$this->time]]></code>
     </PossiblyNullArgument>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$this->testDoubles]]></code>
-    </PropertyTypeCoercion>
     <RedundantCondition>
       <code>assert($test instanceof TestMethod)</code>
     </RedundantCondition>
+    <UndefinedClass>
+      <code>SoapClient</code>
+    </UndefinedClass>
   </file>
   <file src="src/Metadata/Api/CodeCoverage.php">
     <RedundantCast>
@@ -590,6 +612,10 @@
     </PropertyTypeCoercion>
   </file>
   <file src="src/Runner/Filter/NameFilterIterator.php">
+    <ArgumentTypeCoercion>
+      <code>$filter</code>
+      <code><![CDATA[$this->filter]]></code>
+    </ArgumentTypeCoercion>
     <MissingTemplateParam>
       <code>NameFilterIterator</code>
     </MissingTemplateParam>
