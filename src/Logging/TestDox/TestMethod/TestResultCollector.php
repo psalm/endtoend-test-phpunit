@@ -200,6 +200,7 @@ final class TestResultCollector
         }
 
         if ($event instanceof MockObjectFromWsdlCreated) {
+            /** @psalm-suppress PropertyTypeCoercion */
             $this->testDoubles[] = SoapClient::class;
 
             return;

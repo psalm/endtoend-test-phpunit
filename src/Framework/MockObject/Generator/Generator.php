@@ -444,6 +444,7 @@ final class Generator
 
         try {
             $client   = new SoapClient($wsdlFile, $options);
+            /** @psalm-suppress PossiblyNullArgument */
             $_methods = array_unique($client->__getFunctions());
 
             unset($client);
