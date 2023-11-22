@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="dev-master@">
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
     <UndefinedInterfaceMethod>
       <code>notify</code>
@@ -146,10 +146,6 @@
       <code><![CDATA[$testSuite->name()]]></code>
       <code><![CDATA[$testSuite->name()]]></code>
     </ArgumentTypeCoercion>
-    <RedundantCast>
-      <code><![CDATA[(int) $e->getCode()]]></code>
-      <code><![CDATA[(int) $e->getCode()]]></code>
-    </RedundantCast>
   </file>
   <file src="src/Framework/Assert/Functions.php">
     <DeprecatedMethod>
@@ -241,17 +237,6 @@
                 $this->convertNewlines($this->formatDescription),
             )]]></code>
     </ArgumentTypeCoercion>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[$this->providedTests]]></code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType>
-      <code><![CDATA[list<ExecutionOrderDependency>]]></code>
-    </MoreSpecificReturnType>
-  </file>
-  <file src="src/Framework/MockObject/Builder/InvocationMocker.php">
-    <PropertyTypeCoercion>
-      <code>$configurableMethods</code>
-    </PropertyTypeCoercion>
   </file>
   <file src="src/Framework/Constraint/Traversable/ArrayHasKey.php">
     <TooManyArguments>
@@ -303,12 +288,36 @@
     <DeprecatedMethod>
       <code>mockObjectForAbstractClass</code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code>$e</code>
+    </InvalidArgument>
     <MissingThrowsDocblock>
       <code>getMethod</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
+      <code>testDouble</code>
     </MissingThrowsDocblock>
-    <PossiblyNullArgument>
-      <code><![CDATA[$client->__getFunctions()]]></code>
-    </PossiblyNullArgument>
+    <NoValue>
+      <code>$method</code>
+      <code>$method</code>
+      <code>$method</code>
+    </NoValue>
+    <UndefinedConstant>
+      <code>WSDL_CACHE_NONE</code>
+    </UndefinedConstant>
+  </file>
+  <file src="src/Framework/MockObject/Generator/MockClass.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$this->mockName]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code>class-string</code>
+    </MoreSpecificReturnType>
   </file>
   <file src="src/Framework/MockObject/Generator/MockMethod.php">
     <InvalidArgument>
@@ -331,6 +340,14 @@
       <code><![CDATA[strpos($parameterAsString, '<optional> ')]]></code>
     </PossiblyFalseOperand>
   </file>
+  <file src="src/Framework/MockObject/Generator/MockTrait.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$this->mockName]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code>class-string</code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="src/Framework/MockObject/MockBuilder.php">
     <DeprecatedMethod>
       <code>mockObjectForAbstractClass</code>
@@ -346,10 +363,6 @@
       <code><![CDATA[MockObject&MockedType]]></code>
       <code><![CDATA[MockObject&MockedType]]></code>
     </InvalidReturnType>
-    <RedundantCast>
-      <code><![CDATA[(int) $e->getCode()]]></code>
-      <code><![CDATA[(int) $e->getCode()]]></code>
-    </RedundantCast>
   </file>
   <file src="src/Framework/MockObject/Runtime/Builder/InvocationMocker.php">
     <PropertyTypeCoercion>
@@ -431,11 +444,6 @@
       <code><![CDATA[list<ExecutionOrderDependency>]]></code>
     </MoreSpecificReturnType>
   </file>
-  <file src="src/Framework/TestSuiteIterator.php">
-    <MissingTemplateParam>
-      <code>RecursiveIterator</code>
-    </MissingTemplateParam>
-  </file>
   <file src="src/Logging/JUnit/JunitXmlLogger.php">
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->testSuiteTimes]]></code>
@@ -474,12 +482,12 @@
       <code><![CDATA[$this->status]]></code>
       <code><![CDATA[$this->time]]></code>
     </PossiblyNullArgument>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$this->testDoubles]]></code>
-    </PropertyTypeCoercion>
     <RedundantCondition>
       <code>assert($test instanceof TestMethod)</code>
     </RedundantCondition>
+    <UndefinedClass>
+      <code>SoapClient</code>
+    </UndefinedClass>
   </file>
   <file src="src/Metadata/Api/CodeCoverage.php">
     <RedundantCondition>
@@ -570,61 +578,6 @@
      * >]]></code>
     </InvalidReturnType>
   </file>
-  <file src="src/Metadata/MetadataCollection.php">
-    <MissingTemplateParam>
-      <code>IteratorAggregate</code>
-    </MissingTemplateParam>
-    <PropertyTypeCoercion>
-      <code>$metadata</code>
-    </PropertyTypeCoercion>
-  </file>
-  <file src="src/Metadata/MetadataCollectionIterator.php">
-    <MissingTemplateParam>
-      <code>Iterator</code>
-    </MissingTemplateParam>
-  </file>
-  <file src="src/Metadata/Parser/Annotation/DocBlock.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[array_merge(
-            $requires,
-            ['__OFFSET' => $recordedOffsets],
-            array_filter(
-                [
-                    'setting'            => $recordedSettings,
-                    'extension_versions' => $extensionVersions,
-                ]
-            )
-        )]]></code>
-    </InvalidPropertyAssignmentValue>
-    <InvalidReturnStatement>
-      <code><![CDATA[$this->parsedRequirements = array_merge(
-            $requires,
-            ['__OFFSET' => $recordedOffsets],
-            array_filter(
-                [
-                    'setting'            => $recordedSettings,
-                    'extension_versions' => $extensionVersions,
-                ]
-            )
-        )]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{
-     *   __OFFSET: array<string, int>&array{__FILE: string},
-     *   setting?: array<string, string>,
-     *   extension_versions?: array<string, array{version: string, operator: string}>
-     * }&array<
-     *   string,
-     *   string|array{version: string, operator: string}|array{constraint: string}|array<int|string, string>
-     * >]]></code>
-    </InvalidReturnType>
-  </file>
-  <file src="src/Metadata/Parser/Annotation/Registry.php">
-    <RedundantCast>
-      <code><![CDATA[(int) $e->getCode()]]></code>
-      <code><![CDATA[(int) $e->getCode()]]></code>
-    </RedundantCast>
-  </file>
   <file src="src/Metadata/Parser/AnnotationParser.php">
     <ArgumentTypeCoercion>
       <code>$_className</code>
@@ -695,7 +648,6 @@
     </NullableReturnStatement>
     <PossiblyNullReference>
       <code>start</code>
-      <code>stop</code>
     </PossiblyNullReference>
   </file>
   <file src="src/Runner/ErrorHandler.php">
@@ -773,11 +725,6 @@
       <code><![CDATA[$this->sortBySize($suite->tests())]]></code>
       <code><![CDATA[$this->sortDefectsFirst($suite->tests())]]></code>
     </ArgumentTypeCoercion>
-  </file>
-  <file src="src/Runner/Version.php">
-    <UndefinedMethod>
-      <code>getVersion</code>
-    </UndefinedMethod>
   </file>
   <file src="src/TextUI/Application.php">
     <ArgumentTypeCoercion>
@@ -1044,13 +991,6 @@
       <code><![CDATA[$configuration->filter()]]></code>
       <code><![CDATA[$configuration->groups()]]></code>
     </ArgumentTypeCoercion>
-  </file>
-  <file src="src/Util/ExcludeList.php">
-    <InvalidPropertyAssignmentValue>
-      <code>self::$directories</code>
-      <code>self::$directories</code>
-      <code>self::$directories</code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="src/Util/ExcludeList.php">
     <InvalidPropertyAssignmentValue>
