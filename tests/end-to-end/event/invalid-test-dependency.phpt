@@ -18,17 +18,18 @@ $_SERVER['argv'][] = __DIR__ . '/_files/InvalidDependencyTest.php';
 
 require __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($traceFile);
 
 unlink($traceFile);
 --EXPECTF--
-Test Runner Started (PHPUnit %s using %s)
+PHPUnit Started (PHPUnit %s using %s)
 Test Runner Configured
 Test Suite Loaded (2 tests)
-Test Suite Sorted
 Event Facade Sealed
+Test Runner Started
+Test Suite Sorted
 Test Runner Execution Started (2 tests)
 Test Suite Started (PHPUnit\TestFixture\Event\InvalidDependencyTest, 2 tests)
 Test Errored (PHPUnit\TestFixture\Event\InvalidDependencyTest::testOne)
@@ -38,3 +39,4 @@ This test depends on "DoesNotExist" which does not exist
 Test Suite Finished (PHPUnit\TestFixture\Event\InvalidDependencyTest, 2 tests)
 Test Runner Execution Finished
 Test Runner Finished
+PHPUnit Finished (Shell Exit Code: 2)

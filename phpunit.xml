@@ -3,6 +3,7 @@
          xsi:noNamespaceSchemaLocation="phpunit.xsd"
          bootstrap="tests/bootstrap.php"
          cacheDirectory=".phpunit.cache"
+         beStrictAboutOutputDuringTests="true"
          failOnRisky="true"
          failOnWarning="true"
          colors="true">
@@ -12,9 +13,11 @@
         </testsuite>
 
         <testsuite name="end-to-end">
+            <directory suffix=".phpt">tests/end-to-end/baseline</directory>
             <directory suffix=".phpt">tests/end-to-end/cli</directory>
             <directory suffix=".phpt">tests/end-to-end/event</directory>
             <directory suffix=".phpt">tests/end-to-end/execution-order</directory>
+            <directory suffix=".phpt">tests/end-to-end/extension</directory>
             <directory suffix=".phpt">tests/end-to-end/generic</directory>
             <directory suffix=".phpt">tests/end-to-end/logging</directory>
             <directory suffix=".phpt">tests/end-to-end/migration</directory>
@@ -31,15 +34,15 @@
         </testsuite>
     </testsuites>
 
-    <coverage ignoreDeprecatedCodeUnits="true">
+    <source>
         <include>
-            <directory suffix=".php">src</directory>
+            <directory>src</directory>
         </include>
 
         <exclude>
             <file>src/Framework/Assert/Functions.php</file>
         </exclude>
-    </coverage>
+    </source>
 
     <php>
         <ini name="precision" value="14"/>

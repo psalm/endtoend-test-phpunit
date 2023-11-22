@@ -13,7 +13,7 @@ $_SERVER['argv'][] = \realpath(__DIR__ . '/../../_files/BankAccountTest.php');
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($output);
 
@@ -21,5 +21,4 @@ unlink($output);
 --EXPECTF--
 Bank Account (PHPUnit\TestFixture\BankAccount)
  [x] Balance is initially zero
- [x] Balance cannot become negative
  [x] Balance cannot become negative

@@ -1,10 +1,5 @@
 --TEST--
-\PHPUnit\Framework\MockObject\Generator::generate('Foo', [], 'MockFoo', true, true)
---SKIPIF--
-<?php declare(strict_types=1);
-if (version_compare('8.2.0-dev', PHP_VERSION, '>')) {
-    print 'skip: PHP 8.2 is required.';
-}
+\PHPUnit\Framework\MockObject\Generator\Generator::generate('Foo', [], 'MockFoo', true, true)
 --FILE--
 <?php declare(strict_types=1);
 interface A
@@ -24,10 +19,12 @@ class Foo
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
-$generator = new \PHPUnit\Framework\MockObject\Generator;
+$generator = new \PHPUnit\Framework\MockObject\Generator\Generator;
 
 $mock = $generator->generate(
     Foo::class,
+    true,
+    true,
     [],
     'MockFoo',
     true,
@@ -38,11 +35,13 @@ print $mock->classCode();
 --EXPECTF--
 declare(strict_types=1);
 
-class MockFoo extends Foo implements PHPUnit\Framework\MockObject\MockObject
+class MockFoo extends Foo implements PHPUnit\Framework\MockObject\MockObjectInternal
 {
-    use \PHPUnit\Framework\MockObject\Api;
-    use \PHPUnit\Framework\MockObject\Method;
-    use \PHPUnit\Framework\MockObject\MockedCloneMethod;
+    use PHPUnit\Framework\MockObject\StubApi;
+    use PHPUnit\Framework\MockObject\MockObjectApi;
+    use PHPUnit\Framework\MockObject\GeneratedAsMockObject;
+    use PHPUnit\Framework\MockObject\Method;
+    use PHPUnit\Framework\MockObject\DoubledCloneMethod;
 
     public function bar((A&B)|int|null $baz)
     {

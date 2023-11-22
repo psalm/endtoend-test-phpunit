@@ -10,9 +10,11 @@
 namespace PHPUnit\Event\Code;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ClassMethod::class)]
+#[Small]
 final class ClassMethodTest extends TestCase
 {
     public function testConstructorSetsValues(): void
@@ -22,7 +24,7 @@ final class ClassMethodTest extends TestCase
 
         $classMethod = new ClassMethod(
             $className,
-            $methodName
+            $methodName,
         );
 
         $this->assertSame($className, $classMethod->className());

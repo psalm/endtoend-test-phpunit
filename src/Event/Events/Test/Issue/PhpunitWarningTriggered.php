@@ -20,11 +20,11 @@ use PHPUnit\Event\Telemetry;
  *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
-final class PhpunitWarningTriggered implements Event
+final readonly class PhpunitWarningTriggered implements Event
 {
-    private readonly Telemetry\Info $telemetryInfo;
-    private readonly Test $test;
-    private readonly string $message;
+    private Telemetry\Info $telemetryInfo;
+    private Test $test;
+    private string $message;
 
     public function __construct(Telemetry\Info $telemetryInfo, Test $test, string $message)
     {
@@ -59,7 +59,7 @@ final class PhpunitWarningTriggered implements Event
         return sprintf(
             'Test Triggered PHPUnit Warning (%s)%s',
             $this->test->id(),
-            $message
+            $message,
         );
     }
 }

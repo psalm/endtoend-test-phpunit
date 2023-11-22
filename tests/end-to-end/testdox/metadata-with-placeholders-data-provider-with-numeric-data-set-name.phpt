@@ -11,7 +11,7 @@ $_SERVER['argv'][] = __DIR__ . '/_files/DataProviderWithNumericDataSetNameAndMet
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -20,8 +20,8 @@ Runtime:       %s
 Time: %s, Memory: %s
 
 Text from class-level TestDox metadata
- ✔ Text from method-level TestDox metadata for successful test with placeholders (string, 0, 0.0 array, true)
- ✘ Text from method-level TestDox metadata for failing test with placeholders (string, 0, 0.0 array, true)
+ ✔ Text from method-level TestDox metadata for successful test with placeholders (string, 0, 0.0, array, true, bar, FOO)
+ ✘ Text from method-level TestDox metadata for failing test with placeholders (string, 0, 0.0, array, true, bar, FOO)
    │
    │ Failed asserting that false is true.
    │

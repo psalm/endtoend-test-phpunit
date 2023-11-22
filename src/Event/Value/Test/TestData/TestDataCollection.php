@@ -14,6 +14,8 @@ use Countable;
 use IteratorAggregate;
 
 /**
+ * @template-implements IteratorAggregate<int, TestData>
+ *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
 final class TestDataCollection implements Countable, IteratorAggregate
@@ -26,20 +28,19 @@ final class TestDataCollection implements Countable, IteratorAggregate
 
     /**
      * @psalm-param list<TestData> $data
-     *
-     * @throws MoreThanOneDataSetFromDataProviderException
      */
     public static function fromArray(array $data): self
     {
         return new self(...$data);
     }
 
-    /**
-     * @throws MoreThanOneDataSetFromDataProviderException
-     */
     private function __construct(TestData ...$data)
     {
-        $this->ensureNoMoreThanOneDataFromDataProvider($data);
+        foreach ($data as $_data) {
+            if ($_data->isFromDataProvider()) {
+                $this->fromDataProvider = $_data;
+            }
+        }
 
         $this->data = $data;
     }
@@ -80,23 +81,5 @@ final class TestDataCollection implements Countable, IteratorAggregate
     public function getIterator(): TestDataCollectionIterator
     {
         return new TestDataCollectionIterator($this);
-    }
-
-    /**
-     * @psalm-param list<TestData> $data
-     *
-     * @throws MoreThanOneDataSetFromDataProviderException
-     */
-    private function ensureNoMoreThanOneDataFromDataProvider(array $data): void
-    {
-        foreach ($data as $_data) {
-            if ($_data->isFromDataProvider()) {
-                if ($this->fromDataProvider !== null) {
-                    throw new MoreThanOneDataSetFromDataProviderException;
-                }
-
-                $this->fromDataProvider = $_data;
-            }
-        }
     }
 }

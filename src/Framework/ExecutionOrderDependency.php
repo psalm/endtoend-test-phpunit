@@ -17,16 +17,17 @@ use function in_array;
 use function str_contains;
 use PHPUnit\Metadata\DependsOnClass;
 use PHPUnit\Metadata\DependsOnMethod;
+use Stringable;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class ExecutionOrderDependency
+final class ExecutionOrderDependency implements Stringable
 {
     private string $className  = '';
     private string $methodName = '';
-    private bool $shallowClone;
-    private bool $deepClone;
+    private readonly bool $shallowClone;
+    private readonly bool $deepClone;
 
     public static function invalid(): self
     {
@@ -34,7 +35,7 @@ final class ExecutionOrderDependency
             '',
             '',
             false,
-            false
+            false,
         );
     }
 
@@ -44,7 +45,7 @@ final class ExecutionOrderDependency
             $metadata->className(),
             'class',
             $metadata->deepClone(),
-            $metadata->shallowClone()
+            $metadata->shallowClone(),
         );
     }
 
@@ -54,7 +55,7 @@ final class ExecutionOrderDependency
             $metadata->className(),
             $metadata->methodName(),
             $metadata->deepClone(),
-            $metadata->shallowClone()
+            $metadata->shallowClone(),
         );
     }
 
@@ -68,11 +69,8 @@ final class ExecutionOrderDependency
         return array_values(
             array_filter(
                 $dependencies,
-                static function (self $d)
-                {
-                    return $d->isValid();
-                }
-            )
+                static fn (self $d) => $d->isValid(),
+            ),
         );
     }
 
@@ -85,11 +83,8 @@ final class ExecutionOrderDependency
     public static function mergeUnique(array $existing, array $additional): array
     {
         $existingTargets = array_map(
-            static function ($dependency)
-            {
-                return $dependency->getTarget();
-            },
-            $existing
+            static fn ($dependency) => $dependency->getTarget(),
+            $existing,
         );
 
         foreach ($additional as $dependency) {
@@ -122,11 +117,8 @@ final class ExecutionOrderDependency
 
         $diff         = [];
         $rightTargets = array_map(
-            static function ($dependency)
-            {
-                return $dependency->getTarget();
-            },
-            $right
+            static fn ($dependency) => $dependency->getTarget(),
+            $right,
         );
 
         foreach ($left as $dependency) {

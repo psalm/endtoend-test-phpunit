@@ -14,20 +14,20 @@ use PHPUnit\TextUI\Help;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class ShowHelpCommand implements Command
+final readonly class ShowHelpCommand implements Command
 {
-    private bool $success;
+    private int $shellExitCode;
 
-    public function __construct(bool $success)
+    public function __construct(int $shellExitCode)
     {
-        $this->success = $success;
+        $this->shellExitCode = $shellExitCode;
     }
 
     public function execute(): Result
     {
         return Result::from(
             (new Help)->generate(),
-            $this->success
+            $this->shellExitCode,
         );
     }
 }

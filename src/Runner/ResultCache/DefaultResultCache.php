@@ -39,7 +39,7 @@ final class DefaultResultCache implements ResultCache
      * @var string
      */
     private const DEFAULT_RESULT_CACHE_FILENAME = '.phpunit.result.cache';
-    private string $cacheFilename;
+    private readonly string $cacheFilename;
 
     /**
      * @psalm-var array<string, TestStatus>
@@ -92,7 +92,7 @@ final class DefaultResultCache implements ResultCache
 
         $data = json_decode(
             file_get_contents($this->cacheFilename),
-            true
+            true,
         );
 
         if ($data === null) {
@@ -140,7 +140,7 @@ final class DefaultResultCache implements ResultCache
         file_put_contents(
             $this->cacheFilename,
             json_encode($data),
-            LOCK_EX
+            LOCK_EX,
         );
     }
 }

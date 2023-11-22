@@ -19,15 +19,15 @@ use PHPUnit\Event\Telemetry;
  *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
-final class AfterTestMethodCalled implements Event
+final readonly class AfterTestMethodCalled implements Event
 {
-    private readonly Telemetry\Info $telemetryInfo;
+    private Telemetry\Info $telemetryInfo;
 
     /**
      * @psalm-var class-string
      */
-    private readonly string $testClassName;
-    private readonly Code\ClassMethod $calledMethod;
+    private string $testClassName;
+    private Code\ClassMethod $calledMethod;
 
     /**
      * @psalm-param class-string $testClassName
@@ -62,7 +62,7 @@ final class AfterTestMethodCalled implements Event
         return sprintf(
             'After Test Method Called (%s::%s)',
             $this->calledMethod->className(),
-            $this->calledMethod->methodName()
+            $this->calledMethod->methodName(),
         );
     }
 }

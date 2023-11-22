@@ -17,13 +17,24 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Util\Xml\ValidationResult;
+use PHPUnit\TextUI\XmlConfiguration\ValidationResult;
 
 #[CoversClass(Xml::class)]
 #[CoversClass(ValidationResult::class)]
 #[Small]
 final class XmlTest extends TestCase
 {
+    public static function charProvider(): array
+    {
+        $data = [];
+
+        for ($i = 0; $i < 256; $i++) {
+            $data[] = [chr($i)];
+        }
+
+        return $data;
+    }
+
     #[DataProvider('charProvider')]
     public function testPrepareString(string $char): void
     {
@@ -44,19 +55,8 @@ final class XmlTest extends TestCase
                 '%s::prepareString("\x%02x") should not crash %s',
                 Xml::class,
                 ord($char),
-                DOMDocument::class
-            )
+                DOMDocument::class,
+            ),
         );
-    }
-
-    public function charProvider(): array
-    {
-        $data = [];
-
-        for ($i = 0; $i < 256; $i++) {
-            $data[] = [chr($i)];
-        }
-
-        return $data;
     }
 }

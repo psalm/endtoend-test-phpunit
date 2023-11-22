@@ -20,7 +20,7 @@ use RecursiveIteratorIterator;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class ListTestsAsTextCommand implements Command
+final readonly class ListTestsAsTextCommand implements Command
 {
     private TestSuite $suite;
 
@@ -40,7 +40,7 @@ final class ListTestsAsTextCommand implements Command
                 $name = sprintf(
                     '%s::%s',
                     $test::class,
-                    str_replace(' with data set ', '', $test->nameWithDataSet())
+                    str_replace(' with data set ', '', $test->nameWithDataSet()),
                 );
             } elseif ($test instanceof PhptTestCase) {
                 $name = $test->getName();
@@ -50,7 +50,7 @@ final class ListTestsAsTextCommand implements Command
 
             $buffer .= sprintf(
                 ' - %s' . PHP_EOL,
-                $name
+                $name,
             );
         }
 
@@ -73,10 +73,6 @@ final class ListTestsAsTextCommand implements Command
 
         if ($configuration->hasExcludeGroups()) {
             $buffer .= 'The --exclude-group and --list-tests options cannot be combined, --exclude-group is ignored' . PHP_EOL;
-        }
-
-        if ($configuration->hasTestSuite()) {
-            $buffer .= 'The --testsuite and --list-tests options cannot be combined, --exclude-group is ignored' . PHP_EOL;
         }
 
         if (!empty($buffer)) {

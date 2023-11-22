@@ -9,10 +9,8 @@
  */
 namespace PHPUnit\TextUI\Configuration;
 
+use function array_keys;
 use function assert;
-use PHPUnit\TextUI\CliArguments\Configuration as CliConfiguration;
-use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\FilterMapper;
-use PHPUnit\TextUI\XmlConfiguration\Configuration as XmlConfiguration;
 use SebastianBergmann\CodeCoverage\Filter;
 
 /**
@@ -23,44 +21,47 @@ use SebastianBergmann\CodeCoverage\Filter;
  */
 final class CodeCoverageFilterRegistry
 {
-    private static ?Filter $filter  = null;
-    private static bool $configured = false;
+    private static ?self $instance = null;
+    private ?Filter $filter        = null;
+    private bool $configured       = false;
 
-    public static function get(): Filter
+    public static function instance(): self
     {
-        assert(self::$filter !== null);
-
-        return self::$filter;
-    }
-
-    /**
-     * @throws \PHPUnit\TextUI\CliArguments\Exception
-     * @throws \PHPUnit\TextUI\XmlConfiguration\Exception
-     */
-    public static function init(CliConfiguration $cliConfiguration, XmlConfiguration $xmlConfiguration): void
-    {
-        self::$filter = new Filter;
-
-        if ($cliConfiguration->hasCoverageFilter()) {
-            foreach ($cliConfiguration->coverageFilter() as $directory) {
-                self::$filter->includeDirectory($directory);
-            }
-
-            self::$configured = true;
+        if (self::$instance === null) {
+            self::$instance = new self;
         }
 
-        if ($xmlConfiguration->codeCoverage()->hasNonEmptyListOfFilesToBeIncludedInCodeCoverageReport()) {
-            (new FilterMapper)->map(
-                self::$filter,
-                $xmlConfiguration->codeCoverage()
-            );
+        return self::$instance;
+    }
 
-            self::$configured = true;
+    public function get(): Filter
+    {
+        assert($this->filter !== null);
+
+        return $this->filter;
+    }
+
+    public function init(Configuration $configuration, bool $force = false): void
+    {
+        if (!$configuration->hasCoverageReport() && !$force) {
+            return;
+        }
+
+        if ($this->configured && !$force) {
+            return;
+        }
+
+        $this->filter = new Filter;
+
+        if ($configuration->source()->notEmpty()) {
+            $this->filter->includeFiles(array_keys((new SourceMapper)->map($configuration->source())));
+
+            $this->configured = true;
         }
     }
 
-    public static function configured(): bool
+    public function configured(): bool
     {
-        return self::$configured;
+        return $this->configured;
     }
 }

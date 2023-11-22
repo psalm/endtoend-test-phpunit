@@ -9,7 +9,6 @@
  */
 namespace PHPUnit\Framework;
 
-use const PHP_EOL;
 use function sprintf;
 
 /**
@@ -23,13 +22,8 @@ final class ComparisonMethodDoesNotExistException extends Exception
             sprintf(
                 'Comparison method %s::%s() does not exist.',
                 $className,
-                $methodName
-            )
+                $methodName,
+            ),
         );
-    }
-
-    public function __toString(): string
-    {
-        return $this->getMessage() . PHP_EOL;
     }
 }

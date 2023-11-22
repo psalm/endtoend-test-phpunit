@@ -7,7 +7,7 @@ $_SERVER['argv'][] = '--no-configuration';
 $_SERVER['argv'][] = __DIR__ . '/1437/Issue1437Test.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -29,7 +29,7 @@ Failed asserting that false is true.
 There was 1 risky test:
 
 1) PHPUnit\TestFixture\Issue1437Test::testFailure
-Test code or tested code did not (only) close its own output buffers
+Test code or tested code did not close its own output buffers
 
 %sIssue1437Test.php:%i
 

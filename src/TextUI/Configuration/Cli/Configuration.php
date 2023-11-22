@@ -14,105 +14,118 @@ namespace PHPUnit\TextUI\CliArguments;
  *
  * @psalm-immutable
  */
-final class Configuration
+final readonly class Configuration
 {
-    private readonly ?string $argument;
-    private readonly ?string $atLeastVersion;
-    private readonly ?bool $backupGlobals;
-    private readonly ?bool $backupStaticProperties;
-    private readonly ?bool $beStrictAboutChangesToGlobalState;
-    private readonly ?string $bootstrap;
-    private readonly ?string $cacheDirectory;
-    private readonly ?bool $cacheResult;
-    private readonly ?string $cacheResultFile;
-    private readonly ?bool $checkVersion;
-    private readonly ?string $colors;
-    private readonly null|int|string $columns;
-    private readonly ?string $configuration;
-    private readonly ?array $coverageFilter;
-    private readonly ?string $coverageClover;
-    private readonly ?string $coverageCobertura;
-    private readonly ?string $coverageCrap4J;
-    private readonly ?string $coverageHtml;
-    private readonly ?string $coveragePhp;
-    private readonly ?string $coverageText;
-    private readonly ?bool $coverageTextShowUncoveredFiles;
-    private readonly ?bool $coverageTextShowOnlySummary;
-    private readonly ?string $coverageXml;
-    private readonly ?bool $pathCoverage;
-    private readonly ?string $coverageCacheDirectory;
-    private readonly ?bool $warmCoverageCache;
-    private readonly ?int $defaultTimeLimit;
-    private readonly ?bool $disableCodeCoverageIgnore;
-    private readonly ?bool $disallowTestOutput;
-    private readonly ?bool $enforceTimeLimit;
-    private readonly ?array $excludeGroups;
-    private readonly ?int $executionOrder;
-    private readonly ?int $executionOrderDefects;
-    private readonly ?bool $failOnEmptyTestSuite;
-    private readonly ?bool $failOnIncomplete;
-    private readonly ?bool $failOnRisky;
-    private readonly ?bool $failOnSkipped;
-    private readonly ?bool $failOnWarning;
-    private readonly ?string $filter;
-    private readonly ?bool $generateConfiguration;
-    private readonly ?bool $migrateConfiguration;
-    private readonly ?array $groups;
-    private readonly ?array $testsCovering;
-    private readonly ?array $testsUsing;
-    private readonly ?bool $help;
-    private readonly ?string $includePath;
-    private readonly ?array $iniSettings;
-    private readonly ?string $junitLogfile;
-    private readonly ?bool $listGroups;
-    private readonly ?bool $listSuites;
-    private readonly ?bool $listTests;
-    private readonly ?string $listTestsXml;
-    private readonly ?bool $noCoverage;
-    private readonly ?bool $noExtensions;
-    private readonly ?bool $noOutput;
-    private readonly ?bool $noProgress;
-    private readonly ?bool $noResults;
-    private readonly ?bool $noLogging;
-    private readonly ?bool $processIsolation;
-    private readonly ?int $randomOrderSeed;
-    private readonly ?int $repeat;
-    private readonly ?bool $reportUselessTests;
-    private readonly ?bool $resolveDependencies;
-    private readonly ?bool $reverseList;
-    private readonly ?bool $stderr;
-    private readonly ?bool $strictCoverage;
-    private readonly ?bool $stopOnDefect;
-    private readonly ?bool $stopOnError;
-    private readonly ?bool $stopOnFailure;
-    private readonly ?bool $stopOnIncomplete;
-    private readonly ?bool $stopOnRisky;
-    private readonly ?bool $stopOnSkipped;
-    private readonly ?bool $stopOnWarning;
-    private readonly ?string $teamcityLogfile;
-    private readonly ?bool $teamCityPrinter;
-    private readonly ?string $testdoxHtmlFile;
-    private readonly ?string $testdoxTextFile;
-    private readonly ?string $testdoxXmlFile;
-    private readonly ?bool $testdoxPrinter;
-    private readonly ?array $testSuffixes;
-    private readonly ?string $testSuite;
-    private readonly ?string $excludeTestSuite;
-    private readonly ?string $unrecognizedOrderBy;
-    private readonly ?bool $useDefaultConfiguration;
-    private readonly ?bool $displayDetailsOnIncompleteTests;
-    private readonly ?bool $displayDetailsOnSkippedTests;
-    private readonly ?bool $displayDetailsOnTestsThatTriggerDeprecations;
-    private readonly ?bool $displayDetailsOnTestsThatTriggerErrors;
-    private readonly ?bool $displayDetailsOnTestsThatTriggerNotices;
-    private readonly ?bool $displayDetailsOnTestsThatTriggerWarnings;
-    private readonly ?bool $version;
-    private readonly ?string $logEventsText;
-    private readonly ?string $logEventsVerboseText;
+    /**
+     * @psalm-var list<non-empty-string>
+     */
+    private array $arguments;
+    private ?string $atLeastVersion;
+    private ?bool $backupGlobals;
+    private ?bool $backupStaticProperties;
+    private ?bool $beStrictAboutChangesToGlobalState;
+    private ?string $bootstrap;
+    private ?string $cacheDirectory;
+    private ?bool $cacheResult;
+    private bool $checkVersion;
+    private ?string $colors;
+    private null|int|string $columns;
+    private ?string $configurationFile;
+    private ?array $coverageFilter;
+    private ?string $coverageClover;
+    private ?string $coverageCobertura;
+    private ?string $coverageCrap4J;
+    private ?string $coverageHtml;
+    private ?string $coveragePhp;
+    private ?string $coverageText;
+    private ?bool $coverageTextShowUncoveredFiles;
+    private ?bool $coverageTextShowOnlySummary;
+    private ?string $coverageXml;
+    private ?bool $pathCoverage;
+    private bool $warmCoverageCache;
+    private ?int $defaultTimeLimit;
+    private ?bool $disableCodeCoverageIgnore;
+    private ?bool $disallowTestOutput;
+    private ?bool $enforceTimeLimit;
+    private ?array $excludeGroups;
+    private ?int $executionOrder;
+    private ?int $executionOrderDefects;
+    private ?bool $failOnDeprecation;
+    private ?bool $failOnEmptyTestSuite;
+    private ?bool $failOnIncomplete;
+    private ?bool $failOnNotice;
+    private ?bool $failOnRisky;
+    private ?bool $failOnSkipped;
+    private ?bool $failOnWarning;
+    private ?bool $stopOnDefect;
+    private ?bool $stopOnDeprecation;
+    private ?bool $stopOnError;
+    private ?bool $stopOnFailure;
+    private ?bool $stopOnIncomplete;
+    private ?bool $stopOnNotice;
+    private ?bool $stopOnRisky;
+    private ?bool $stopOnSkipped;
+    private ?bool $stopOnWarning;
+    private ?string $filter;
+    private ?string $generateBaseline;
+    private ?string $useBaseline;
+    private bool $ignoreBaseline;
+    private bool $generateConfiguration;
+    private bool $migrateConfiguration;
+    private ?array $groups;
+    private ?array $testsCovering;
+    private ?array $testsUsing;
+    private bool $help;
+    private ?string $includePath;
+    private ?array $iniSettings;
+    private ?string $junitLogfile;
+    private bool $listGroups;
+    private bool $listSuites;
+    private bool $listTests;
+    private ?string $listTestsXml;
+    private ?bool $noCoverage;
+    private ?bool $noExtensions;
+    private ?bool $noOutput;
+    private ?bool $noProgress;
+    private ?bool $noResults;
+    private ?bool $noLogging;
+    private ?bool $processIsolation;
+    private ?int $randomOrderSeed;
+    private ?bool $reportUselessTests;
+    private ?bool $resolveDependencies;
+    private ?bool $reverseList;
+    private ?bool $stderr;
+    private ?bool $strictCoverage;
+    private ?string $teamcityLogfile;
+    private ?bool $teamCityPrinter;
+    private ?string $testdoxHtmlFile;
+    private ?string $testdoxTextFile;
+    private ?bool $testdoxPrinter;
 
-    public function __construct(?string $argument, ?string $atLeastVersion, ?bool $backupGlobals, ?bool $backupStaticProperties, ?bool $beStrictAboutChangesToGlobalState, ?string $bootstrap, ?string $cacheDirectory, ?bool $cacheResult, ?string $cacheResultFile, ?bool $checkVersion, ?string $colors, null|int|string $columns, ?string $configuration, ?string $coverageClover, ?string $coverageCobertura, ?string $coverageCrap4J, ?string $coverageHtml, ?string $coveragePhp, ?string $coverageText, ?bool $coverageTextShowUncoveredFiles, ?bool $coverageTextShowOnlySummary, ?string $coverageXml, ?bool $pathCoverage, ?string $coverageCacheDirectory, ?bool $warmCoverageCache, ?int $defaultTimeLimit, ?bool $disableCodeCoverageIgnore, ?bool $disallowTestOutput, ?bool $enforceTimeLimit, ?array $excludeGroups, ?int $executionOrder, ?int $executionOrderDefects, ?bool $failOnEmptyTestSuite, ?bool $failOnIncomplete, ?bool $failOnRisky, ?bool $failOnSkipped, ?bool $failOnWarning, ?string $filter, ?bool $generateConfiguration, ?bool $migrateConfiguration, ?array $groups, ?array $testsCovering, ?array $testsUsing, ?bool $help, ?string $includePath, ?array $iniSettings, ?string $junitLogfile, ?bool $listGroups, ?bool $listSuites, ?bool $listTests, ?string $listTestsXml, ?bool $noCoverage, ?bool $noExtensions, ?bool $noOutput, ?bool $noProgress, ?bool $noResults, ?bool $noLogging, ?bool $processIsolation, ?int $randomOrderSeed, ?int $repeat, ?bool $reportUselessTests, ?bool $resolveDependencies, ?bool $reverseList, ?bool $stderr, ?bool $strictCoverage, ?bool $stopOnDefect, ?bool $stopOnError, ?bool $stopOnFailure, ?bool $stopOnIncomplete, ?bool $stopOnRisky, ?bool $stopOnSkipped, ?bool $stopOnWarning, ?string $teamcityLogfile, ?string $testdoxHtmlFile, ?string $testdoxTextFile, ?string $testdoxXmlFile, ?array $testSuffixes, ?string $testSuite, ?string $excludeTestSuite, ?string $unrecognizedOrderBy, ?bool $useDefaultConfiguration, ?bool $displayDetailsOnIncompleteTests, ?bool $displayDetailsOnSkippedTests, ?bool $displayDetailsOnTestsThatTriggerDeprecations, ?bool $displayDetailsOnTestsThatTriggerErrors, ?bool $displayDetailsOnTestsThatTriggerNotices, ?bool $displayDetailsOnTestsThatTriggerWarnings, ?bool $version, ?array $coverageFilter, ?string $logEventsText, ?string $logEventsVerboseText, ?bool $printerTeamCity, ?bool $printerTestDox)
+    /**
+     * @psalm-var ?non-empty-list<non-empty-string>
+     */
+    private ?array $testSuffixes;
+    private ?string $testSuite;
+    private ?string $excludeTestSuite;
+    private bool $useDefaultConfiguration;
+    private ?bool $displayDetailsOnIncompleteTests;
+    private ?bool $displayDetailsOnSkippedTests;
+    private ?bool $displayDetailsOnTestsThatTriggerDeprecations;
+    private ?bool $displayDetailsOnTestsThatTriggerErrors;
+    private ?bool $displayDetailsOnTestsThatTriggerNotices;
+    private ?bool $displayDetailsOnTestsThatTriggerWarnings;
+    private bool $version;
+    private ?string $logEventsText;
+    private ?string $logEventsVerboseText;
+
+    /**
+     * @psalm-param list<non-empty-string> $arguments
+     * @psalm-param ?non-empty-list<non-empty-string> $testSuffixes
+     */
+    public function __construct(array $arguments, ?string $atLeastVersion, ?bool $backupGlobals, ?bool $backupStaticProperties, ?bool $beStrictAboutChangesToGlobalState, ?string $bootstrap, ?string $cacheDirectory, ?bool $cacheResult, bool $checkVersion, ?string $colors, null|int|string $columns, ?string $configurationFile, ?string $coverageClover, ?string $coverageCobertura, ?string $coverageCrap4J, ?string $coverageHtml, ?string $coveragePhp, ?string $coverageText, ?bool $coverageTextShowUncoveredFiles, ?bool $coverageTextShowOnlySummary, ?string $coverageXml, ?bool $pathCoverage, bool $warmCoverageCache, ?int $defaultTimeLimit, ?bool $disableCodeCoverageIgnore, ?bool $disallowTestOutput, ?bool $enforceTimeLimit, ?array $excludeGroups, ?int $executionOrder, ?int $executionOrderDefects, ?bool $failOnDeprecation, ?bool $failOnEmptyTestSuite, ?bool $failOnIncomplete, ?bool $failOnNotice, ?bool $failOnRisky, ?bool $failOnSkipped, ?bool $failOnWarning, ?bool $stopOnDefect, ?bool $stopOnDeprecation, ?bool $stopOnError, ?bool $stopOnFailure, ?bool $stopOnIncomplete, ?bool $stopOnNotice, ?bool $stopOnRisky, ?bool $stopOnSkipped, ?bool $stopOnWarning, ?string $filter, ?string $generateBaseline, ?string $useBaseline, bool $ignoreBaseline, bool $generateConfiguration, bool $migrateConfiguration, ?array $groups, ?array $testsCovering, ?array $testsUsing, bool $help, ?string $includePath, ?array $iniSettings, ?string $junitLogfile, bool $listGroups, bool $listSuites, bool $listTests, ?string $listTestsXml, ?bool $noCoverage, ?bool $noExtensions, ?bool $noOutput, ?bool $noProgress, ?bool $noResults, ?bool $noLogging, ?bool $processIsolation, ?int $randomOrderSeed, ?bool $reportUselessTests, ?bool $resolveDependencies, ?bool $reverseList, ?bool $stderr, ?bool $strictCoverage, ?string $teamcityLogfile, ?string $testdoxHtmlFile, ?string $testdoxTextFile, ?array $testSuffixes, ?string $testSuite, ?string $excludeTestSuite, bool $useDefaultConfiguration, ?bool $displayDetailsOnIncompleteTests, ?bool $displayDetailsOnSkippedTests, ?bool $displayDetailsOnTestsThatTriggerDeprecations, ?bool $displayDetailsOnTestsThatTriggerErrors, ?bool $displayDetailsOnTestsThatTriggerNotices, ?bool $displayDetailsOnTestsThatTriggerWarnings, bool $version, ?array $coverageFilter, ?string $logEventsText, ?string $logEventsVerboseText, ?bool $printerTeamCity, ?bool $printerTestDox)
     {
-        $this->argument                                     = $argument;
+        $this->arguments                                    = $arguments;
         $this->atLeastVersion                               = $atLeastVersion;
         $this->backupGlobals                                = $backupGlobals;
         $this->backupStaticProperties                       = $backupStaticProperties;
@@ -120,11 +133,10 @@ final class Configuration
         $this->bootstrap                                    = $bootstrap;
         $this->cacheDirectory                               = $cacheDirectory;
         $this->cacheResult                                  = $cacheResult;
-        $this->cacheResultFile                              = $cacheResultFile;
         $this->checkVersion                                 = $checkVersion;
         $this->colors                                       = $colors;
         $this->columns                                      = $columns;
-        $this->configuration                                = $configuration;
+        $this->configurationFile                            = $configurationFile;
         $this->coverageFilter                               = $coverageFilter;
         $this->coverageClover                               = $coverageClover;
         $this->coverageCobertura                            = $coverageCobertura;
@@ -136,7 +148,6 @@ final class Configuration
         $this->coverageTextShowOnlySummary                  = $coverageTextShowOnlySummary;
         $this->coverageXml                                  = $coverageXml;
         $this->pathCoverage                                 = $pathCoverage;
-        $this->coverageCacheDirectory                       = $coverageCacheDirectory;
         $this->warmCoverageCache                            = $warmCoverageCache;
         $this->defaultTimeLimit                             = $defaultTimeLimit;
         $this->disableCodeCoverageIgnore                    = $disableCodeCoverageIgnore;
@@ -145,12 +156,26 @@ final class Configuration
         $this->excludeGroups                                = $excludeGroups;
         $this->executionOrder                               = $executionOrder;
         $this->executionOrderDefects                        = $executionOrderDefects;
+        $this->failOnDeprecation                            = $failOnDeprecation;
         $this->failOnEmptyTestSuite                         = $failOnEmptyTestSuite;
         $this->failOnIncomplete                             = $failOnIncomplete;
+        $this->failOnNotice                                 = $failOnNotice;
         $this->failOnRisky                                  = $failOnRisky;
         $this->failOnSkipped                                = $failOnSkipped;
         $this->failOnWarning                                = $failOnWarning;
+        $this->stopOnDefect                                 = $stopOnDefect;
+        $this->stopOnDeprecation                            = $stopOnDeprecation;
+        $this->stopOnError                                  = $stopOnError;
+        $this->stopOnFailure                                = $stopOnFailure;
+        $this->stopOnIncomplete                             = $stopOnIncomplete;
+        $this->stopOnNotice                                 = $stopOnNotice;
+        $this->stopOnRisky                                  = $stopOnRisky;
+        $this->stopOnSkipped                                = $stopOnSkipped;
+        $this->stopOnWarning                                = $stopOnWarning;
         $this->filter                                       = $filter;
+        $this->generateBaseline                             = $generateBaseline;
+        $this->useBaseline                                  = $useBaseline;
+        $this->ignoreBaseline                               = $ignoreBaseline;
         $this->generateConfiguration                        = $generateConfiguration;
         $this->migrateConfiguration                         = $migrateConfiguration;
         $this->groups                                       = $groups;
@@ -172,27 +197,17 @@ final class Configuration
         $this->noLogging                                    = $noLogging;
         $this->processIsolation                             = $processIsolation;
         $this->randomOrderSeed                              = $randomOrderSeed;
-        $this->repeat                                       = $repeat;
         $this->reportUselessTests                           = $reportUselessTests;
         $this->resolveDependencies                          = $resolveDependencies;
         $this->reverseList                                  = $reverseList;
         $this->stderr                                       = $stderr;
         $this->strictCoverage                               = $strictCoverage;
-        $this->stopOnDefect                                 = $stopOnDefect;
-        $this->stopOnError                                  = $stopOnError;
-        $this->stopOnFailure                                = $stopOnFailure;
-        $this->stopOnIncomplete                             = $stopOnIncomplete;
-        $this->stopOnRisky                                  = $stopOnRisky;
-        $this->stopOnSkipped                                = $stopOnSkipped;
-        $this->stopOnWarning                                = $stopOnWarning;
         $this->teamcityLogfile                              = $teamcityLogfile;
         $this->testdoxHtmlFile                              = $testdoxHtmlFile;
         $this->testdoxTextFile                              = $testdoxTextFile;
-        $this->testdoxXmlFile                               = $testdoxXmlFile;
         $this->testSuffixes                                 = $testSuffixes;
         $this->testSuite                                    = $testSuite;
         $this->excludeTestSuite                             = $excludeTestSuite;
-        $this->unrecognizedOrderBy                          = $unrecognizedOrderBy;
         $this->useDefaultConfiguration                      = $useDefaultConfiguration;
         $this->displayDetailsOnIncompleteTests              = $displayDetailsOnIncompleteTests;
         $this->displayDetailsOnSkippedTests                 = $displayDetailsOnSkippedTests;
@@ -208,23 +223,11 @@ final class Configuration
     }
 
     /**
-     * @psalm-assert-if-true !null $this->argument
+     * @psalm-return list<non-empty-string>
      */
-    public function hasArgument(): bool
+    public function arguments(): array
     {
-        return $this->argument !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function argument(): string
-    {
-        if (!$this->hasArgument()) {
-            throw new Exception;
-        }
-
-        return $this->argument;
+        return $this->arguments;
     }
 
     /**
@@ -367,43 +370,8 @@ final class Configuration
         return $this->cacheResult;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->cacheResultFile
-     */
-    public function hasCacheResultFile(): bool
-    {
-        return $this->cacheResultFile !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function cacheResultFile(): string
-    {
-        if (!$this->hasCacheResultFile()) {
-            throw new Exception;
-        }
-
-        return $this->cacheResultFile;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->checkVersion
-     */
-    public function hasCheckVersion(): bool
-    {
-        return $this->checkVersion !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function checkVersion(): bool
     {
-        if (!$this->hasCheckVersion()) {
-            throw new Exception;
-        }
-
         return $this->checkVersion;
     }
 
@@ -448,23 +416,23 @@ final class Configuration
     }
 
     /**
-     * @psalm-assert-if-true !null $this->configuration
+     * @psalm-assert-if-true !null $this->configurationFile
      */
-    public function hasConfiguration(): bool
+    public function hasConfigurationFile(): bool
     {
-        return $this->configuration !== null;
+        return $this->configurationFile !== null;
     }
 
     /**
      * @throws Exception
      */
-    public function configuration(): string
+    public function configurationFile(): string
     {
-        if (!$this->hasConfiguration()) {
+        if (!$this->hasConfigurationFile()) {
             throw new Exception;
         }
 
-        return $this->configuration;
+        return $this->configurationFile;
     }
 
     /**
@@ -687,43 +655,8 @@ final class Configuration
         return $this->pathCoverage;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->coverageCacheDirectory
-     */
-    public function hasCoverageCacheDirectory(): bool
-    {
-        return $this->coverageCacheDirectory !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function coverageCacheDirectory(): string
-    {
-        if (!$this->hasCoverageCacheDirectory()) {
-            throw new Exception;
-        }
-
-        return $this->coverageCacheDirectory;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->warmCoverageCache
-     */
-    public function hasWarmCoverageCache(): bool
-    {
-        return $this->warmCoverageCache !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function warmCoverageCache(): bool
     {
-        if (!$this->hasWarmCoverageCache()) {
-            throw new Exception;
-        }
-
         return $this->warmCoverageCache;
     }
 
@@ -868,6 +801,26 @@ final class Configuration
     }
 
     /**
+     * @psalm-assert-if-true !null $this->failOnDeprecation
+     */
+    public function hasFailOnDeprecation(): bool
+    {
+        return $this->failOnDeprecation !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function failOnDeprecation(): bool
+    {
+        if (!$this->hasFailOnDeprecation()) {
+            throw new Exception;
+        }
+
+        return $this->failOnDeprecation;
+    }
+
+    /**
      * @psalm-assert-if-true !null $this->failOnEmptyTestSuite
      */
     public function hasFailOnEmptyTestSuite(): bool
@@ -905,6 +858,26 @@ final class Configuration
         }
 
         return $this->failOnIncomplete;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->failOnNotice
+     */
+    public function hasFailOnNotice(): bool
+    {
+        return $this->failOnNotice !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function failOnNotice(): bool
+    {
+        if (!$this->hasFailOnNotice()) {
+            throw new Exception;
+        }
+
+        return $this->failOnNotice;
     }
 
     /**
@@ -968,6 +941,186 @@ final class Configuration
     }
 
     /**
+     * @psalm-assert-if-true !null $this->stopOnDefect
+     */
+    public function hasStopOnDefect(): bool
+    {
+        return $this->stopOnDefect !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnDefect(): bool
+    {
+        if (!$this->hasStopOnDefect()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnDefect;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnDeprecation
+     */
+    public function hasStopOnDeprecation(): bool
+    {
+        return $this->stopOnDeprecation !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnDeprecation(): bool
+    {
+        if (!$this->hasStopOnDeprecation()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnDeprecation;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnError
+     */
+    public function hasStopOnError(): bool
+    {
+        return $this->stopOnError !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnError(): bool
+    {
+        if (!$this->hasStopOnError()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnError;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnFailure
+     */
+    public function hasStopOnFailure(): bool
+    {
+        return $this->stopOnFailure !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnFailure(): bool
+    {
+        if (!$this->hasStopOnFailure()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnFailure;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnIncomplete
+     */
+    public function hasStopOnIncomplete(): bool
+    {
+        return $this->stopOnIncomplete !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnIncomplete(): bool
+    {
+        if (!$this->hasStopOnIncomplete()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnIncomplete;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnNotice
+     */
+    public function hasStopOnNotice(): bool
+    {
+        return $this->stopOnNotice !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnNotice(): bool
+    {
+        if (!$this->hasStopOnNotice()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnNotice;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnRisky
+     */
+    public function hasStopOnRisky(): bool
+    {
+        return $this->stopOnRisky !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnRisky(): bool
+    {
+        if (!$this->hasStopOnRisky()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnRisky;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnSkipped
+     */
+    public function hasStopOnSkipped(): bool
+    {
+        return $this->stopOnSkipped !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnSkipped(): bool
+    {
+        if (!$this->hasStopOnSkipped()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnSkipped;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->stopOnWarning
+     */
+    public function hasStopOnWarning(): bool
+    {
+        return $this->stopOnWarning !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function stopOnWarning(): bool
+    {
+        if (!$this->hasStopOnWarning()) {
+            throw new Exception;
+        }
+
+        return $this->stopOnWarning;
+    }
+
+    /**
      * @psalm-assert-if-true !null $this->filter
      */
     public function hasFilter(): bool
@@ -988,42 +1141,57 @@ final class Configuration
     }
 
     /**
-     * @psalm-assert-if-true !null $this->generateConfiguration
+     * @psalm-assert-if-true !null $this->generateBaseline
      */
-    public function hasGenerateConfiguration(): bool
+    public function hasGenerateBaseline(): bool
     {
-        return $this->generateConfiguration !== null;
+        return $this->generateBaseline !== null;
     }
 
     /**
      * @throws Exception
      */
-    public function generateConfiguration(): bool
+    public function generateBaseline(): string
     {
-        if (!$this->hasGenerateConfiguration()) {
+        if (!$this->hasGenerateBaseline()) {
             throw new Exception;
         }
 
+        return $this->generateBaseline;
+    }
+
+    /**
+     * @psalm-assert-if-true !null $this->useBaseline
+     */
+    public function hasUseBaseline(): bool
+    {
+        return $this->useBaseline !== null;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function useBaseline(): string
+    {
+        if (!$this->hasUseBaseline()) {
+            throw new Exception;
+        }
+
+        return $this->useBaseline;
+    }
+
+    public function ignoreBaseline(): bool
+    {
+        return $this->ignoreBaseline;
+    }
+
+    public function generateConfiguration(): bool
+    {
         return $this->generateConfiguration;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->migrateConfiguration
-     */
-    public function hasMigrateConfiguration(): bool
-    {
-        return $this->migrateConfiguration !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function migrateConfiguration(): bool
     {
-        if (!$this->hasMigrateConfiguration()) {
-            throw new Exception;
-        }
-
         return $this->migrateConfiguration;
     }
 
@@ -1087,23 +1255,8 @@ final class Configuration
         return $this->testsUsing;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->help
-     */
-    public function hasHelp(): bool
-    {
-        return $this->help !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function help(): bool
     {
-        if (!$this->hasHelp()) {
-            throw new Exception;
-        }
-
         return $this->help;
     }
 
@@ -1167,63 +1320,18 @@ final class Configuration
         return $this->junitLogfile;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->listGroups
-     */
-    public function hasListGroups(): bool
-    {
-        return $this->listGroups !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function listGroups(): bool
     {
-        if (!$this->hasListGroups()) {
-            throw new Exception;
-        }
-
         return $this->listGroups;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->listSuites
-     */
-    public function hasListSuites(): bool
-    {
-        return $this->listSuites !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function listSuites(): bool
     {
-        if (!$this->hasListSuites()) {
-            throw new Exception;
-        }
-
         return $this->listSuites;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->listTests
-     */
-    public function hasListTests(): bool
-    {
-        return $this->listTests !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function listTests(): bool
     {
-        if (!$this->hasListTests()) {
-            throw new Exception;
-        }
-
         return $this->listTests;
     }
 
@@ -1408,26 +1516,6 @@ final class Configuration
     }
 
     /**
-     * @psalm-assert-if-true !null $this->repeat
-     */
-    public function hasRepeat(): bool
-    {
-        return $this->repeat !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function repeat(): int
-    {
-        if (!$this->hasRepeat()) {
-            throw new Exception;
-        }
-
-        return $this->repeat;
-    }
-
-    /**
      * @psalm-assert-if-true !null $this->reportUselessTests
      */
     public function hasReportUselessTests(): bool
@@ -1528,146 +1616,6 @@ final class Configuration
     }
 
     /**
-     * @psalm-assert-if-true !null $this->stopOnDefect
-     */
-    public function hasStopOnDefect(): bool
-    {
-        return $this->stopOnDefect !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnDefect(): bool
-    {
-        if (!$this->hasStopOnDefect()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnDefect;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->stopOnError
-     */
-    public function hasStopOnError(): bool
-    {
-        return $this->stopOnError !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnError(): bool
-    {
-        if (!$this->hasStopOnError()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnError;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->stopOnFailure
-     */
-    public function hasStopOnFailure(): bool
-    {
-        return $this->stopOnFailure !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnFailure(): bool
-    {
-        if (!$this->hasStopOnFailure()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnFailure;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->stopOnIncomplete
-     */
-    public function hasStopOnIncomplete(): bool
-    {
-        return $this->stopOnIncomplete !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnIncomplete(): bool
-    {
-        if (!$this->hasStopOnIncomplete()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnIncomplete;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->stopOnRisky
-     */
-    public function hasStopOnRisky(): bool
-    {
-        return $this->stopOnRisky !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnRisky(): bool
-    {
-        if (!$this->hasStopOnRisky()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnRisky;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->stopOnSkipped
-     */
-    public function hasStopOnSkipped(): bool
-    {
-        return $this->stopOnSkipped !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnSkipped(): bool
-    {
-        if (!$this->hasStopOnSkipped()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnSkipped;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->stopOnWarning
-     */
-    public function hasStopOnWarning(): bool
-    {
-        return $this->stopOnWarning !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function stopOnWarning(): bool
-    {
-        if (!$this->hasStopOnWarning()) {
-            throw new Exception;
-        }
-
-        return $this->stopOnWarning;
-    }
-
-    /**
      * @psalm-assert-if-true !null $this->teamcityLogfile
      */
     public function hasTeamcityLogfile(): bool
@@ -1748,26 +1696,6 @@ final class Configuration
     }
 
     /**
-     * @psalm-assert-if-true !null $this->testdoxXmlFile
-     */
-    public function hasTestdoxXmlFile(): bool
-    {
-        return $this->testdoxXmlFile !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testdoxXmlFile(): string
-    {
-        if (!$this->hasTestdoxXmlFile()) {
-            throw new Exception;
-        }
-
-        return $this->testdoxXmlFile;
-    }
-
-    /**
      * @psalm-assert-if-true !null $this->testdoxPrinter
      */
     public function hasTestDoxPrinter(): bool
@@ -1796,6 +1724,8 @@ final class Configuration
     }
 
     /**
+     * @psalm-return non-empty-list<non-empty-string>
+     *
      * @throws Exception
      */
     public function testSuffixes(): array
@@ -1847,43 +1777,8 @@ final class Configuration
         return $this->excludeTestSuite;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->unrecognizedOrderBy
-     */
-    public function hasUnrecognizedOrderBy(): bool
-    {
-        return $this->unrecognizedOrderBy !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function unrecognizedOrderBy(): string
-    {
-        if (!$this->hasUnrecognizedOrderBy()) {
-            throw new Exception;
-        }
-
-        return $this->unrecognizedOrderBy;
-    }
-
-    /**
-     * @psalm-assert-if-true !null $this->useDefaultConfiguration
-     */
-    public function hasUseDefaultConfiguration(): bool
-    {
-        return $this->useDefaultConfiguration !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function useDefaultConfiguration(): bool
     {
-        if (!$this->hasUseDefaultConfiguration()) {
-            throw new Exception;
-        }
-
         return $this->useDefaultConfiguration;
     }
 
@@ -2007,23 +1902,8 @@ final class Configuration
         return $this->displayDetailsOnTestsThatTriggerWarnings;
     }
 
-    /**
-     * @psalm-assert-if-true !null $this->version
-     */
-    public function hasVersion(): bool
-    {
-        return $this->version !== null;
-    }
-
-    /**
-     * @throws Exception
-     */
     public function version(): bool
     {
-        if (!$this->hasVersion()) {
-            throw new Exception;
-        }
-
         return $this->version;
     }
 

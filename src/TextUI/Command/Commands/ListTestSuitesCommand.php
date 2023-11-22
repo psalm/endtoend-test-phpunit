@@ -11,12 +11,12 @@ namespace PHPUnit\TextUI\Command;
 
 use function sprintf;
 use PHPUnit\TextUI\Configuration\Registry;
-use PHPUnit\TextUI\XmlConfiguration\TestSuiteCollection;
+use PHPUnit\TextUI\Configuration\TestSuiteCollection;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class ListTestSuitesCommand implements Command
+final readonly class ListTestSuitesCommand implements Command
 {
     private TestSuiteCollection $suites;
 
@@ -27,12 +27,13 @@ final class ListTestSuitesCommand implements Command
 
     public function execute(): Result
     {
-        $buffer = 'Available test suite(s):' . PHP_EOL;
+        $buffer = $this->warnAboutConflictingOptions();
+        $buffer .= 'Available test suite(s):' . PHP_EOL;
 
         foreach ($this->suites as $suite) {
             $buffer .= sprintf(
                 ' - %s' . PHP_EOL,
-                $suite->name()
+                $suite->name(),
             );
         }
 
@@ -57,7 +58,7 @@ final class ListTestSuitesCommand implements Command
             $buffer .= 'The --exclude-group and --list-suites options cannot be combined, --exclude-group is ignored' . PHP_EOL;
         }
 
-        if ($configuration->hasTestSuite()) {
+        if ($configuration->includeTestSuite() !== '') {
             $buffer .= 'The --testsuite and --list-suites options cannot be combined, --exclude-group is ignored' . PHP_EOL;
         }
 

@@ -16,24 +16,24 @@ use PHPUnit\Runner\Version;
  *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
-final class PHPUnit
+final readonly class PHPUnit
 {
-    private readonly string $version;
-    private readonly string $series;
+    private string $versionId;
+    private string $releaseSeries;
 
     public function __construct()
     {
-        $this->version = Version::id();
-        $this->series  = Version::series();
+        $this->versionId     = Version::id();
+        $this->releaseSeries = Version::series();
     }
 
-    public function version(): string
+    public function versionId(): string
     {
-        return $this->version;
+        return $this->versionId;
     }
 
-    public function series(): string
+    public function releaseSeries(): string
     {
-        return $this->series;
+        return $this->releaseSeries;
     }
 }

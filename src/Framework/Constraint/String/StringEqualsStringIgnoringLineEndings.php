@@ -17,7 +17,7 @@ use function strtr;
  */
 final class StringEqualsStringIgnoringLineEndings extends Constraint
 {
-    private string $string;
+    private readonly string $string;
 
     public function __construct(string $string)
     {
@@ -31,7 +31,7 @@ final class StringEqualsStringIgnoringLineEndings extends Constraint
     {
         return sprintf(
             'is equal to "%s" ignoring line endings',
-            $this->string
+            $this->string,
         );
     }
 
@@ -51,7 +51,7 @@ final class StringEqualsStringIgnoringLineEndings extends Constraint
             [
                 "\r\n" => "\n",
                 "\r"   => "\n",
-            ]
+            ],
         );
     }
 }

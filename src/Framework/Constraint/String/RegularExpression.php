@@ -17,7 +17,7 @@ use function sprintf;
  */
 final class RegularExpression extends Constraint
 {
-    private string $pattern;
+    private readonly string $pattern;
 
     public function __construct(string $pattern)
     {
@@ -31,7 +31,7 @@ final class RegularExpression extends Constraint
     {
         return sprintf(
             'matches PCRE pattern "%s"',
-            $this->pattern
+            $this->pattern,
         );
     }
 

@@ -17,7 +17,7 @@ use Throwable;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class MigrateConfigurationCommand implements Command
+final readonly class MigrateConfigurationCommand implements Command
 {
     private string $filename;
 
@@ -30,22 +30,22 @@ final class MigrateConfigurationCommand implements Command
     {
         copy($this->filename, $this->filename . '.bak');
 
-        $buffer  = 'Created backup:         ' . $this->filename . '.bak' . PHP_EOL;
-        $success = true;
+        $buffer        = 'Created backup:         ' . $this->filename . '.bak' . PHP_EOL;
+        $shellExitCode = Result::SUCCESS;
 
         try {
             file_put_contents(
                 $this->filename,
-                (new Migrator)->migrate($this->filename)
+                (new Migrator)->migrate($this->filename),
             );
 
             $buffer .= 'Migrated configuration: ' . $this->filename . PHP_EOL;
         } catch (Throwable $t) {
             $buffer .= 'Migration failed: ' . $t->getMessage() . PHP_EOL;
 
-            $success = false;
+            $shellExitCode = Result::FAILURE;
         }
 
-        return Result::from($buffer, $success);
+        return Result::from($buffer, $shellExitCode);
     }
 }

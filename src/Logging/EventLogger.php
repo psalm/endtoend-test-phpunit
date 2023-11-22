@@ -23,7 +23,7 @@ use PHPUnit\Event\Tracer\Tracer;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class EventLogger implements Tracer
+final readonly class EventLogger implements Tracer
 {
     private string $path;
     private bool $includeTelemetryInfo;
@@ -43,7 +43,7 @@ final class EventLogger implements Tracer
         file_put_contents(
             $this->path,
             $telemetryInfo . implode($indentation, $lines) . PHP_EOL,
-            FILE_APPEND | LOCK_EX
+            FILE_APPEND | LOCK_EX,
         );
     }
 

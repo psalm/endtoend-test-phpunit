@@ -18,7 +18,7 @@ use PHPUnit\TextUI\Configuration\Registry;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class ListGroupsCommand implements Command
+final readonly class ListGroupsCommand implements Command
 {
     private TestSuite $suite;
 
@@ -29,9 +29,10 @@ final class ListGroupsCommand implements Command
 
     public function execute(): Result
     {
-        $buffer = 'Available test group(s):' . PHP_EOL;
-        $groups = $this->suite->getGroups();
+        $buffer = $this->warnAboutConflictingOptions();
+        $buffer .= 'Available test group(s):' . PHP_EOL;
 
+        $groups = $this->suite->groups();
         sort($groups);
 
         foreach ($groups as $group) {
@@ -41,7 +42,7 @@ final class ListGroupsCommand implements Command
 
             $buffer .= sprintf(
                 ' - %s' . PHP_EOL,
-                $group
+                $group,
             );
         }
 
@@ -66,7 +67,7 @@ final class ListGroupsCommand implements Command
             $buffer .= 'The --exclude-group and --list-groups options cannot be combined, --exclude-group is ignored' . PHP_EOL;
         }
 
-        if ($configuration->hasTestSuite()) {
+        if ($configuration->includeTestSuite() !== '') {
             $buffer .= 'The --testsuite and --list-groups options cannot be combined, --exclude-group is ignored' . PHP_EOL;
         }
 

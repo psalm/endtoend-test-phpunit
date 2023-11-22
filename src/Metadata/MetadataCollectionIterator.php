@@ -13,7 +13,9 @@ use function count;
 use Iterator;
 
 /**
- * @internal This class is not covered by the backward compatibility promise for PHPUnit
+ * @template-implements Iterator<int, Metadata>
+ *
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
 final class MetadataCollectionIterator implements Iterator
 {

@@ -1,8 +1,10 @@
 --TEST--
-TestDox: Diff; Colorized
---XFAIL--
-Colorized TestDox result printing has not been migrated to events yet.
-See https://github.com/sebastianbergmann/phpunit/issues/5040 for details.
+TestDox: Diff; Colorized; *nix
+--SKIPIF--
+<?php declare(strict_types=1);
+if (stripos(\PHP_OS, 'WIN') === 0) {
+    print 'skip: Colorized diff is different on Windows.';
+}
 --FILE--
 <?php declare(strict_types=1);
 $_SERVER['argv'][] = '--do-not-cache-result';
@@ -14,7 +16,7 @@ $_SERVER['argv'][] = __DIR__ . '/_files/DiffTest.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -23,7 +25,7 @@ Runtime:       %s
 Time: %s, Memory: %s
 
 [4mDiff (PHPUnit\TestFixture\TestDox\Diff)[0m
- [31m✘[0m Something that does not work
+[31m ✘ [0mSomething that does not work
    [31m┐[0m
    [31m├[0m [41;37mFailed asserting that two strings are equal.[0m
    [31m┊[0m [31m---[2m·[22mExpected[0m
@@ -35,7 +37,7 @@ Time: %s, Memory: %s
    [31m┊[0m [31m-baz\n[0m
    [31m┊[0m  '
    [31m│[0m
-   [31m╵[0m %stests[2m/[22mend-to-end[2m/[22mtestdox[2m/[22m_files[2m/[22mDiffTest.php[2m:[22m[34m%d[0m
+   [31m│[0m %s[22m_files[2m%e[22mDiffTest.php[2m:[22m[34m%d[0m
    [31m┴[0m
 
 [37;41mFAILURES![0m

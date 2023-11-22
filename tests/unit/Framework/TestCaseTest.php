@@ -10,12 +10,11 @@
 namespace PHPUnit\Framework;
 
 use function sprintf;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\ExcludeGlobalVariableFromBackup;
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\MockObject\Stub;
-use PHPUnit\TestFixture\Mockable;
 use PHPUnit\TestFixture\TestWithDifferentNames;
 
+#[CoversClass(TestCase::class)]
 #[ExcludeGlobalVariableFromBackup('i')]
 #[ExcludeGlobalVariableFromBackup('singleton')]
 class TestCaseTest extends TestCase
@@ -55,9 +54,9 @@ class TestCaseTest extends TestCase
         $this->assertEquals(
             sprintf(
                 '%s::testCaseToString',
-                self::class
+                self::class,
             ),
-            $this->toString()
+            $this->toString(),
         );
     }
 
@@ -67,107 +66,13 @@ class TestCaseTest extends TestCase
 
         $this->assertEquals(
             [new ExecutionOrderDependency(static::class, 'testCaseDefaultExecutionOrderDependencies')],
-            $this->provides()
+            $this->provides(),
         );
 
         $this->assertEquals(
             [],
-            $this->requires()
+            $this->requires(),
         );
-    }
-
-    public function testCreateMockFromClassName(): void
-    {
-        $mock = $this->createMock(Mockable::class);
-
-        $this->assertInstanceOf(Mockable::class, $mock);
-        $this->assertInstanceOf(MockObject::class, $mock);
-    }
-
-    public function testCreateMockMocksAllMethods(): void
-    {
-        $mock = $this->createMock(Mockable::class);
-
-        $this->assertNull($mock->mockableMethod());
-        $this->assertNull($mock->anotherMockableMethod());
-    }
-
-    public function testCreateStubFromClassName(): void
-    {
-        $mock = $this->createStub(Mockable::class);
-
-        $this->assertInstanceOf(Mockable::class, $mock);
-        $this->assertInstanceOf(Stub::class, $mock);
-    }
-
-    public function testCreateStubStubsAllMethods(): void
-    {
-        $mock = $this->createStub(Mockable::class);
-
-        $this->assertNull($mock->mockableMethod());
-        $this->assertNull($mock->anotherMockableMethod());
-    }
-
-    public function testCreatePartialMockDoesNotMockAllMethods(): void
-    {
-        /** @var Mockable $mock */
-        $mock = $this->createPartialMock(Mockable::class, ['mockableMethod']);
-
-        $this->assertNull($mock->mockableMethod());
-        $this->assertTrue($mock->anotherMockableMethod());
-    }
-
-    public function testCreatePartialMockCanMockNoMethods(): void
-    {
-        /** @var Mockable $mock */
-        $mock = $this->createPartialMock(Mockable::class, []);
-
-        $this->assertTrue($mock->mockableMethod());
-        $this->assertTrue($mock->anotherMockableMethod());
-    }
-
-    public function testCreateMockSkipsConstructor(): void
-    {
-        $mock = $this->createMock(Mockable::class);
-
-        $this->assertNull($mock->constructorArgs);
-    }
-
-    public function testCreateMockDisablesOriginalClone(): void
-    {
-        $mock = $this->createMock(Mockable::class);
-
-        $cloned = clone $mock;
-        $this->assertNull($cloned->cloned);
-    }
-
-    public function testCreateStubSkipsConstructor(): void
-    {
-        $mock = $this->createStub(Mockable::class);
-
-        $this->assertNull($mock->constructorArgs);
-    }
-
-    public function testCreateStubDisablesOriginalClone(): void
-    {
-        $mock = $this->createStub(Mockable::class);
-
-        $cloned = clone $mock;
-        $this->assertNull($cloned->cloned);
-    }
-
-    public function testConfiguredMockCanBeCreated(): void
-    {
-        /** @var Mockable $mock */
-        $mock = $this->createConfiguredMock(
-            Mockable::class,
-            [
-                'mockableMethod' => false,
-            ]
-        );
-
-        $this->assertFalse($mock->mockableMethod());
-        $this->assertNull($mock->anotherMockableMethod());
     }
 
     public function testGetNameReturnsMethodName(): void

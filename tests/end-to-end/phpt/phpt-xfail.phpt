@@ -7,7 +7,7 @@ $_SERVER['argv'][] = '--no-configuration';
 $_SERVER['argv'][] = __DIR__ . '/../../_files/phpt-xfail.phpt';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -17,5 +17,5 @@ I                                                                   1 / 1 (100%)
 
 Time: %s, Memory: %s
 
-OK, but some tests have issues!
+OK, but there were issues!
 Tests: 1, Assertions: 1, Incomplete: 1.

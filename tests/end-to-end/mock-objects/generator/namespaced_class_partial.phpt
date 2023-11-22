@@ -1,5 +1,5 @@
 --TEST--
-\PHPUnit\Framework\MockObject\Generator::generate('NS\Foo', array('bar'), 'MockFoo', true, true)
+\PHPUnit\Framework\MockObject\Generator\Generator::generate('NS\Foo', array('bar'), 'MockFoo', true, true)
 --FILE--
 <?php declare(strict_types=1);
 namespace NS;
@@ -17,11 +17,13 @@ class Foo
 
 require_once __DIR__ . '/../../../bootstrap.php';
 
-$generator = new \PHPUnit\Framework\MockObject\Generator;
+$generator = new \PHPUnit\Framework\MockObject\Generator\Generator;
 
 $mock = $generator->generate(
     'NS\Foo',
-    array('bar'),
+    true,
+    true,
+    ['bar'],
     'MockFoo',
     true,
     true
@@ -31,11 +33,13 @@ print $mock->classCode();
 --EXPECTF--
 declare(strict_types=1);
 
-class MockFoo extends NS\Foo implements PHPUnit\Framework\MockObject\MockObject
+class MockFoo extends NS\Foo implements PHPUnit\Framework\MockObject\MockObjectInternal
 {
-    use \PHPUnit\Framework\MockObject\Api;
-    use \PHPUnit\Framework\MockObject\Method;
-    use \PHPUnit\Framework\MockObject\MockedCloneMethod;
+    use PHPUnit\Framework\MockObject\StubApi;
+    use PHPUnit\Framework\MockObject\MockObjectApi;
+    use PHPUnit\Framework\MockObject\GeneratedAsMockObject;
+    use PHPUnit\Framework\MockObject\Method;
+    use PHPUnit\Framework\MockObject\DoubledCloneMethod;
 
     public function bar(NS\Foo $foo)
     {

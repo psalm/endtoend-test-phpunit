@@ -26,10 +26,11 @@ use function str_replace;
 use function strlen;
 use function substr;
 use function trim;
+use PHPUnit\Event;
 use PHPUnit\Framework\InvalidDataProviderException;
 use PHPUnit\Metadata\DataProvider as DataProviderMetadata;
 use PHPUnit\Metadata\MetadataCollection;
-use PHPUnit\Metadata\Parser\Registry;
+use PHPUnit\Metadata\Parser\Registry as MetadataRegistry;
 use PHPUnit\Metadata\TestWith;
 use ReflectionClass;
 use ReflectionMethod;
@@ -43,27 +44,28 @@ final class DataProvider
 {
     /**
      * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      *
      * @throws InvalidDataProviderException
      */
     public function providedData(string $className, string $methodName): ?array
     {
-        $dataProvider = Registry::parser()->forMethod($className, $methodName)->isDataProvider();
-        $testWith     = Registry::parser()->forMethod($className, $methodName)->isTestWith();
+        $dataProvider = MetadataRegistry::parser()->forMethod($className, $methodName)->isDataProvider();
+        $testWith     = MetadataRegistry::parser()->forMethod($className, $methodName)->isTestWith();
 
         if ($dataProvider->isEmpty() && $testWith->isEmpty()) {
             return $this->dataProvidedByTestWithAnnotation($className, $methodName);
         }
 
         if ($dataProvider->isNotEmpty()) {
-            $data = $this->dataProvidedByMethods($dataProvider);
+            $data = $this->dataProvidedByMethods($className, $methodName, $dataProvider);
         } else {
             $data = $this->dataProvidedByMetadata($testWith);
         }
 
         if ($data === []) {
             throw new InvalidDataProviderException(
-                'Empty data set provided by data provider'
+                'Empty data set provided by data provider',
             );
         }
 
@@ -72,8 +74,8 @@ final class DataProvider
                 throw new InvalidDataProviderException(
                     sprintf(
                         'Data set %s is invalid',
-                        is_int($key) ? '#' . $key : '"' . $key . '"'
-                    )
+                        is_int($key) ? '#' . $key : '"' . $key . '"',
+                    ),
                 );
             }
         }
@@ -82,35 +84,75 @@ final class DataProvider
     }
 
     /**
+     * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
+     *
      * @throws InvalidDataProviderException
      */
-    private function dataProvidedByMethods(MetadataCollection $dataProvider): array
+    private function dataProvidedByMethods(string $className, string $methodName, MetadataCollection $dataProvider): array
     {
-        $result = [];
+        $testMethod    = new Event\Code\ClassMethod($className, $methodName);
+        $methodsCalled = [];
+        $result        = [];
 
         foreach ($dataProvider as $_dataProvider) {
             assert($_dataProvider instanceof DataProviderMetadata);
 
+            $dataProviderMethod = new Event\Code\ClassMethod($_dataProvider->className(), $_dataProvider->methodName());
+
+            Event\Facade::emitter()->dataProviderMethodCalled(
+                $testMethod,
+                $dataProviderMethod,
+            );
+
+            $methodsCalled[] = $dataProviderMethod;
+
             try {
                 $class  = new ReflectionClass($_dataProvider->className());
                 $method = $class->getMethod($_dataProvider->methodName());
+                $object = null;
 
-                if ($method->isStatic()) {
-                    $object = null;
-                } else {
-                    $object = $class->newInstanceWithoutConstructor();
+                if (!$method->isPublic()) {
+                    throw new InvalidDataProviderException(
+                        sprintf(
+                            'Data Provider method %s::%s() is not public',
+                            $_dataProvider->className(),
+                            $_dataProvider->methodName(),
+                        ),
+                    );
                 }
 
-                if ($method->getNumberOfParameters() === 0) {
-                    $data = $method->invoke($object);
-                } else {
-                    $data = $method->invoke($object, $_dataProvider->methodName());
+                if (!$method->isStatic()) {
+                    throw new InvalidDataProviderException(
+                        sprintf(
+                            'Data Provider method %s::%s() is not static',
+                            $_dataProvider->className(),
+                            $_dataProvider->methodName(),
+                        ),
+                    );
                 }
+
+                if ($method->getNumberOfParameters() > 0) {
+                    throw new InvalidDataProviderException(
+                        sprintf(
+                            'Data Provider method %s::%s() expects an argument',
+                            $_dataProvider->className(),
+                            $_dataProvider->methodName(),
+                        ),
+                    );
+                }
+
+                $data = $method->invoke($object);
             } catch (Throwable $e) {
+                Event\Facade::emitter()->dataProviderMethodFinished(
+                    $testMethod,
+                    ...$methodsCalled,
+                );
+
                 throw new InvalidDataProviderException(
                     $e->getMessage(),
-                    (int) $e->getCode(),
-                    $e
+                    $e->getCode(),
+                    $e,
                 );
             }
 
@@ -122,11 +164,16 @@ final class DataProvider
                     if (is_int($key)) {
                         $data[] = $value;
                     } elseif (array_key_exists($key, $data)) {
+                        Event\Facade::emitter()->dataProviderMethodFinished(
+                            $testMethod,
+                            ...$methodsCalled,
+                        );
+
                         throw new InvalidDataProviderException(
                             sprintf(
                                 'The key "%s" has already been defined by a previous data provider',
                                 $key,
-                            )
+                            ),
                         );
                     } else {
                         $data[$key] = $value;
@@ -138,6 +185,11 @@ final class DataProvider
                 $result = array_merge($result, $data);
             }
         }
+
+        Event\Facade::emitter()->dataProviderMethodFinished(
+            $testMethod,
+            ...$methodsCalled,
+        );
 
         return $result;
     }
@@ -169,7 +221,7 @@ final class DataProvider
         }
 
         $docComment = str_replace("\r\n", "\n", $docComment);
-        $docComment = preg_replace('/' . '\n' . '\s*' . '\*' . '\s?' . '/', "\n", $docComment);
+        $docComment = preg_replace('/\n\s*\*\s?/', "\n", $docComment);
         $docComment = substr($docComment, 0, -1);
         $docComment = rtrim($docComment, "\n");
 
@@ -177,7 +229,7 @@ final class DataProvider
             return null;
         }
 
-        $offset            = strlen($matches[0][0]) + $matches[0][1];
+        $offset            = strlen($matches[0][0]) + (int) $matches[0][1];
         $annotationContent = substr($docComment, $offset);
         $data              = [];
 
@@ -192,7 +244,7 @@ final class DataProvider
 
             if (json_last_error() !== JSON_ERROR_NONE) {
                 throw new InvalidDataProviderException(
-                    'The data set for the @testWith annotation cannot be parsed: ' . json_last_error_msg()
+                    'The data set for the @testWith annotation cannot be parsed: ' . json_last_error_msg(),
                 );
             }
 
@@ -201,7 +253,7 @@ final class DataProvider
 
         if (!$data) {
             throw new InvalidDataProviderException(
-                'The data set for the @testWith annotation cannot be parsed.'
+                'The data set for the @testWith annotation cannot be parsed.',
             );
         }
 

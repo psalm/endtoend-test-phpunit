@@ -18,17 +18,18 @@ $_SERVER['argv'][] = __DIR__ . '/_files/DeprecatedPhpunitFeatureTest.php';
 
 require __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($traceFile);
 
 unlink($traceFile);
 --EXPECTF--
-Test Runner Started (PHPUnit %s using %s)
+PHPUnit Started (PHPUnit %s using %s)
 Test Runner Configured
 Test Suite Loaded (1 test)
-Test Suite Sorted
 Event Facade Sealed
+Test Runner Started
+Test Suite Sorted
 Test Runner Execution Started (1 test)
 Test Suite Started (PHPUnit\TestFixture\Event\DeprecatedPhpunitFeatureTest, 1 test)
 Test Preparation Started (PHPUnit\TestFixture\Event\DeprecatedPhpunitFeatureTest::testDeprecatedPhpunitFeature)
@@ -41,3 +42,4 @@ Test Finished (PHPUnit\TestFixture\Event\DeprecatedPhpunitFeatureTest::testDepre
 Test Suite Finished (PHPUnit\TestFixture\Event\DeprecatedPhpunitFeatureTest, 1 test)
 Test Runner Execution Finished
 Test Runner Finished
+PHPUnit Finished (Shell Exit Code: 0)

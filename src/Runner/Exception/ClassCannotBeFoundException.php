@@ -21,10 +21,10 @@ final class ClassCannotBeFoundException extends RuntimeException implements Exce
     {
         parent::__construct(
             sprintf(
-                'Class "%s" cannot be found in %s',
+                'Class %s cannot be found in %s',
                 $className,
-                $file
-            )
+                $file,
+            ),
         );
     }
 }

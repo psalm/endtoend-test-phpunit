@@ -9,17 +9,17 @@
  */
 namespace PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report;
 
-use PHPUnit\TextUI\XmlConfiguration\File;
+use PHPUnit\TextUI\Configuration\File;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  *
  * @psalm-immutable
  */
-final class Crap4j
+final readonly class Crap4j
 {
-    private readonly File $target;
-    private readonly int $threshold;
+    private File $target;
+    private int $threshold;
 
     public function __construct(File $target, int $threshold)
     {

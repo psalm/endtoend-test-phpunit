@@ -12,8 +12,10 @@ namespace PHPUnit\Event\Test;
 use const PHP_EOL;
 use PHPUnit\Event\AbstractEventTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Small;
 
 #[CoversClass(ErrorTriggered::class)]
+#[Small]
 final class ErrorTriggeredTest extends AbstractEventTestCase
 {
     public function testConstructorSetsValues(): void
@@ -23,13 +25,15 @@ final class ErrorTriggeredTest extends AbstractEventTestCase
         $message       = 'message';
         $file          = 'file';
         $line          = 1;
+        $suppressed    = false;
 
         $event = new ErrorTriggered(
             $telemetryInfo,
             $test,
             $message,
             $file,
-            $line
+            $line,
+            $suppressed,
         );
 
         $this->assertSame($telemetryInfo, $event->telemetryInfo());
@@ -37,6 +41,7 @@ final class ErrorTriggeredTest extends AbstractEventTestCase
         $this->assertSame($message, $event->message());
         $this->assertSame($file, $event->file());
         $this->assertSame($line, $event->line());
+        $this->assertSame($suppressed, $event->wasSuppressed());
         $this->assertSame('Test Triggered Error (FooTest::testBar)' . PHP_EOL . 'message', $event->asString());
     }
 }

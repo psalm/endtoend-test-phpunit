@@ -18,17 +18,18 @@ $_SERVER['argv'][] = __DIR__ . '/_files/ExceptionInSetUpBeforeClassTest.php';
 
 require __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($traceFile);
 
 unlink($traceFile);
 --EXPECTF--
-Test Runner Started (PHPUnit %s using %s)
+PHPUnit Started (PHPUnit %s using %s)
 Test Runner Configured
 Test Suite Loaded (1 test)
-Test Suite Sorted
 Event Facade Sealed
+Test Runner Started
+Test Suite Sorted
 Test Runner Execution Started (1 test)
 Test Suite Started (PHPUnit\TestFixture\Event\ExceptionInSetUpBeforeClassTest, 1 test)
 Before First Test Method Called (PHPUnit\TestFixture\Event\ExceptionInSetUpBeforeClassTest::setUpBeforeClass)
@@ -37,3 +38,4 @@ Before First Test Method Finished:
 - PHPUnit\TestFixture\Event\ExceptionInSetUpBeforeClassTest::setUpBeforeClass
 Test Runner Execution Finished
 Test Runner Finished
+PHPUnit Finished (Shell Exit Code: 2)

@@ -20,16 +20,13 @@ abstract class BinaryOperator extends Operator
     /**
      * @psalm-var list<Constraint>
      */
-    private array $constraints;
+    private readonly array $constraints;
 
     protected function __construct(mixed ...$constraints)
     {
         $this->constraints = array_map(
-            function ($constraint): Constraint
-            {
-                return $this->checkConstraint($constraint);
-            },
-            $constraints
+            fn ($constraint): Constraint => $this->checkConstraint($constraint),
+            $constraints,
         );
     }
 

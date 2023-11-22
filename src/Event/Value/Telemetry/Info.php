@@ -10,30 +10,27 @@
 namespace PHPUnit\Event\Telemetry;
 
 use function sprintf;
-use PHPUnit\Event\Code\ClassMethod;
 
 /**
  * @psalm-immutable
  *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
-final class Info
+final readonly class Info
 {
-    private readonly Snapshot $current;
-    private readonly Duration $durationSinceStart;
-    private readonly MemoryUsage $memorySinceStart;
-    private readonly Duration $durationSincePrevious;
-    private readonly MemoryUsage $memorySincePrevious;
-    private readonly ClassMethod $emitter;
+    private Snapshot $current;
+    private Duration $durationSinceStart;
+    private MemoryUsage $memorySinceStart;
+    private Duration $durationSincePrevious;
+    private MemoryUsage $memorySincePrevious;
 
-    public function __construct(Snapshot $current, Duration $durationSinceStart, MemoryUsage $memorySinceStart, Duration $durationSincePrevious, MemoryUsage $memorySincePrevious, ClassMethod $emitter)
+    public function __construct(Snapshot $current, Duration $durationSinceStart, MemoryUsage $memorySinceStart, Duration $durationSincePrevious, MemoryUsage $memorySincePrevious)
     {
         $this->current               = $current;
         $this->durationSinceStart    = $durationSinceStart;
         $this->memorySinceStart      = $memorySinceStart;
         $this->durationSincePrevious = $durationSincePrevious;
         $this->memorySincePrevious   = $memorySincePrevious;
-        $this->emitter               = $emitter;
     }
 
     public function time(): HRTime
@@ -71,9 +68,9 @@ final class Info
         return $this->memorySincePrevious;
     }
 
-    public function emitter(): ClassMethod
+    public function garbageCollectorStatus(): GarbageCollectorStatus
     {
-        return $this->emitter;
+        return $this->current->garbageCollectorStatus();
     }
 
     public function asString(): string
@@ -82,7 +79,7 @@ final class Info
             '[%s / %s] [%d bytes]',
             $this->durationSinceStart()->asString(),
             $this->durationSincePrevious()->asString(),
-            $this->memoryUsage()->bytes()
+            $this->memoryUsage()->bytes(),
         );
     }
 }

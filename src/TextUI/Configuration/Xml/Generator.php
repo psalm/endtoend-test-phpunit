@@ -29,7 +29,6 @@ final class Generator
          requireCoverageMetadata="true"
          beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
-         convertDeprecationsToExceptions="true"
          failOnRisky="true"
          failOnWarning="true">
     <testsuites>
@@ -38,11 +37,11 @@ final class Generator
         </testsuite>
     </testsuites>
 
-    <coverage>
+    <source restrictDeprecations="true" restrictNotices="true" restrictWarnings="true">
         <include>
-            <directory suffix=".php">{src_directory}</directory>
+            <directory>{src_directory}</directory>
         </include>
-    </coverage>
+    </source>
 </phpunit>
 
 EOT;
@@ -64,7 +63,7 @@ EOT;
                 $srcDirectory,
                 $cacheDirectory,
             ],
-            self::TEMPLATE
+            self::TEMPLATE,
         );
     }
 }

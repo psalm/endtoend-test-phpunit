@@ -9,28 +9,12 @@
  */
 namespace PHPUnit\TestFixture\TestDox;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class DataProviderWithNumericDataSetNameTest extends TestCase
 {
-    /**
-     * @dataProvider provider
-     */
-    public function testSomethingThatWorks(string $a, int $b, float $c, array $d, bool $e): void
-    {
-        $this->assertTrue(true);
-    }
-
-    /**
-     * @dataProvider provider
-     */
-    public function testSomethingThatDoesNotWork(string $a, int $b, float $c, array $d, bool $e): void
-    {
-        /* @noinspection PhpUnitAssertTrueWithIncompatibleTypeArgumentInspection */
-        $this->assertTrue(false);
-    }
-
-    public function provider(): array
+    public static function provider(): array
     {
         return [
             0 => [
@@ -41,5 +25,18 @@ final class DataProviderWithNumericDataSetNameTest extends TestCase
                 true,
             ],
         ];
+    }
+
+    #[DataProvider('provider')]
+    public function testSomethingThatWorks(string $a, int $b, float $c, array $d, bool $e): void
+    {
+        $this->assertTrue(true);
+    }
+
+    #[DataProvider('provider')]
+    public function testSomethingThatDoesNotWork(string $a, int $b, float $c, array $d, bool $e): void
+    {
+        /* @noinspection PhpUnitAssertTrueWithIncompatibleTypeArgumentInspection */
+        $this->assertTrue(false);
     }
 }

@@ -11,10 +11,12 @@ class C
 
 require_once __DIR__ . '/../../../bootstrap.php';
 
-$generator = new \PHPUnit\Framework\MockObject\Generator;
+$generator = new \PHPUnit\Framework\MockObject\Generator\Generator;
 
 $mock = $generator->generate(
     C::class,
+    true,
+    true,
     [],
     'MockC',
     true,
@@ -25,11 +27,13 @@ print $mock->classCode();
 --EXPECTF--
 declare(strict_types=1);
 
-class MockC extends C implements PHPUnit\Framework\MockObject\MockObject
+class MockC extends C implements PHPUnit\Framework\MockObject\MockObjectInternal
 {
-    use \PHPUnit\Framework\MockObject\Api;
-    use \PHPUnit\Framework\MockObject\Method;
-    use \PHPUnit\Framework\MockObject\MockedCloneMethod;
+    use PHPUnit\Framework\MockObject\StubApi;
+    use PHPUnit\Framework\MockObject\MockObjectApi;
+    use PHPUnit\Framework\MockObject\GeneratedAsMockObject;
+    use PHPUnit\Framework\MockObject\Method;
+    use PHPUnit\Framework\MockObject\DoubledCloneMethod;
 
     public function m(?C $other): C
     {

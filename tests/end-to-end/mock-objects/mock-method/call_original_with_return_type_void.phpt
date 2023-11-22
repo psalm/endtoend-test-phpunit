@@ -10,7 +10,7 @@ class Foo
 require_once __DIR__ . '/../../../bootstrap.php';
 
 $class = new ReflectionClass('Foo');
-$mockMethod = \PHPUnit\Framework\MockObject\MockMethod::fromReflection(
+$mockMethod = \PHPUnit\Framework\MockObject\Generator\MockMethod::fromReflection(
     $class->getMethod('bar'),
     true,
     false
@@ -40,5 +40,5 @@ print $code;
             )
         );
 
-        call_user_func_array(array($this->__phpunit_originalObject, "bar"), $__phpunit_arguments);
+        $__phpunit_result = call_user_func_array([$this->__phpunit_originalObject, "bar"], $__phpunit_arguments);
     }

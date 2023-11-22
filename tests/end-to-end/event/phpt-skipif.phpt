@@ -18,24 +18,26 @@ $_SERVER['argv'][] = __DIR__ . '/../_files/phpt-skipif-location-hint-example.php
 
 require __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($traceFile);
 
 unlink($traceFile);
 --EXPECTF--
-Test Runner Started (PHPUnit %s using %s)
+PHPUnit Started (PHPUnit %s using %s)
 Test Runner Configured
 Test Suite Loaded (1 test)
-Test Suite Sorted
 Event Facade Sealed
+Test Runner Started
+Test Suite Sorted
 Test Runner Execution Started (1 test)
-Test Suite Started (1 test)
+Test Suite Started (%s/phpt-skipif-location-hint-example.phpt, 1 test)
 Test Preparation Started (%s/phpt-skipif-location-hint-example.phpt)
 Test Prepared (%s/phpt-skipif-location-hint-example.phpt)
 Test Skipped (%s/phpt-skipif-location-hint-example.phpt)
 something terrible happened
 Test Finished (%s/phpt-skipif-location-hint-example.phpt)
-Test Suite Finished (1 test)
+Test Suite Finished (%s/phpt-skipif-location-hint-example.phpt, 1 test)
 Test Runner Execution Finished
 Test Runner Finished
+PHPUnit Finished (Shell Exit Code: 0)

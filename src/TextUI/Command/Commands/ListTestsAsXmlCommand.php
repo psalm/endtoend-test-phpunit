@@ -12,7 +12,6 @@ namespace PHPUnit\TextUI\Command;
 use function file_put_contents;
 use function implode;
 use function sprintf;
-use function str_replace;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\TestSuite;
 use PHPUnit\Runner\PhptTestCase;
@@ -23,7 +22,7 @@ use XMLWriter;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class ListTestsAsXmlCommand implements Command
+final readonly class ListTestsAsXmlCommand implements Command
 {
     private string $filename;
     private TestSuite $suite;
@@ -36,6 +35,7 @@ final class ListTestsAsXmlCommand implements Command
 
     public function execute(): Result
     {
+        $buffer = $this->warnAboutConflictingOptions();
         $writer = new XMLWriter;
 
         $writer->openMemory();
@@ -59,22 +59,15 @@ final class ListTestsAsXmlCommand implements Command
                 }
 
                 $writer->startElement('testCaseMethod');
+                $writer->writeAttribute('id', $test->valueObjectForEvents()->id());
                 $writer->writeAttribute('name', $test->name());
                 $writer->writeAttribute('groups', implode(',', $test->groups()));
-
-                if (!empty($test->dataSetAsString())) {
-                    $writer->writeAttribute(
-                        'dataSet',
-                        str_replace(
-                            ' with data set ',
-                            '',
-                            $test->dataSetAsString()
-                        )
-                    );
-                }
-
                 $writer->endElement();
-            } elseif ($test instanceof PhptTestCase) {
+
+                continue;
+            }
+
+            if ($test instanceof PhptTestCase) {
                 if ($currentTestCase !== null) {
                     $writer->endElement();
 
@@ -95,9 +88,9 @@ final class ListTestsAsXmlCommand implements Command
 
         file_put_contents($this->filename, $writer->outputMemory());
 
-        $buffer = sprintf(
+        $buffer .= sprintf(
             'Wrote list of tests that would have been run to %s' . PHP_EOL,
-            $this->filename
+            $this->filename,
         );
 
         return Result::from($buffer);
@@ -119,10 +112,6 @@ final class ListTestsAsXmlCommand implements Command
 
         if ($configuration->hasExcludeGroups()) {
             $buffer .= 'The --exclude-group and --list-tests-xml options cannot be combined, --exclude-group is ignored' . PHP_EOL;
-        }
-
-        if ($configuration->hasTestSuite()) {
-            $buffer .= 'The --testsuite and --list-tests-xml options cannot be combined, --exclude-group is ignored' . PHP_EOL;
         }
 
         if (!empty($buffer)) {

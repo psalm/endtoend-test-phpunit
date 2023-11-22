@@ -45,6 +45,7 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Metadata\Parser\Registry as MetadataRegistry;
 use PHPUnit\Metadata\TestDox;
 use PHPUnit\Util\Color;
+use ReflectionEnum;
 use ReflectionMethod;
 use ReflectionObject;
 use SebastianBergmann\Exporter\Exporter;
@@ -58,12 +59,6 @@ final class NamePrettifier
      * @psalm-var list<string>
      */
     private static array $strings = [];
-    private bool $useColor;
-
-    public function __construct(bool $useColor = false)
-    {
-        $this->useColor = $useColor;
-    }
 
     /**
      * @psalm-param class-string $className
@@ -171,7 +166,7 @@ final class NamePrettifier
         return $buffer;
     }
 
-    public function prettifyTestCase(TestCase $test): string
+    public function prettifyTestCase(TestCase $test, bool $colorize): string
     {
         $annotationWithPlaceholders = false;
         $methodLevelTestDox         = MetadataRegistry::parser()->forMethod($test::class, $test->name())->isTestDox()->isMethodLevel();
@@ -185,17 +180,14 @@ final class NamePrettifier
 
             if (str_contains($result, '$')) {
                 $annotation   = $result;
-                $providedData = $this->mapTestMethodParameterNamesToProvidedDataValues($test);
+                $providedData = $this->mapTestMethodParameterNamesToProvidedDataValues($test, $colorize);
 
                 $variables = array_map(
-                    static function (string $variable): string
-                    {
-                        return sprintf(
-                            '/%s(?=\b)/',
-                            preg_quote($variable, '/')
-                        );
-                    },
-                    array_keys($providedData)
+                    static fn (string $variable): string => sprintf(
+                        '/%s(?=\b)/',
+                        preg_quote($variable, '/'),
+                    ),
+                    array_keys($providedData),
                 );
 
                 $result = trim(preg_replace($variables, $providedData, $annotation));
@@ -207,15 +199,15 @@ final class NamePrettifier
         }
 
         if (!$annotationWithPlaceholders && $test->usesDataProvider()) {
-            $result .= $this->prettifyDataSet($test);
+            $result .= $this->prettifyDataSet($test, $colorize);
         }
 
         return $result;
     }
 
-    public function prettifyDataSet(TestCase $test): string
+    public function prettifyDataSet(TestCase $test, bool $colorize): string
     {
-        if (!$this->useColor) {
+        if (!$colorize) {
             return $test->dataSetAsString();
         }
 
@@ -226,7 +218,7 @@ final class NamePrettifier
         return Color::dim(' with ') . Color::colorize('fg-cyan', Color::visualizeWhitespace($test->dataName()));
     }
 
-    private function mapTestMethodParameterNamesToProvidedDataValues(TestCase $test): array
+    private function mapTestMethodParameterNamesToProvidedDataValues(TestCase $test, bool $colorize): array
     {
         assert(method_exists($test, $test->name()));
 
@@ -249,7 +241,15 @@ final class NamePrettifier
             if (is_object($value)) {
                 $reflector = new ReflectionObject($value);
 
-                if ($reflector->hasMethod('__toString')) {
+                if ($reflector->isEnum()) {
+                    $enumReflector = new ReflectionEnum($value);
+
+                    if ($enumReflector->isBacked()) {
+                        $value = $value->value;
+                    } else {
+                        $value = $value->name;
+                    }
+                } elseif ($reflector->hasMethod('__toString')) {
                     $value = (string) $value;
                 } else {
                     $value = $value::class;
@@ -258,6 +258,10 @@ final class NamePrettifier
 
             if (!is_scalar($value)) {
                 $value = gettype($value);
+
+                if ($value === 'NULL') {
+                    $value = 'null';
+                }
             }
 
             if (is_bool($value) || is_int($value) || is_float($value)) {
@@ -265,7 +269,7 @@ final class NamePrettifier
             }
 
             if ($value === '') {
-                if ($this->useColor) {
+                if ($colorize) {
                     $value = Color::colorize('dim,underlined', 'empty');
                 } else {
                     $value = "''";
@@ -275,11 +279,11 @@ final class NamePrettifier
             $providedData['$' . $parameter->getName()] = $value;
         }
 
-        if ($this->useColor) {
-            $providedData = array_map(static function ($value)
-            {
-                return Color::colorize('fg-cyan', Color::visualizeWhitespace((string) $value, true));
-            }, $providedData);
+        if ($colorize) {
+            $providedData = array_map(
+                static fn ($value) => Color::colorize('fg-cyan', Color::visualizeWhitespace((string) $value, true)),
+                $providedData,
+            );
         }
 
         return $providedData;

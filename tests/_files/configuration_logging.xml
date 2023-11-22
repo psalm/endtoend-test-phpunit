@@ -5,7 +5,5 @@
         <teamcity outputFile="teamcity.txt"/>
         <testdoxHtml outputFile="testdox.html"/>
         <testdoxText outputFile="testdox.txt"/>
-        <testdoxXml outputFile="testdox.xml"/>
-        <text outputFile="logfile.txt"/>
     </logging>
 </phpunit>

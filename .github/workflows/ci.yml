@@ -7,7 +7,7 @@ on:
 name: CI
 
 env:
-  COMPOSER_ROOT_VERSION: "10.0-dev"
+  COMPOSER_ROOT_VERSION: "11.0-dev"
 
 permissions:
   contents: read
@@ -25,7 +25,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.2
           extensions: none, iconv, json, phar, tokenizer
           coverage: none
           tools: none
@@ -45,7 +45,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.2
           extensions: none, ctype, curl, date, dom, json, libxml, mbstring, phar, simplexml, soap, tokenizer, xml, xmlwriter, zlib
           coverage: none
           tools: none
@@ -76,9 +76,9 @@ jobs:
           - windows-latest
 
         php-version:
-          - "8.1"
           - "8.2"
           - "8.3"
+          - "8.4"
 
     steps:
       - name: Configure Git to avoid issues with line endings
@@ -97,10 +97,10 @@ jobs:
           tools: none
 
       - name: Install dependencies with Composer
-        run: ./tools/composer update --no-ansi --no-interaction --no-progress
+        run: php ./tools/composer update --no-ansi --no-interaction --no-progress
 
       - name: Run tests with PHPUnit
-        run: ./phpunit --testsuite unit
+        run: php ./phpunit --testsuite unit
 
   end-to-end-tests:
     name: End-to-End Tests
@@ -122,9 +122,9 @@ jobs:
           - windows-latest
 
         php-version:
-          - "8.1"
           - "8.2"
           - "8.3"
+          - "8.4"
 
     steps:
       - name: Configure Git to avoid issues with line endings
@@ -144,10 +144,10 @@ jobs:
           tools: none
 
       - name: Install dependencies with Composer
-        run: ./tools/composer update --no-ansi --no-interaction --no-progress
+        run: php ./tools/composer update --no-ansi --no-interaction --no-progress
 
-      - name: Run tests with phpunit
-        run: ./phpunit --testsuite end-to-end
+      - name: Run tests with PHPUnit
+        run: php ./phpunit --testsuite end-to-end
 
   code-coverage:
     name: Code Coverage
@@ -164,7 +164,7 @@ jobs:
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.2
           coverage: pcov
           extensions: none, curl, dom, json, libxml, mbstring, phar, soap, tokenizer, xml, xmlwriter
           ini-values: assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
@@ -200,7 +200,7 @@ jobs:
       - name: Install PHP with extensions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.2
           coverage: none
           extensions: ${{ env.PHP_EXTENSIONS }}
           ini-values: ${{ env.PHP_INI_VALUES }}
@@ -241,9 +241,9 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "8.1"
           - "8.2"
           - "8.3"
+          - "8.4"
 
         coverage:
           - pcov

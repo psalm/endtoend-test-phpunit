@@ -7,7 +7,7 @@ $_SERVER['argv'][] = '--no-configuration';
 $_SERVER['argv'][] = __DIR__ . '/../../_files/DoesNotPerformAssertionsButPerformingAssertionsTest.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -24,5 +24,5 @@ This test is not expected to perform assertions but performed 2 assertions
 
 %s:%d
 
-OK, but some tests have issues!
+OK, but there were issues!
 Tests: 1, Assertions: 2, Risky: 1.

@@ -8,7 +8,7 @@ $_SERVER['argv'][] = __DIR__ . '/../_files/force-covers-annotation/phpunit.xml';
 $_SERVER['argv'][] = __DIR__ . '/../_files/force-covers-annotation/tests/Test.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -26,5 +26,5 @@ This test does not define a code coverage target but is expected to do so
 
 %s:%d
 
-OK, but some tests have issues!
+OK, but there were issues!
 Tests: 1, Assertions: 1, Risky: 1.

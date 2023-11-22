@@ -11,6 +11,7 @@ namespace PHPUnit\Event\Test;
 
 use const PHP_EOL;
 use function sprintf;
+use function trim;
 use PHPUnit\Event\Code\Test;
 use PHPUnit\Event\Event;
 use PHPUnit\Event\Telemetry;
@@ -20,11 +21,11 @@ use PHPUnit\Event\Telemetry;
  *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
-final class PhpunitErrorTriggered implements Event
+final readonly class PhpunitErrorTriggered implements Event
 {
-    private readonly Telemetry\Info $telemetryInfo;
-    private readonly Test $test;
-    private readonly string $message;
+    private Telemetry\Info $telemetryInfo;
+    private Test $test;
+    private string $message;
 
     public function __construct(Telemetry\Info $telemetryInfo, Test $test, string $message)
     {
@@ -50,7 +51,7 @@ final class PhpunitErrorTriggered implements Event
 
     public function asString(): string
     {
-        $message = $this->message;
+        $message = trim($this->message);
 
         if (!empty($message)) {
             $message = PHP_EOL . $message;
@@ -59,7 +60,7 @@ final class PhpunitErrorTriggered implements Event
         return sprintf(
             'Test Triggered PHPUnit Error (%s)%s',
             $this->test->id(),
-            $message
+            $message,
         );
     }
 }

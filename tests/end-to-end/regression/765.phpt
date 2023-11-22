@@ -7,7 +7,8 @@ $_SERVER['argv'][] = '--no-configuration';
 $_SERVER['argv'][] = __DIR__ . '/765/Issue765Test.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+
+var_dump((new PHPUnit\TextUI\Application)->run($_SERVER['argv']));
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -25,4 +26,6 @@ The data provider specified for PHPUnit\TestFixture\Issue765Test::testDependent 
 
 %s:%d
 
-OK (1 test, 1 assertion)
+ERRORS!
+Tests: 1, Assertions: 1, Errors: 1.
+int(2)

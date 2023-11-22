@@ -24,7 +24,6 @@ use PHPUnit\Util\VersionComparisonOperator;
 #[UsesClass(BackupStaticProperties::class)]
 #[UsesClass(Before::class)]
 #[UsesClass(BeforeClass::class)]
-#[UsesClass(CodeCoverageIgnore::class)]
 #[UsesClass(Covers::class)]
 #[UsesClass(\PHPUnit\Metadata\CoversClass::class)]
 #[UsesClass(CoversDefaultClass::class)]
@@ -116,7 +115,7 @@ final class MetadataCollectionTest extends TestCase
             [
                 Metadata::coversOnClass(''),
                 Metadata::coversOnMethod(''),
-            ]
+            ],
         );
 
         $this->assertCount(2, $collection);
@@ -174,14 +173,6 @@ final class MetadataCollectionTest extends TestCase
 
         $this->assertCount(1, $collection);
         $this->assertTrue($collection->asArray()[0]->isBefore());
-    }
-
-    public function test_Can_be_filtered_for_CodeCoverageIgnore(): void
-    {
-        $collection = $this->collectionWithOneOfEach()->isCodeCoverageIgnore();
-
-        $this->assertCount(1, $collection);
-        $this->assertTrue($collection->asArray()[0]->isCodeCoverageIgnore());
     }
 
     public function test_Can_be_filtered_for_Covers(): void
@@ -287,6 +278,14 @@ final class MetadataCollectionTest extends TestCase
 
         $this->assertCount(1, $collection);
         $this->assertTrue($collection->asArray()[0]->isGroup());
+    }
+
+    public function test_Can_be_filtered_for_IgnoreDeprecations(): void
+    {
+        $collection = $this->collectionWithOneOfEach()->isIgnoreDeprecations();
+
+        $this->assertCount(1, $collection);
+        $this->assertTrue($collection->asArray()[0]->isIgnoreDeprecations());
     }
 
     public function test_Can_be_filtered_for_PostCondition(): void
@@ -457,6 +456,14 @@ final class MetadataCollectionTest extends TestCase
         $this->assertTrue($collection->asArray()[0]->isUsesFunction());
     }
 
+    public function test_Can_be_filtered_for_WithoutErrorHandler(): void
+    {
+        $collection = $this->collectionWithOneOfEach()->isWithoutErrorHandler();
+
+        $this->assertCount(1, $collection);
+        $this->assertTrue($collection->asArray()[0]->isWithoutErrorHandler());
+    }
+
     private function collectionWithOneOfEach(): MetadataCollection
     {
         return MetadataCollection::fromArray(
@@ -467,7 +474,6 @@ final class MetadataCollectionTest extends TestCase
                 Metadata::backupStaticPropertiesOnClass(true),
                 Metadata::beforeClass(),
                 Metadata::before(),
-                Metadata::codeCoverageIgnoreOnClass(),
                 Metadata::coversOnClass(''),
                 Metadata::coversClass(''),
                 Metadata::coversDefaultClass(''),
@@ -480,6 +486,7 @@ final class MetadataCollectionTest extends TestCase
                 Metadata::excludeGlobalVariableFromBackupOnClass(''),
                 Metadata::excludeStaticPropertyFromBackupOnClass('', ''),
                 Metadata::groupOnClass(''),
+                Metadata::ignoreDeprecationsOnClass(),
                 Metadata::postCondition(),
                 Metadata::preCondition(),
                 Metadata::preserveGlobalStateOnClass(true),
@@ -491,14 +498,14 @@ final class MetadataCollectionTest extends TestCase
                 Metadata::requiresPhpOnClass(
                     new ComparisonRequirement(
                         '8.0.0',
-                        new VersionComparisonOperator('>=')
-                    )
+                        new VersionComparisonOperator('>='),
+                    ),
                 ),
                 Metadata::requiresPhpunitOnClass(
                     new ComparisonRequirement(
                         '10.0.0',
-                        new VersionComparisonOperator('>=')
-                    )
+                        new VersionComparisonOperator('>='),
+                    ),
                 ),
                 Metadata::requiresSettingOnClass('foo', 'bar'),
                 Metadata::runClassInSeparateProcess(),
@@ -511,7 +518,8 @@ final class MetadataCollectionTest extends TestCase
                 Metadata::usesClass(''),
                 Metadata::usesDefaultClass(''),
                 Metadata::usesFunction(''),
-            ]
+                Metadata::withoutErrorHandler(),
+            ],
         );
     }
 }

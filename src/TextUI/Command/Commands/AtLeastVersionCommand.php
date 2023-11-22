@@ -15,7 +15,7 @@ use PHPUnit\Runner\Version;
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class AtLeastVersionCommand implements Command
+final readonly class AtLeastVersionCommand implements Command
 {
     private string $version;
 
@@ -30,6 +30,6 @@ final class AtLeastVersionCommand implements Command
             return Result::from();
         }
 
-        return Result::from('', false);
+        return Result::from('', Result::FAILURE);
     }
 }

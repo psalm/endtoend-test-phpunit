@@ -11,8 +11,10 @@ namespace PHPUnit\Event\Test;
 
 use PHPUnit\Event\AbstractEventTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Small;
 
 #[CoversClass(ConsideredRisky::class)]
+#[Small]
 final class ConsideredRiskyTest extends AbstractEventTestCase
 {
     public function testConstructorSetsValues(): void
@@ -25,11 +27,28 @@ final class ConsideredRiskyTest extends AbstractEventTestCase
         $event = new ConsideredRisky(
             $telemetryInfo,
             $test,
-            $message
+            $message,
         );
 
         $this->assertSame($telemetryInfo, $event->telemetryInfo());
         $this->assertSame($test, $event->test());
         $this->assertSame($message, $event->message());
+    }
+
+    public function testCanBeRepresentedAsString(): void
+    {
+        $event = new ConsideredRisky(
+            $this->telemetryInfo(),
+            $this->testValueObject(),
+            'message',
+        );
+
+        $this->assertStringEqualsStringIgnoringLineEndings(
+            <<<'EOT'
+Test Considered Risky (FooTest::testBar)
+message
+EOT,
+            $event->asString(),
+        );
     }
 }

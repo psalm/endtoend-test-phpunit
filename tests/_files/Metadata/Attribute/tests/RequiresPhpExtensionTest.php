@@ -12,10 +12,10 @@ namespace PHPUnit\TestFixture\Metadata\Attribute;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 
-#[RequiresPhpExtension('foo')]
+#[RequiresPhpExtension('foo', '>= 1.0')]
 final class RequiresPhpExtensionTest extends TestCase
 {
-    #[RequiresPhpExtension('bar', '>= 1.0')]
+    #[RequiresPhpExtension('bar', '>= 2.0')]
     public function testOne(): void
     {
     }

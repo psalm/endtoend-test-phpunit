@@ -13,7 +13,7 @@ $_SERVER['argv'][] = \realpath(__DIR__ . '/../../_files/BankAccountTest.php');
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($output);
 
@@ -27,6 +27,7 @@ unlink($output);
         <style>
             body {
                 text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
                 font-variant-ligatures: common-ligatures;
                 font-kerning: normal;
                 margin-left: 2rem;
@@ -35,23 +36,21 @@ unlink($output);
             }
 
             body > ul > li {
-                font-family: Source Serif Pro, PT Sans, Trebuchet MS, Helvetica, Arial;
                 font-size: larger;
             }
 
             h2 {
-                font-family: Tahoma, Helvetica, Arial;
                 font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
                 margin: 0;
                 padding: 0.5rem 0;
             }
 
             ul {
                 list-style: none;
-                margin: 0;
-                padding: 0;
-                margin-bottom: 2rem;
-                padding-left: 1rem;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
                 text-indent: -1rem;
             }
 
@@ -76,7 +75,6 @@ unlink($output);
         <h2>Bank Account (PHPUnit\TestFixture\BankAccount)</h2>
         <ul>
             <li class="success">Balance is initially zero</li>
-            <li class="success">Balance cannot become negative</li>
             <li class="success">Balance cannot become negative</li>
         </ul>
     </body>

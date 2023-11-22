@@ -8,13 +8,13 @@ $_SERVER['argv'][] = '--disallow-test-output';
 $_SERVER['argv'][] = __DIR__ . '/1570/Issue1570Test.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
 Runtime: %s
 
-R                                                                   1 / 1 (100%)
+*R                                                                   1 / 1 (100%)
 
 Time: %s, Memory: %s
 
@@ -25,5 +25,5 @@ This test printed output: *
 
 %s:%d
 
-OK, but some tests have issues!
+OK, but there were issues!
 Tests: 1, Assertions: 1, Risky: 1.

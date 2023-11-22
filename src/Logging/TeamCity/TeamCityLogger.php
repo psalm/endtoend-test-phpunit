@@ -37,14 +37,14 @@ use PHPUnit\Event\TestSuite\TestSuiteForTestClass;
 use PHPUnit\Event\TestSuite\TestSuiteForTestMethodWithDataProvider;
 use PHPUnit\Event\UnknownSubscriberTypeException;
 use PHPUnit\Framework\Exception as FrameworkException;
-use PHPUnit\Util\Printer;
+use PHPUnit\TextUI\Output\Printer;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class TeamCityLogger
 {
-    private Printer $printer;
+    private readonly Printer $printer;
     private bool $isSummaryTestCountPrinted = false;
     private ?HRTime $time                   = null;
     private ?int $flowId;
@@ -53,11 +53,11 @@ final class TeamCityLogger
      * @throws EventFacadeIsSealedException
      * @throws UnknownSubscriberTypeException
      */
-    public function __construct(Printer $printer)
+    public function __construct(Printer $printer, Facade $facade)
     {
         $this->printer = $printer;
 
-        $this->registerSubscribers();
+        $this->registerSubscribers($facade);
         $this->setFlowId();
     }
 
@@ -70,12 +70,8 @@ final class TeamCityLogger
 
             $this->writeMessage(
                 'testCount',
-                ['count' => $testSuite->count()]
+                ['count' => $testSuite->count()],
             );
-        }
-
-        if ($testSuite->isWithName() && $testSuite->name() === '') {
-            return;
         }
 
         $parameters = ['name' => $testSuite->name()];
@@ -86,7 +82,7 @@ final class TeamCityLogger
             $parameters['locationHint'] = sprintf(
                 'php_qn://%s::\\%s',
                 $testSuite->file(),
-                $testSuite->name()
+                $testSuite->name(),
             );
         } elseif ($testSuite->isForTestMethodWithDataProvider()) {
             assert($testSuite instanceof TestSuiteForTestMethodWithDataProvider);
@@ -94,7 +90,7 @@ final class TeamCityLogger
             $parameters['locationHint'] = sprintf(
                 'php_qn://%s::\\%s',
                 $testSuite->file(),
-                $testSuite->name()
+                $testSuite->name(),
             );
 
             $parameters['name'] = $testSuite->methodName();
@@ -106,10 +102,6 @@ final class TeamCityLogger
     public function testSuiteFinished(TestSuiteFinished $event): void
     {
         $testSuite = $event->testSuite();
-
-        if ($testSuite->isWithName() && $testSuite->name() === '') {
-            return;
-        }
 
         $parameters = ['name' => $testSuite->name()];
 
@@ -137,7 +129,7 @@ final class TeamCityLogger
                 'php_qn://%s::\\%s::%s',
                 $test->file(),
                 $test->className(),
-                $test->methodName()
+                $test->methodName(),
             );
         }
 
@@ -162,7 +154,7 @@ final class TeamCityLogger
                 'message'  => $event->throwable()->message(),
                 'details'  => $this->details($event->throwable()),
                 'duration' => $this->duration($event),
-            ]
+            ],
         );
     }
 
@@ -201,7 +193,7 @@ final class TeamCityLogger
                 'message'  => $this->message($event->throwable()),
                 'details'  => $this->details($event->throwable()),
                 'duration' => $this->duration($event),
-            ]
+            ],
         );
     }
 
@@ -214,15 +206,20 @@ final class TeamCityLogger
             $this->time = $event->telemetryInfo()->time();
         }
 
-        $this->writeMessage(
-            'testFailed',
-            [
-                'name'     => $event->test()->name(),
-                'message'  => $this->message($event->throwable()),
-                'details'  => $this->details($event->throwable()),
-                'duration' => $this->duration($event),
-            ]
-        );
+        $parameters = [
+            'name'     => $event->test()->name(),
+            'message'  => $this->message($event->throwable()),
+            'details'  => $this->details($event->throwable()),
+            'duration' => $this->duration($event),
+        ];
+
+        if ($event->hasComparisonFailure()) {
+            $parameters['type']     = 'comparisonFailure';
+            $parameters['actual']   = $event->comparisonFailure()->actual();
+            $parameters['expected'] = $event->comparisonFailure()->expected();
+        }
+
+        $this->writeMessage('testFailed', $parameters);
     }
 
     /**
@@ -241,7 +238,7 @@ final class TeamCityLogger
                 'message'  => $event->message(),
                 'details'  => '',
                 'duration' => $this->duration($event),
-            ]
+            ],
         );
     }
 
@@ -255,7 +252,7 @@ final class TeamCityLogger
             [
                 'name'     => $event->test()->name(),
                 'duration' => $this->duration($event),
-            ]
+            ],
         );
 
         $this->time = null;
@@ -270,9 +267,9 @@ final class TeamCityLogger
      * @throws EventFacadeIsSealedException
      * @throws UnknownSubscriberTypeException
      */
-    private function registerSubscribers(): void
+    private function registerSubscribers(Facade $facade): void
     {
-        Facade::registerSubscribers(
+        $facade->registerSubscribers(
             new TestSuiteStartedSubscriber($this),
             new TestSuiteFinishedSubscriber($this),
             new TestPreparedSubscriber($this),
@@ -282,6 +279,7 @@ final class TeamCityLogger
             new TestMarkedIncompleteSubscriber($this),
             new TestSkippedSubscriber($this),
             new TestConsideredRiskySubscriber($this),
+            new TestRunnerExecutionFinishedSubscriber($this),
         );
     }
 
@@ -297,8 +295,8 @@ final class TeamCityLogger
         $this->printer->print(
             sprintf(
                 "\n##teamcity[%s",
-                $eventName
-            )
+                $eventName,
+            ),
         );
 
         if ($this->flowId !== null) {
@@ -310,8 +308,8 @@ final class TeamCityLogger
                 sprintf(
                     " %s='%s'",
                     $key,
-                    $this->escape((string) $value)
-                )
+                    $this->escape((string) $value),
+                ),
             );
         }
 
@@ -335,7 +333,7 @@ final class TeamCityLogger
         return str_replace(
             ['|', "'", "\n", "\r", ']', '['],
             ['||', "|'", '|n', '|r', '|]', '|['],
-            $string
+            $string,
         );
     }
 
@@ -364,7 +362,7 @@ final class TeamCityLogger
             $buffer .= sprintf(
                 "\nCaused by\n%s\n%s",
                 $throwable->description(),
-                $throwable->stackTrace()
+                $throwable->stackTrace(),
             );
         }
 

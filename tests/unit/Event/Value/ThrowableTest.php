@@ -12,16 +12,19 @@ namespace PHPUnit\Event\Code;
 use Exception;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Small;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Util\Filter;
 
 #[CoversClass(Throwable::class)]
+#[CoversClass(ThrowableBuilder::class)]
+#[Small]
 final class ThrowableTest extends TestCase
 {
     public function testCanBeCreatedForThrowableWithoutPrevious(): void
     {
         $e = new Exception('message', 123, null);
-        $t = Throwable::from($e);
+        $t = ThrowableBuilder::from($e);
 
         $this->assertSame(Exception::class, $t->className());
         $this->assertSame('message', $t->message());
@@ -38,7 +41,7 @@ final class ThrowableTest extends TestCase
     {
         $first  = new Exception('first message', 123, null);
         $second = new Exception('second message', 456, $first);
-        $t      = Throwable::from($second);
+        $t      = ThrowableBuilder::from($second);
 
         $this->assertSame(Exception::class, $t->className());
         $this->assertSame('second message', $t->message());
@@ -64,7 +67,7 @@ Exception: first message
 %A
 EOD
             ,
-            $t->asString()
+            $t->asString(),
         );
     }
 }

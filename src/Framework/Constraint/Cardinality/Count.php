@@ -26,7 +26,7 @@ use Traversable;
  */
 class Count extends Constraint
 {
-    private int $expectedCount;
+    private readonly int $expectedCount;
 
     public function __construct(int $expected)
     {
@@ -37,7 +37,7 @@ class Count extends Constraint
     {
         return sprintf(
             'count matches %d',
-            $this->expectedCount
+            $this->expectedCount,
         );
     }
 
@@ -72,8 +72,8 @@ class Count extends Constraint
                 } catch (\Exception $e) {
                     throw new Exception(
                         $e->getMessage(),
-                        (int) $e->getCode(),
-                        $e
+                        $e->getCode(),
+                        $e,
                     );
                 }
             }
@@ -120,7 +120,7 @@ class Count extends Constraint
         return sprintf(
             'actual size %d matches expected size %d',
             (int) $this->getCountOf($other),
-            $this->expectedCount
+            $this->expectedCount,
         );
     }
 }

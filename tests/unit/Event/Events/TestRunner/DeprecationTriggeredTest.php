@@ -11,8 +11,10 @@ namespace PHPUnit\Event\TestRunner;
 
 use PHPUnit\Event\AbstractEventTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Small;
 
 #[CoversClass(DeprecationTriggered::class)]
+#[Small]
 final class DeprecationTriggeredTest extends AbstractEventTestCase
 {
     public function testConstructorSetsValues(): void
@@ -22,10 +24,20 @@ final class DeprecationTriggeredTest extends AbstractEventTestCase
 
         $event = new DeprecationTriggered(
             $telemetryInfo,
-            $message
+            $message,
         );
 
         $this->assertSame($telemetryInfo, $event->telemetryInfo());
         $this->assertSame($message, $event->message());
+    }
+
+    public function testCanBeRepresentedAsString(): void
+    {
+        $event = new DeprecationTriggered(
+            $this->telemetryInfo(),
+            'message',
+        );
+
+        $this->assertSame('Test Runner Triggered Deprecation (message)', $event->asString());
     }
 }

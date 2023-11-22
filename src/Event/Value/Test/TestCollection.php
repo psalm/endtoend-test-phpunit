@@ -14,16 +14,18 @@ use Countable;
 use IteratorAggregate;
 
 /**
+ * @template-implements IteratorAggregate<int, Test>
+ *
  * @psalm-immutable
  *
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
-final class TestCollection implements Countable, IteratorAggregate
+final readonly class TestCollection implements Countable, IteratorAggregate
 {
     /**
      * @psalm-var list<Test>
      */
-    private readonly array $tests;
+    private array $tests;
 
     /**
      * @psalm-param list<Test> $tests

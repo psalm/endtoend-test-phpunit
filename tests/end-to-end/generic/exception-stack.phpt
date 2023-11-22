@@ -4,10 +4,11 @@ phpunit ../../_files/ExceptionStackTest.php
 <?php declare(strict_types=1);
 $_SERVER['argv'][] = '--do-not-cache-result';
 $_SERVER['argv'][] = '--no-configuration';
+$_SERVER['argv'][] = '--dont-report-useless-tests';
 $_SERVER['argv'][] = __DIR__ . '/../../_files/ExceptionStackTest.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 

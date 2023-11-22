@@ -27,6 +27,8 @@ use ReflectionClass;
 final class TestBuilder
 {
     /**
+     * @psalm-param non-empty-string $methodName
+     *
      * @throws InvalidDataProviderException
      */
     public function build(ReflectionClass $theClass, string $methodName): Test
@@ -35,44 +37,45 @@ final class TestBuilder
 
         $data = (new DataProvider)->providedData(
             $className,
-            $methodName
+            $methodName,
         );
 
         if ($data !== null) {
-            $test = $this->buildDataProviderTestSuite(
+            return $this->buildDataProviderTestSuite(
                 $methodName,
                 $className,
                 $data,
                 $this->shouldTestMethodBeRunInSeparateProcess($className, $methodName),
                 $this->shouldGlobalStateBePreserved($className, $methodName),
                 $this->shouldAllTestMethodsOfTestClassBeRunInSingleSeparateProcess($className),
-                $this->backupSettings($className, $methodName)
+                $this->backupSettings($className, $methodName),
             );
-        } else {
-            $test = new $className($methodName);
         }
 
-        if ($test instanceof TestCase) {
-            $this->configureTestCase(
-                $test,
-                $this->shouldTestMethodBeRunInSeparateProcess($className, $methodName),
-                $this->shouldGlobalStateBePreserved($className, $methodName),
-                $this->shouldAllTestMethodsOfTestClassBeRunInSingleSeparateProcess($className),
-                $this->backupSettings($className, $methodName)
-            );
-        }
+        $test = new $className($methodName);
+
+        assert($test instanceof TestCase);
+
+        $this->configureTestCase(
+            $test,
+            $this->shouldTestMethodBeRunInSeparateProcess($className, $methodName),
+            $this->shouldGlobalStateBePreserved($className, $methodName),
+            $this->shouldAllTestMethodsOfTestClassBeRunInSingleSeparateProcess($className),
+            $this->backupSettings($className, $methodName),
+        );
 
         return $test;
     }
 
     /**
      * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      * @psalm-param array{backupGlobals: ?bool, backupGlobalsExcludeList: list<string>, backupStaticProperties: ?bool, backupStaticPropertiesExcludeList: array<string,list<string>>} $backupSettings
      */
     private function buildDataProviderTestSuite(string $methodName, string $className, array $data, bool $runTestInSeparateProcess, ?bool $preserveGlobalState, bool $runClassInSeparateProcess, array $backupSettings): DataProviderTestSuite
     {
         $dataProviderTestSuite = DataProviderTestSuite::empty(
-            $className . '::' . $methodName
+            $className . '::' . $methodName,
         );
 
         $groups = (new Groups)->groups($className, $methodName);
@@ -89,7 +92,7 @@ final class TestBuilder
                 $runTestInSeparateProcess,
                 $preserveGlobalState,
                 $runClassInSeparateProcess,
-                $backupSettings
+                $backupSettings,
             );
 
             $dataProviderTestSuite->addTest($_test, $groups);
@@ -134,6 +137,7 @@ final class TestBuilder
 
     /**
      * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      *
      * @psalm-return array{backupGlobals: ?bool, backupGlobalsExcludeList: list<string>, backupStaticProperties: ?bool, backupStaticPropertiesExcludeList: array<string,list<string>>}
      */
@@ -151,16 +155,16 @@ final class TestBuilder
 
             assert($metadata instanceof BackupGlobals);
 
-            if ($metadata->enabled() !== null) {
-                $backupGlobals = $metadata->enabled();
+            if ($metadata->enabled()) {
+                $backupGlobals = true;
             }
         } elseif ($metadataForClass->isBackupGlobals()->isNotEmpty()) {
             $metadata = $metadataForClass->isBackupGlobals()->asArray()[0];
 
             assert($metadata instanceof BackupGlobals);
 
-            if ($metadata->enabled() !== null) {
-                $backupGlobals = $metadata->enabled();
+            if ($metadata->enabled()) {
+                $backupGlobals = true;
             }
         }
 
@@ -178,16 +182,16 @@ final class TestBuilder
 
             assert($metadata instanceof BackupStaticProperties);
 
-            if ($metadata->enabled() !== null) {
-                $backupStaticProperties = $metadata->enabled();
+            if ($metadata->enabled()) {
+                $backupStaticProperties = true;
             }
         } elseif ($metadataForClass->isBackupStaticProperties()->isNotEmpty()) {
-            $metadata = $metadataForMethod->isBackupStaticProperties()->asArray()[0];
+            $metadata = $metadataForClass->isBackupStaticProperties()->asArray()[0];
 
             assert($metadata instanceof BackupStaticProperties);
 
-            if ($metadata->enabled() !== null) {
-                $backupStaticProperties = $metadata->enabled();
+            if ($metadata->enabled()) {
+                $backupStaticProperties = true;
             }
         }
 
@@ -211,6 +215,7 @@ final class TestBuilder
 
     /**
      * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      */
     private function shouldGlobalStateBePreserved(string $className, string $methodName): ?bool
     {
@@ -239,6 +244,7 @@ final class TestBuilder
 
     /**
      * @psalm-param class-string $className
+     * @psalm-param non-empty-string $methodName
      */
     private function shouldTestMethodBeRunInSeparateProcess(string $className, string $methodName): bool
     {

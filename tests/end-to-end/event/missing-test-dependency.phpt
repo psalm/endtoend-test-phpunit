@@ -18,17 +18,18 @@ $_SERVER['argv'][] = __DIR__ . '/_files/MissingDependencyTest.php';
 
 require __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main(false);
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 
 print file_get_contents($traceFile);
 
 unlink($traceFile);
 --EXPECTF--
-Test Runner Started (PHPUnit %s using %s)
+PHPUnit Started (PHPUnit %s using %s)
 Test Runner Configured
 Test Suite Loaded (2 tests)
-Test Suite Sorted
 Event Facade Sealed
+Test Runner Started
+Test Suite Sorted
 Test Runner Execution Started (2 tests)
 Test Suite Started (PHPUnit\TestFixture\Event\MissingDependencyTest, 2 tests)
 Test Preparation Started (PHPUnit\TestFixture\Event\MissingDependencyTest::testOne)
@@ -42,3 +43,4 @@ This test depends on "PHPUnit\TestFixture\Event\MissingDependencyTest::testOne" 
 Test Suite Finished (PHPUnit\TestFixture\Event\MissingDependencyTest, 2 tests)
 Test Runner Execution Finished
 Test Runner Finished
+PHPUnit Finished (Shell Exit Code: 1)

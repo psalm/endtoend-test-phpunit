@@ -12,10 +12,14 @@ $_SERVER['argv'][] = __DIR__ . '/4620/Issue4620Test.php';
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
 Error in bootstrap script: PHPUnit\TestFixture\MyException:
 Big boom. Big bada boom.
+%a
+
+Previous error: Exception:
+Previous boom.
 %a

@@ -1,9 +1,20 @@
-There was 1 PHP deprecation:
+1 test triggered 2 PHP deprecations:
 
-1) FooTest::testBar
+1) Foo.php:1
 message
 
-%s:%i
+Triggered by:
 
-OK, but some tests have issues!
-Tests: 1, Assertions: 1, Deprecations: 1.
+* FooTest::testBar
+  FooTest.php:1
+
+2) Foo.php:2
+another message
+
+Triggered by:
+
+* FooTest::testBar
+  FooTest.php:1
+
+OK, but there were issues!
+Tests: 1, Assertions: 1, Deprecations: 2.

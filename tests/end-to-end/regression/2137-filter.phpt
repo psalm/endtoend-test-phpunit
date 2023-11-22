@@ -9,7 +9,7 @@ $_SERVER['argv'][] = '--filter';
 $_SERVER['argv'][] = 'BrandService';
 
 require_once __DIR__ . '/../../bootstrap.php';
-PHPUnit\TextUI\Application::main();
+(new PHPUnit\TextUI\Application)->run($_SERVER['argv']);
 --EXPECTF--
 PHPUnit %s by Sebastian Bergmann and contributors.
 
@@ -31,7 +31,7 @@ Data set #0 is invalid
 
 --
 
-There was 1 PHPUnit warning:
+There was 1 PHPUnit test runner warning:
 
 1) No tests found in class "PHPUnit\TestFixture\Issue2137Test".
 
