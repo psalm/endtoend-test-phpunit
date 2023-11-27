@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.5@5390c212bab06ee230c8720c2e9c54b823db00c8">
+<files psalm-version="dev-master@cd110d549de64a4b6d65b6009f08ce93f6f3acac">
+  <file src="tests/static-analysis/TestUsingCallbacks.php">
+    <UnusedClass>
+      <code>TestUsingCallbacks</code>
+    </UnusedClass>
+  </file>
   <file src="tests/static-analysis/TestUsingMocks.php">
-    <DeprecatedClass>
-      <code><![CDATA[$this
-            ->getMockBuilder(HelloWorldClass::class)]]></code>
-    </DeprecatedClass>
     <DeprecatedMethod>
-      <code>createPartialMock</code>
       <code>createTestProxy</code>
-      <code>getMockBuilder</code>
     </DeprecatedMethod>
+    <UnusedClass>
+      <code>TestUsingMocks</code>
+    </UnusedClass>
   </file>
 </files>
