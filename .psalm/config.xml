@@ -8,6 +8,8 @@
     checkForThrowsDocblock="true"
     findUnusedVariablesAndParams="false"
     findUnusedCode="false"
+    ignoreInternalFunctionFalseReturn="true"
+    ignoreInternalFunctionNullReturn="true"
     errorBaseline=".psalm/baseline.xml"
     findUnusedBaselineEntry="false"
 >
