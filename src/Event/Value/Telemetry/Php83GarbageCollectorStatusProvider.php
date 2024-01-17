@@ -12,6 +12,7 @@ namespace PHPUnit\Event\Telemetry;
 use function gc_status;
 
 /**
+ * @psalm-suppress InvalidArrayOffset Avoid issues with checks running on PHP < 8.3
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class Php83GarbageCollectorStatusProvider implements GarbageCollectorStatusProvider
