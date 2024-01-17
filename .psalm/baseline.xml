@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@">
+<files psalm-version="dev-master@a3a13241a76d19e7e7f0f51bef973f8c9266d594">
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
     <UndefinedInterfaceMethod>
       <code>notify</code>
@@ -89,9 +89,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$eventClass . 'Subscriber']]></code>
     </ArgumentTypeCoercion>
-    <InvalidArrayOffset>
-      <code><![CDATA[gc_status()['running']]]></code>
-    </InvalidArrayOffset>
   </file>
   <file src="src/Event/Value/Runtime/PHP.php">
     <ImpureFunctionCall>
@@ -107,18 +104,6 @@
     <ImpureMethodCall>
       <code>fromBytes</code>
     </ImpureMethodCall>
-  </file>
-  <file src="src/Event/Value/Telemetry/Php83GarbageCollectorStatusProvider.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$status['application_time']]]></code>
-      <code><![CDATA[$status['buffer_size']]]></code>
-      <code><![CDATA[$status['collector_time']]]></code>
-      <code><![CDATA[$status['destructor_time']]]></code>
-      <code><![CDATA[$status['free_time']]]></code>
-      <code><![CDATA[$status['full']]]></code>
-      <code><![CDATA[$status['protected']]]></code>
-      <code><![CDATA[$status['running']]]></code>
-    </InvalidArrayOffset>
   </file>
   <file src="src/Event/Value/Test/TestCollection.php">
     <PropertyTypeCoercion>
@@ -226,6 +211,9 @@
     </ArgumentTypeCoercion>
   </file>
   <file src="src/Framework/Constraint/String/StringContains.php">
+    <RiskyTruthyFalsyComparison>
+      <code>!$detectedEncoding</code>
+    </RiskyTruthyFalsyComparison>
     <TooManyArguments>
       <code>toString</code>
     </TooManyArguments>
@@ -270,6 +258,11 @@
       <code><![CDATA[list<ExecutionOrderDependency>]]></code>
     </MoreSpecificReturnType>
   </file>
+  <file src="src/Framework/ExecutionOrderDependency.php">
+    <RiskyTruthyFalsyComparison>
+      <code>empty($methodName)</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
   <file src="src/Framework/MockObject/Generator/Generator.php">
     <ArgumentTypeCoercion>
       <code>$className</code>
@@ -307,6 +300,10 @@
       <code>$method</code>
       <code>$method</code>
     </NoValue>
+    <RiskyTruthyFalsyComparison>
+      <code>!$parameterStart</code>
+      <code>empty($methods)</code>
+    </RiskyTruthyFalsyComparison>
     <UndefinedConstant>
       <code>WSDL_CACHE_NONE</code>
     </UndefinedConstant>
@@ -419,6 +416,9 @@
       <code>$backupGlobalsExcludeList</code>
       <code>$groups</code>
     </PropertyTypeCoercion>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!$context->contains($testArgument)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Framework/TestRunner.php">
     <ArgumentTypeCoercion>
@@ -430,6 +430,9 @@
     <MissingThrowsDocblock>
       <code>bootstrap</code>
     </MissingThrowsDocblock>
+    <RiskyTruthyFalsyComparison>
+      <code>!$path</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Framework/TestSuite.php">
     <ArgumentTypeCoercion>
@@ -504,6 +507,9 @@
     <RedundantCast>
       <code>(int) $matches[0][1]</code>
     </RedundantCast>
+    <RiskyTruthyFalsyComparison>
+      <code>!$docComment</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Metadata/Api/Dependencies.php">
     <RedundantCondition>
@@ -577,6 +583,10 @@
      *   string|array{version: string, operator: string}|array{constraint: string}|array<int|string, string>
      * >]]></code>
     </InvalidReturnType>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($requires[$matches['name']])]]></code>
+      <code><![CDATA[preg_match_all('/@(?P<name>[A-Za-z_-]+)(?:[ \t]+(?P<value>.*?))?[ \t]*\r?$/m', $docBlock, $matches)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Metadata/Parser/AnnotationParser.php">
     <ArgumentTypeCoercion>
@@ -701,6 +711,10 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$sections['FILEEOF']]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument>
+      <code><![CDATA[$trace[0]['file']]]></code>
+      <code><![CDATA[$trace[0]['line']]]></code>
+    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset>
       <code>$setting[1]</code>
     </PossiblyUndefinedArrayOffset>
@@ -755,6 +769,10 @@
       <code>logfileJunit</code>
       <code>logfileTeamcity</code>
     </MissingThrowsDocblock>
+    <RiskyTruthyFalsyComparison>
+      <code>!$configurationFile</code>
+      <code>!$configurationFile</code>
+    </RiskyTruthyFalsyComparison>
     <UnresolvableInclude>
       <code>include_once $filename</code>
     </UnresolvableInclude>
@@ -766,6 +784,9 @@
                 $xmlConfiguration,
             )</code>
     </MissingThrowsDocblock>
+    <RiskyTruthyFalsyComparison>
+      <code>$configurationFile</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Cli/Builder.php">
     <ArgumentTypeCoercion>
@@ -790,6 +811,10 @@
       <code>configurationFile</code>
       <code>configurationFile</code>
     </MissingThrowsDocblock>
+    <RiskyTruthyFalsyComparison>
+      <code>$candidate</code>
+      <code>$candidate</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Configuration.php">
     <LessSpecificReturnStatement>
@@ -803,18 +828,35 @@
     <PossiblyInvalidPropertyAssignmentValue>
       <code>$columns</code>
     </PossiblyInvalidPropertyAssignmentValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->excludeGroups)]]></code>
+      <code><![CDATA[empty($this->groups)]]></code>
+      <code><![CDATA[empty($this->testsCovering)]]></code>
+      <code><![CDATA[empty($this->testsUsing)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Merger.php">
     <MissingThrowsDocblock>
       <code>baseline</code>
       <code>detect</code>
     </MissingThrowsDocblock>
+    <PossiblyNullArgument>
+      <code><![CDATA[$_SERVER['PHP_SELF']]]></code>
+    </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['PHP_SELF']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCondition>
       <code>assert($xmlConfiguration instanceof LoadedFromFileConfiguration)</code>
     </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code>$candidate</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/TextUI/Configuration/Registry.php">
+    <RiskyTruthyFalsyComparison>
+      <code>$result</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/SourceMapper.php">
     <InvalidArgument>
@@ -824,11 +866,20 @@
       <code>$source</code>
       <code>$source</code>
     </InvalidArgument>
+    <RiskyTruthyFalsyComparison>
+      <code>!$file</code>
+      <code>!$file</code>
+      <code>!$file</code>
+      <code>!$file</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/TestSuiteBuilder.php">
     <MissingThrowsDocblock>
       <code>\PHPUnit\Event\TestSuite\TestSuiteBuilder::from($testSuite)</code>
     </MissingThrowsDocblock>
+    <RiskyTruthyFalsyComparison>
+      <code>!$argument</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Value/ConstantCollection.php">
     <PropertyTypeCoercion>
@@ -895,6 +946,10 @@
       <code>assert($directoryNode instanceof DOMElement)</code>
       <code>assert($fileNode instanceof DOMElement)</code>
     </RedundantConditionGivenDocblockType>
+    <RiskyTruthyFalsyComparison>
+      <code>!$verbatim</code>
+      <code><![CDATA[$this->getBoolean($document->documentElement->getAttribute('colors'), false)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoverageCloverToReport.php">
     <PossiblyNullReference>
@@ -999,6 +1054,13 @@
       <code>self::$directories</code>
     </InvalidPropertyAssignmentValue>
   </file>
+  <file src="src/Util/PHP/AbstractPhpProcess.php">
+    <RiskyTruthyFalsyComparison>
+      <code>!$file</code>
+      <code>!$file</code>
+      <code>$file</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
   <file src="src/Util/PHP/DefaultPhpProcess.php">
     <DocblockTypeContradiction>
       <code>is_array($envVar)</code>
@@ -1006,6 +1068,10 @@
     <RedundantCondition>
       <code>$_SERVER</code>
     </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[!($this->tempFile = tempnam(sys_get_temp_dir(), 'phpunit_'))]]></code>
+      <code><![CDATA[$this->tempFile]]></code>
+    </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainNull>
       <code>[]</code>
     </TypeDoesNotContainNull>

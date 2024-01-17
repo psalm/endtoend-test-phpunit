@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@cd110d549de64a4b6d65b6009f08ce93f6f3acac">
-  <file src="tests/static-analysis/TestUsingCallbacks.php">
-    <UnusedClass>
-      <code>TestUsingCallbacks</code>
-    </UnusedClass>
-  </file>
+<files psalm-version="dev-master@a3a13241a76d19e7e7f0f51bef973f8c9266d594">
   <file src="tests/static-analysis/TestUsingMocks.php">
     <DeprecatedMethod>
       <code>createTestProxy</code>
     </DeprecatedMethod>
-    <UnusedClass>
-      <code>TestUsingMocks</code>
-    </UnusedClass>
   </file>
 </files>
