@@ -257,6 +257,7 @@ final class Facade
 
     private function garbageCollectorStatusProvider(): Telemetry\GarbageCollectorStatusProvider
     {
+        /** @psalm-suppress InvalidArrayOffset */
         if (!isset(gc_status()['running'])) {
             return new Php81GarbageCollectorStatusProvider;
         }
