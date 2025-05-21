@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@e9e270f363bd05ea3790890de3f04f6726ea5643">
+<files psalm-version="dev-master@1359b59ac1b1df71151410b2461f5341d9943a00">
+  <file src="src/Event/Dispatcher/CollectingDispatcher.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function dispatch(Event $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Dispatcher/DeferringDispatcher.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function dispatch(Event $event): void]]></code>
+      <code><![CDATA[public function registerSubscriber(Subscriber $subscriber): void]]></code>
+      <code><![CDATA[public function registerTracer(Tracer\Tracer $tracer): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Event/Dispatcher/DirectDispatcher.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function dispatch(Event $event): void]]></code>
+      <code><![CDATA[public function registerSubscriber(Subscriber $subscriber): void]]></code>
+      <code><![CDATA[public function registerTracer(Tracer\Tracer $tracer): void]]></code>
+    </MissingOverrideAttribute>
     <UndefinedInterfaceMethod>
       <code><![CDATA[notify]]></code>
     </UndefinedInterfaceMethod>
@@ -30,6 +47,81 @@
       <code><![CDATA[$message]]></code>
       <code><![CDATA[$message]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function applicationFinished(int $shellExitCode): void]]></code>
+      <code><![CDATA[public function applicationStarted(): void]]></code>
+      <code><![CDATA[public function dataProviderMethodCalled(ClassMethod $testMethod, ClassMethod $dataProviderMethod): void]]></code>
+      <code><![CDATA[public function dataProviderMethodFinished(ClassMethod $testMethod, ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function exportObjects(): void]]></code>
+      <code><![CDATA[public function exportsObjects(): bool]]></code>
+      <code><![CDATA[public function testAfterLastTestMethodCalled(string $testClassName, Code\ClassMethod $calledMethod): void]]></code>
+      <code><![CDATA[public function testAfterLastTestMethodFinished(string $testClassName, Code\ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function testAfterTestMethodCalled(string $testClassName, Code\ClassMethod $calledMethod): void]]></code>
+      <code><![CDATA[public function testAfterTestMethodFinished(string $testClassName, Code\ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function testAssertionFailed(mixed $value, Constraint\Constraint $constraint, string $message): void]]></code>
+      <code><![CDATA[public function testAssertionSucceeded(mixed $value, Constraint\Constraint $constraint, string $message): void]]></code>
+      <code><![CDATA[public function testBeforeFirstTestMethodCalled(string $testClassName, Code\ClassMethod $calledMethod): void]]></code>
+      <code><![CDATA[public function testBeforeFirstTestMethodErrored(string $testClassName, Code\ClassMethod $calledMethod, Throwable $throwable): void]]></code>
+      <code><![CDATA[public function testBeforeFirstTestMethodFinished(string $testClassName, Code\ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function testBeforeTestMethodCalled(string $testClassName, Code\ClassMethod $calledMethod): void]]></code>
+      <code><![CDATA[public function testBeforeTestMethodFinished(string $testClassName, Code\ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function testConsideredRisky(Code\Test $test, string $message): void]]></code>
+      <code><![CDATA[public function testCreatedMockObject(string $className): void]]></code>
+      <code><![CDATA[public function testCreatedMockObjectForAbstractClass(string $className): void]]></code>
+      <code><![CDATA[public function testCreatedMockObjectForIntersectionOfInterfaces(array $interfaces): void]]></code>
+      <code><![CDATA[public function testCreatedMockObjectForTrait(string $traitName): void]]></code>
+      <code><![CDATA[public function testCreatedMockObjectFromWsdl(string $wsdlFile, string $originalClassName, string $mockClassName, array $methods, bool $callOriginalConstructor, array $options): void]]></code>
+      <code><![CDATA[public function testCreatedPartialMockObject(string $className, string ...$methodNames): void]]></code>
+      <code><![CDATA[public function testCreatedStub(string $className): void]]></code>
+      <code><![CDATA[public function testCreatedStubForIntersectionOfInterfaces(array $interfaces): void]]></code>
+      <code><![CDATA[public function testCreatedTestProxy(string $className, array $constructorArguments): void]]></code>
+      <code><![CDATA[public function testErrored(Code\Test $test, Throwable $throwable): void]]></code>
+      <code><![CDATA[public function testFailed(Code\Test $test, Throwable $throwable, ?ComparisonFailure $comparisonFailure): void]]></code>
+      <code><![CDATA[public function testFinished(Code\Test $test, int $numberOfAssertionsPerformed): void]]></code>
+      <code><![CDATA[public function testMarkedAsIncomplete(Code\Test $test, Throwable $throwable): void]]></code>
+      <code><![CDATA[public function testPassed(Code\Test $test): void]]></code>
+      <code><![CDATA[public function testPostConditionCalled(string $testClassName, Code\ClassMethod $calledMethod): void]]></code>
+      <code><![CDATA[public function testPostConditionFinished(string $testClassName, Code\ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function testPreConditionCalled(string $testClassName, Code\ClassMethod $calledMethod): void]]></code>
+      <code><![CDATA[public function testPreConditionFinished(string $testClassName, Code\ClassMethod ...$calledMethods): void]]></code>
+      <code><![CDATA[public function testPreparationFailed(Code\Test $test): void]]></code>
+      <code><![CDATA[public function testPreparationStarted(Code\Test $test): void]]></code>
+      <code><![CDATA[public function testPrepared(Code\Test $test): void]]></code>
+      <code><![CDATA[public function testPrintedUnexpectedOutput(string $output): void]]></code>
+      <code><![CDATA[public function testRegisteredComparator(string $className): void]]></code>
+      <code><![CDATA[public function testRunnerBootstrapFinished(string $filename): void]]></code>
+      <code><![CDATA[public function testRunnerBootstrappedExtension(string $className, array $parameters): void]]></code>
+      <code><![CDATA[public function testRunnerConfigured(Configuration $configuration): void]]></code>
+      <code><![CDATA[public function testRunnerDisabledGarbageCollection(): void]]></code>
+      <code><![CDATA[public function testRunnerEnabledGarbageCollection(): void]]></code>
+      <code><![CDATA[public function testRunnerEventFacadeSealed(): void]]></code>
+      <code><![CDATA[public function testRunnerExecutionAborted(): void]]></code>
+      <code><![CDATA[public function testRunnerExecutionFinished(): void]]></code>
+      <code><![CDATA[public function testRunnerExecutionStarted(TestSuite $testSuite): void]]></code>
+      <code><![CDATA[public function testRunnerFinished(): void]]></code>
+      <code><![CDATA[public function testRunnerLoadedExtensionFromPhar(string $filename, string $name, string $version): void]]></code>
+      <code><![CDATA[public function testRunnerStarted(): void]]></code>
+      <code><![CDATA[public function testRunnerTriggeredDeprecation(string $message): void]]></code>
+      <code><![CDATA[public function testRunnerTriggeredGarbageCollection(): void]]></code>
+      <code><![CDATA[public function testRunnerTriggeredWarning(string $message): void]]></code>
+      <code><![CDATA[public function testSkipped(Code\Test $test, string $message): void]]></code>
+      <code><![CDATA[public function testSuiteFiltered(TestSuite $testSuite): void]]></code>
+      <code><![CDATA[public function testSuiteFinished(TestSuite $testSuite): void]]></code>
+      <code><![CDATA[public function testSuiteLoaded(TestSuite $testSuite): void]]></code>
+      <code><![CDATA[public function testSuiteSkipped(TestSuite $testSuite, string $message): void]]></code>
+      <code><![CDATA[public function testSuiteSorted(int $executionOrder, int $executionOrderDefects, bool $resolveDependencies): void]]></code>
+      <code><![CDATA[public function testSuiteStarted(TestSuite $testSuite): void]]></code>
+      <code><![CDATA[public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest): void]]></code>
+      <code><![CDATA[public function testTriggeredError(Code\Test $test, string $message, string $file, int $line, bool $suppressed): void]]></code>
+      <code><![CDATA[public function testTriggeredNotice(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void]]></code>
+      <code><![CDATA[public function testTriggeredPhpDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest): void]]></code>
+      <code><![CDATA[public function testTriggeredPhpNotice(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void]]></code>
+      <code><![CDATA[public function testTriggeredPhpWarning(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void]]></code>
+      <code><![CDATA[public function testTriggeredPhpunitDeprecation(?Code\Test $test, string $message): void]]></code>
+      <code><![CDATA[public function testTriggeredPhpunitError(Code\Test $test, string $message): void]]></code>
+      <code><![CDATA[public function testTriggeredPhpunitWarning(Code\Test $test, string $message): void]]></code>
+      <code><![CDATA[public function testTriggeredWarning(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline): void]]></code>
+    </MissingOverrideAttribute>
     <RedundantCondition>
       <code><![CDATA[assert($test instanceof TestMethod)]]></code>
     </RedundantCondition>
@@ -40,50 +132,473 @@
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
   </file>
+  <file src="src/Event/Events/Application/Finished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Application/Started.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/EventCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): EventCollectionIterator]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/EventCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): Event]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Assertion/AssertionFailed.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Assertion/AssertionSucceeded.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/ComparatorRegistered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/AfterLastTestMethodCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Event/Events/Test/HookMethod/AfterLastTestMethodFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/AfterTestMethodCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Events/Test/HookMethod/AfterTestMethodFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/BeforeFirstTestMethodCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/BeforeFirstTestMethodErrored.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Events/Test/HookMethod/BeforeFirstTestMethodFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/BeforeTestMethodCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Events/Test/HookMethod/BeforeTestMethodFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/PostConditionCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Events/Test/HookMethod/PostConditionFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/HookMethod/PreConditionCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Events/Test/HookMethod/PreConditionFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/Issue/ConsideredRisky.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/DeprecationTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/ErrorTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/NoticeTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/PhpDeprecationTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/PhpNoticeTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/PhpWarningTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/PhpunitDeprecationTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/PhpunitErrorTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/PhpunitWarningTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Issue/WarningTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Lifecycle/DataProviderMethodCalled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Events/Test/Lifecycle/DataProviderMethodFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$calledMethods]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/Event/Events/Test/Lifecycle/Finished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Lifecycle/PreparationFailed.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Lifecycle/PreparationStarted.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Lifecycle/Prepared.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Outcome/Errored.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Outcome/Failed.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Outcome/MarkedIncomplete.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Outcome/Passed.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/Outcome/Skipped.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/PrintedUnexpectedOutput.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/MockObjectCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/MockObjectForAbstractClassCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/MockObjectForIntersectionOfInterfacesCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/MockObjectForTraitCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Event/Events/Test/TestDouble/MockObjectFromWsdlCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$methods]]></code>
     </PropertyTypeCoercion>
   </file>
   <file src="src/Event/Events/Test/TestDouble/PartialMockObjectCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$methodNames]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/TestProxyCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/TestStubCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/Test/TestDouble/TestStubForIntersectionOfInterfacesCreated.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/BootstrapFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/Configured.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/DeprecationTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/EventFacadeSealed.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/ExecutionAborted.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/ExecutionFinished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/ExecutionStarted.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/ExtensionBootstrapped.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/ExtensionLoadedFromPhar.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/Finished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/GarbageCollectionDisabled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/GarbageCollectionEnabled.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/GarbageCollectionTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/Started.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestRunner/WarningTriggered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestSuite/Filtered.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestSuite/Finished.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestSuite/Loaded.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestSuite/Skipped.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestSuite/Sorted.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Events/TestSuite/Started.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function telemetryInfo(): Telemetry\Info]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Facade.php">
     <ArgumentTypeCoercion>
@@ -95,6 +610,17 @@
       <code><![CDATA[get_loaded_extensions]]></code>
     </ImpureFunctionCall>
   </file>
+  <file src="src/Event/Value/Telemetry/Duration.php">
+    <InvalidOperand>
+      <code><![CDATA[$hours * 60]]></code>
+      <code><![CDATA[$minutes * 60]]></code>
+      <code><![CDATA[$seconds -= ($hours * 60 * 60)]]></code>
+      <code><![CDATA[$seconds -= ($minutes * 60)]]></code>
+      <code><![CDATA[$seconds / 60]]></code>
+      <code><![CDATA[$seconds / 60 / 60]]></code>
+      <code><![CDATA[$this->seconds() + ($this->nanoseconds() / 1000000000)]]></code>
+    </InvalidOperand>
+  </file>
   <file src="src/Event/Value/Telemetry/HRTime.php">
     <ImpureMethodCall>
       <code><![CDATA[fromSecondsAndNanoseconds]]></code>
@@ -105,15 +631,84 @@
       <code><![CDATA[fromBytes]]></code>
     </ImpureMethodCall>
   </file>
+  <file src="src/Event/Value/Telemetry/Php81GarbageCollectorStatusProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function status(): GarbageCollectorStatus]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Telemetry/Php83GarbageCollectorStatusProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function status(): GarbageCollectorStatus]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Telemetry/SystemMemoryMeter.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function memoryUsage(): MemoryUsage]]></code>
+      <code><![CDATA[public function peakMemoryUsage(): MemoryUsage]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Telemetry/SystemStopWatch.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): HRTime]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Telemetry/SystemStopWatchWithOffset.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): HRTime]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Test/Phpt.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function id(): string]]></code>
+      <code><![CDATA[public function isPhpt(): bool]]></code>
+      <code><![CDATA[public function name(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Event/Value/Test/TestCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): TestCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$tests]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/Event/Value/Test/TestCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): Test]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Test/TestData/DataFromDataProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isFromDataProvider(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/Test/TestData/DataFromTestDependency.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isFromTestDependency(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Event/Value/Test/TestData/TestDataCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): TestDataCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$data]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Event/Value/Test/TestData/TestDataCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): TestData]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Event/Value/Test/TestMethod.php">
     <ImpureMethodCall>
@@ -122,6 +717,14 @@
       <code><![CDATA[hasDataFromDataProvider]]></code>
       <code><![CDATA[hasDataFromDataProvider]]></code>
     </ImpureMethodCall>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function id(): string]]></code>
+      <code><![CDATA[public function isTestMethod(): bool]]></code>
+      <code><![CDATA[public function name(): string]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$this->testData->dataFromDataProvider()->dataSetName()]]></code>
+    </PossiblyInvalidOperand>
   </file>
   <file src="src/Event/Value/TestSuite/TestSuiteBuilder.php">
     <ArgumentTypeCoercion>
@@ -131,6 +734,21 @@
       <code><![CDATA[$testSuite->name()]]></code>
       <code><![CDATA[$testSuite->name()]]></code>
     </ArgumentTypeCoercion>
+  </file>
+  <file src="src/Event/Value/TestSuite/TestSuiteForTestClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isForTestClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/TestSuite/TestSuiteForTestMethodWithDataProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isForTestMethodWithDataProvider(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Event/Value/TestSuite/TestSuiteWithName.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isWithName(): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Assert/Functions.php">
     <DeprecatedMethod>
@@ -154,28 +772,196 @@
       <code><![CDATA[Assert::isWritable(...func_get_args())]]></code>
     </TooManyArguments>
   </file>
+  <file src="src/Framework/Constraint/Boolean/IsFalse.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Boolean/IsTrue.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Callback.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/Constraint/Cardinality/Count.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <PossiblyInvalidArgument>
       <code><![CDATA[$e->getCode()]]></code>
     </PossiblyInvalidArgument>
   </file>
+  <file src="src/Framework/Constraint/Cardinality/GreaterThan.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/Constraint/Cardinality/IsEmpty.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <TooManyArguments>
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
   </file>
+  <file src="src/Framework/Constraint/Cardinality/LessThan.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/Constraint/Constraint.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+    </MissingOverrideAttribute>
     <TooManyArguments>
       <code><![CDATA[toString]]></code>
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
+  </file>
+  <file src="src/Framework/Constraint/Equality/IsEqual.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Equality/IsEqualCanonicalizing.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Equality/IsEqualIgnoringCase.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Equality/IsEqualWithDelta.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Exception/Exception.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Exception/ExceptionCode.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$this->expectedCode]]></code>
+    </PossiblyInvalidOperand>
+  </file>
+  <file src="src/Framework/Constraint/Exception/ExceptionMessageIsOrContains.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/Exception/ExceptionMessageMatchesRegularExpression.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$this->regularExpression]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Filesystem/DirectoryExists.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Filesystem/FileExists.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Filesystem/IsReadable.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Filesystem/IsWritable.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/IsAnything.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/IsIdentical.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): ?bool]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/JsonMatches.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function fail(mixed $other, string $description, ComparisonFailure $comparisonFailure = null): never]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Math/IsFinite.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Math/IsInfinite.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Math/IsNan.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/Object/ObjectEquals.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <MissingThrowsDocblock>
       <code><![CDATA[getMethod]]></code>
     </MissingThrowsDocblock>
@@ -184,6 +970,11 @@
     </TooManyArguments>
   </file>
   <file src="src/Framework/Constraint/Object/ObjectHasProperty.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <MissingThrowsDocblock>
       <code><![CDATA[hasProperty]]></code>
     </MissingThrowsDocblock>
@@ -193,6 +984,13 @@
     </TooManyArguments>
   </file>
   <file src="src/Framework/Constraint/Operator/BinaryOperator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[final protected function constraintNeedsParentheses(Constraint $constraint): bool]]></code>
+      <code><![CDATA[final public function arity(): int]]></code>
+      <code><![CDATA[protected function reduce(): Constraint]]></code>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[array_map(
             fn ($constraint): Constraint => $this->checkConstraint($constraint),
@@ -200,23 +998,88 @@
         )]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/Framework/Constraint/Operator/LogicalAnd.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function operator(): string]]></code>
+      <code><![CDATA[public function precedence(): int]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Operator/LogicalNot.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[protected function reduce(): Constraint]]></code>
+      <code><![CDATA[protected function transformString(string $string): string]]></code>
+      <code><![CDATA[public function operator(): string]]></code>
+      <code><![CDATA[public function precedence(): int]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Operator/LogicalOr.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function operator(): string]]></code>
+      <code><![CDATA[public function precedence(): int]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/Constraint/Operator/LogicalXor.php">
     <InvalidArgument>
       <code><![CDATA[bool]]></code>
     </InvalidArgument>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function operator(): string]]></code>
+      <code><![CDATA[public function precedence(): int]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Operator/UnaryOperator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function constraintNeedsParentheses(Constraint $constraint): bool]]></code>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[public function arity(): int]]></code>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/String/IsJson.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/String/RegularExpression.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$this->pattern]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/String/StringContains.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$detectedEncoding]]></code>
     </RiskyTruthyFalsyComparison>
     <TooManyArguments>
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
+  </file>
+  <file src="src/Framework/Constraint/String/StringEndsWith.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/String/StringEqualsStringIgnoringLineEndings.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/String/StringMatchesFormatDescription.php">
     <ArgumentTypeCoercion>
@@ -225,26 +1088,85 @@
                 $this->convertNewlines($this->formatDescription),
             )]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function additionalFailureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/String/StringStartsWith.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/Traversable/ArrayHasKey.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <TooManyArguments>
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
   </file>
   <file src="src/Framework/Constraint/Traversable/IsList.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <TooManyArguments>
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
+  </file>
+  <file src="src/Framework/Constraint/Traversable/TraversableContains.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[public function toString(bool $exportObjects = false): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Traversable/TraversableContainsEqual.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Traversable/TraversableContainsIdentical.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/Traversable/TraversableContainsOnly.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$type]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function evaluate(mixed $other, string $description = '', bool $returnResult = false): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/Constraint/Type/IsInstanceOf.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function failureDescription(mixed $other): string]]></code>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <TooManyArguments>
       <code><![CDATA[toString]]></code>
     </TooManyArguments>
+  </file>
+  <file src="src/Framework/Constraint/Type/IsNull.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/Constraint/Type/IsType.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/DataProviderTestSuite.php">
     <ArgumentTypeCoercion>
@@ -254,11 +1176,23 @@
     <LessSpecificReturnStatement>
       <code><![CDATA[$this->providedTests]]></code>
     </LessSpecificReturnStatement>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function provides(): array]]></code>
+      <code><![CDATA[public function requires(): array]]></code>
+    </MissingOverrideAttribute>
     <MoreSpecificReturnType>
       <code><![CDATA[list<ExecutionOrderDependency>]]></code>
     </MoreSpecificReturnType>
   </file>
+  <file src="src/Framework/Exception/AssertionFailedError.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/ExecutionOrderDependency.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function __toString(): string]]></code>
+    </MissingOverrideAttribute>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($methodName)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -281,6 +1215,9 @@
     <DeprecatedMethod>
       <code><![CDATA[mockObjectForAbstractClass]]></code>
     </DeprecatedMethod>
+    <InvalidOperand>
+      <code><![CDATA[$key]]></code>
+    </InvalidOperand>
     <MissingThrowsDocblock>
       <code><![CDATA[getMethod]]></code>
       <code><![CDATA[testDouble]]></code>
@@ -301,6 +1238,9 @@
     <LessSpecificReturnStatement>
       <code><![CDATA[$this->mockName]]></code>
     </LessSpecificReturnStatement>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function generate(): string]]></code>
+    </MissingOverrideAttribute>
     <MoreSpecificReturnType>
       <code><![CDATA[class-string]]></code>
     </MoreSpecificReturnType>
@@ -322,6 +1262,10 @@
                 'return_result'      => $returnResult,
             ]]]></code>
     </InvalidArgument>
+    <InvalidOperand>
+      <code><![CDATA[$i]]></code>
+      <code><![CDATA[$i]]></code>
+    </InvalidOperand>
     <PossiblyFalseOperand>
       <code><![CDATA[strpos($parameterAsString, '<optional> ')]]></code>
     </PossiblyFalseOperand>
@@ -330,6 +1274,9 @@
     <LessSpecificReturnStatement>
       <code><![CDATA[$this->mockName]]></code>
     </LessSpecificReturnStatement>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function generate(): string]]></code>
+    </MissingOverrideAttribute>
     <MoreSpecificReturnType>
       <code><![CDATA[class-string]]></code>
     </MoreSpecificReturnType>
@@ -351,9 +1298,30 @@
     </InvalidReturnType>
   </file>
   <file src="src/Framework/MockObject/Runtime/Builder/InvocationMocker.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function after(string $id): self]]></code>
+      <code><![CDATA[public function id(string $id): self]]></code>
+      <code><![CDATA[public function method(Constraint|string $constraint): self]]></code>
+      <code><![CDATA[public function will(Stub $stub): Identity]]></code>
+      <code><![CDATA[public function willReturn(mixed $value, mixed ...$nextValues): self]]></code>
+      <code><![CDATA[public function willReturnArgument(int $argumentIndex): self]]></code>
+      <code><![CDATA[public function willReturnCallback(callable $callback): self]]></code>
+      <code><![CDATA[public function willReturnMap(array $valueMap): self]]></code>
+      <code><![CDATA[public function willReturnOnConsecutiveCalls(mixed ...$values): self]]></code>
+      <code><![CDATA[public function willReturnReference(mixed &$reference): self]]></code>
+      <code><![CDATA[public function willReturnSelf(): self]]></code>
+      <code><![CDATA[public function willThrowException(Throwable $exception): self]]></code>
+      <code><![CDATA[public function with(mixed ...$arguments): self]]></code>
+      <code><![CDATA[public function withAnyParameters(): self]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$configurableMethods]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Invocation.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/MockObject/Runtime/Matcher.php">
     <InvalidNullableReturnType>
@@ -362,6 +1330,12 @@
     <NullableReturnStatement>
       <code><![CDATA[$this->methodNameRule]]></code>
     </NullableReturnStatement>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/MethodNameConstraint.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function matches(mixed $other): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/MockObject/Runtime/ReturnValueGenerator.php">
     <ArgumentTypeCoercion>
@@ -375,10 +1349,96 @@
       <code><![CDATA[MockObject]]></code>
     </MoreSpecificReturnType>
   </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/AnyInvokedCount.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function matches(BaseInvocation $invocation): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/AnyParameters.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function apply(BaseInvocation $invocation): void]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/InvokedAtLeastCount.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function matches(BaseInvocation $invocation): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/InvokedAtLeastOnce.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function matches(BaseInvocation $invocation): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/InvokedAtMostCount.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function matches(BaseInvocation $invocation): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/InvokedCount.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function invokedDo(BaseInvocation $invocation): void]]></code>
+      <code><![CDATA[public function matches(BaseInvocation $invocation): bool]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/MockObject/Runtime/Rule/Parameters.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function apply(BaseInvocation $invocation): void]]></code>
+      <code><![CDATA[public function verify(): void]]></code>
+    </MissingOverrideAttribute>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$parameterVerificationResult]]></code>
     </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ConsecutiveCalls.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): mixed]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/Exception.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): never]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ReturnArgument.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): mixed]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ReturnCallback.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): mixed]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ReturnReference.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): mixed]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ReturnSelf.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): object]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ReturnStub.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): mixed]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Stub/ReturnValueMap.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function invoke(Invocation $invocation): mixed]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Framework/TestCase.php">
     <ArgumentTypeCoercion>
@@ -395,6 +1455,14 @@
       <code><![CDATA[mockObjectForTrait]]></code>
       <code><![CDATA[objectForTrait]]></code>
     </DeprecatedMethod>
+    <MissingOverrideAttribute>
+      <code><![CDATA[final public function count(): int]]></code>
+      <code><![CDATA[final public function provides(): array]]></code>
+      <code><![CDATA[final public function requires(): array]]></code>
+      <code><![CDATA[final public function run(): void]]></code>
+      <code><![CDATA[final public function sortId(): string]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <MissingThrowsDocblock>
       <code><![CDATA[getMethod]]></code>
     </MissingThrowsDocblock>
@@ -423,6 +1491,113 @@
       <code><![CDATA[!$path]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/Framework/TestSize/Known.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isKnown(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestSize/Large.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isGreaterThan(TestSize $other): bool]]></code>
+      <code><![CDATA[public function isLarge(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestSize/Medium.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isGreaterThan(TestSize $other): bool]]></code>
+      <code><![CDATA[public function isMedium(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestSize/Small.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isGreaterThan(TestSize $other): bool]]></code>
+      <code><![CDATA[public function isSmall(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestSize/Unknown.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isUnknown(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Deprecation.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isDeprecation(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Error.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isError(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Failure.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isFailure(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Incomplete.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isIncomplete(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Known.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isKnown(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Notice.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isNotice(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Risky.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isRisky(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Skipped.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isSkipped(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Success.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isSuccess(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Unknown.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isUnknown(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Framework/TestStatus/Warning.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asInt(): int]]></code>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isWarning(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Framework/TestSuite.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$this->name]]></code>
@@ -431,12 +1606,40 @@
       <code><![CDATA[$this->providedTests]]></code>
       <code><![CDATA[$this->requiredTests]]></code>
     </LessSpecificReturnStatement>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): Iterator]]></code>
+      <code><![CDATA[public function provides(): array]]></code>
+      <code><![CDATA[public function requires(): array]]></code>
+      <code><![CDATA[public function run(): void]]></code>
+      <code><![CDATA[public function sortId(): string]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <MoreSpecificReturnType>
       <code><![CDATA[list<ExecutionOrderDependency>]]></code>
       <code><![CDATA[list<ExecutionOrderDependency>]]></code>
     </MoreSpecificReturnType>
   </file>
+  <file src="src/Framework/TestSuiteIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): Test]]></code>
+      <code><![CDATA[public function getChildren(): self]]></code>
+      <code><![CDATA[public function hasChildren(): bool]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/EventLogger.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function trace(Event $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Logging/JUnit/JunitXmlLogger.php">
+    <InvalidOperand>
+      <code><![CDATA[$this->testSuiteTimes[$this->testSuiteLevel] += $time]]></code>
+    </InvalidOperand>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->testSuiteTimes]]></code>
     </InvalidPropertyAssignmentValue>
@@ -444,7 +1647,110 @@
       <code><![CDATA[assert($test instanceof TestMethod)]]></code>
     </RedundantCondition>
   </file>
+  <file src="src/Logging/JUnit/Subscriber/TestErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Errored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestFailedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Failed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestMarkedIncompleteSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestPreparationStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PreparationStarted $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestPreparedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Prepared $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestRunnerExecutionFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ExecutionFinished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestSuiteFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/JUnit/Subscriber/TestSuiteStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Started $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestConsideredRiskySubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Errored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestFailedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Failed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestMarkedIncompleteSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestPreparedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Prepared $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestRunnerExecutionFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ExecutionFinished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestSuiteFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TeamCity/Subscriber/TestSuiteStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Started $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Logging/TeamCity/TeamCityLogger.php">
+    <InvalidOperand>
+      <code><![CDATA[$event->telemetryInfo()->time()->duration($this->time)->asFloat() * 1000]]></code>
+    </InvalidOperand>
     <MissingThrowsDocblock>
       <code><![CDATA[comparisonFailure]]></code>
       <code><![CDATA[comparisonFailure]]></code>
@@ -464,10 +1770,97 @@
       <code><![CDATA[$value]]></code>
     </InvalidCast>
   </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestConsideredRiskySubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectForAbstractClassSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MockObjectForAbstractClassCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectForTraitSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MockObjectForTraitCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectFromWsdlSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MockObjectFromWsdlCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MockObjectCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedPartialMockObjectSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PartialMockObjectCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedTestProxySubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(TestProxyCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedTestStubSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(TestStubCreated $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Errored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestFailedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Failed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestMarkedIncompleteSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestPassedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Passed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestPreparedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Prepared $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/Subscriber/TestSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Logging/TestDox/TestMethod/TestResultCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getIterator(): TestResultCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$testResults]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Logging/TestDox/TestMethod/TestResultCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): TestResult]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Logging/TestDox/TestMethod/TestResultCollector.php">
     <PossiblyNullArgument>
@@ -478,6 +1871,16 @@
       <code><![CDATA[assert($test instanceof TestMethod)]]></code>
     </RedundantCondition>
   </file>
+  <file src="src/Metadata/After.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isAfter(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/AfterClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isAfterClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Metadata/Api/CodeCoverage.php">
     <RedundantCondition>
       <code><![CDATA[$metadata instanceof CoversFunction]]></code>
@@ -487,6 +1890,9 @@
     </RedundantCondition>
   </file>
   <file src="src/Metadata/Api/DataProvider.php">
+    <InvalidOperand>
+      <code><![CDATA[$key]]></code>
+    </InvalidOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$e->getCode()]]></code>
     </PossiblyInvalidArgument>
@@ -529,10 +1935,113 @@
       <code><![CDATA[assert($metadata instanceof RequiresSetting)]]></code>
     </RedundantCondition>
   </file>
+  <file src="src/Metadata/BackupGlobals.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isBackupGlobals(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/BackupStaticProperties.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isBackupStaticProperties(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Before.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isBefore(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/BeforeClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isBeforeClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Covers.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isCovers(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/CoversClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isCoversClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/CoversDefaultClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isCoversDefaultClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/CoversFunction.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isCoversFunction(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/CoversNothing.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isCoversNothing(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/DataProvider.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isDataProvider(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/DependsOnClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isDependsOnClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/DependsOnMethod.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isDependsOnMethod(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/DoesNotPerformAssertions.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isDoesNotPerformAssertions(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/ExcludeGlobalVariableFromBackup.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isExcludeGlobalVariableFromBackup(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/ExcludeStaticPropertyFromBackup.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isExcludeStaticPropertyFromBackup(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Group.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isGroup(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/IgnoreDeprecations.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isIgnoreDeprecations(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/IgnorePhpunitDeprecations.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isIgnorePhpunitDeprecations(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Metadata/MetadataCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): MetadataCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$metadata]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/Metadata/MetadataCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function current(): Metadata]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Metadata/Parser/Annotation/DocBlock.php">
     <InvalidPropertyAssignmentValue>
@@ -596,6 +2105,149 @@
       <code><![CDATA[trim($tmp[0])]]></code>
       <code><![CDATA[trim($tmp[1])]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function forClass(string $className): MetadataCollection]]></code>
+      <code><![CDATA[public function forClassAndMethod(string $className, string $methodName): MetadataCollection]]></code>
+      <code><![CDATA[public function forMethod(string $className, string $methodName): MetadataCollection]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Parser/AttributeParser.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function forClass(string $className): MetadataCollection]]></code>
+      <code><![CDATA[public function forClassAndMethod(string $className, string $methodName): MetadataCollection]]></code>
+      <code><![CDATA[public function forMethod(string $className, string $methodName): MetadataCollection]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Parser/CachingParser.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function forClass(string $className): MetadataCollection]]></code>
+      <code><![CDATA[public function forClassAndMethod(string $className, string $methodName): MetadataCollection]]></code>
+      <code><![CDATA[public function forMethod(string $className, string $methodName): MetadataCollection]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Parser/ParserChain.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function forClass(string $className): MetadataCollection]]></code>
+      <code><![CDATA[public function forClassAndMethod(string $className, string $methodName): MetadataCollection]]></code>
+      <code><![CDATA[public function forMethod(string $className, string $methodName): MetadataCollection]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/PostCondition.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isPostCondition(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/PreCondition.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isPreCondition(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/PreserveGlobalState.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isPreserveGlobalState(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresFunction.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresFunction(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresMethod.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresMethod(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresOperatingSystem.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresOperatingSystem(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresOperatingSystemFamily.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresOperatingSystemFamily(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresPhp.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresPhp(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresPhpExtension.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresPhpExtension(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresPhpunit.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresPhpunit(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RequiresSetting.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRequiresSetting(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RunClassInSeparateProcess.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRunClassInSeparateProcess(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RunInSeparateProcess.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRunInSeparateProcess(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/RunTestsInSeparateProcesses.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isRunTestsInSeparateProcesses(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Test.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isTest(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/TestDox.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isTestDox(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/TestWith.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isTestWith(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Uses.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isUses(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/UsesClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isUsesClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/UsesDefaultClass.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isUsesDefaultClass(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/UsesFunction.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isUsesFunction(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Version/ComparisonRequirement.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isSatisfiedBy(string $version): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Metadata/Version/ConstraintRequirement.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function asString(): string]]></code>
+      <code><![CDATA[public function isSatisfiedBy(string $version): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Metadata/Version/Requirement.php">
     <ArgumentTypeCoercion>
@@ -605,6 +2257,11 @@
       <code><![CDATA[empty($matches['operator'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/Metadata/WithoutErrorHandler.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isWithoutErrorHandler(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Runner/Baseline/RelativePathCalculator.php">
     <LessSpecificReturnStatement>
       <code><![CDATA[array_merge(array_fill(0, $dotsCount, '..'), array_slice($filenameParts, $i))]]></code>
@@ -612,6 +2269,36 @@
     <MoreSpecificReturnType>
       <code><![CDATA[list<non-empty-string>]]></code>
     </MoreSpecificReturnType>
+  </file>
+  <file src="src/Runner/Baseline/Subscriber/TestTriggeredDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(DeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/Baseline/Subscriber/TestTriggeredNoticeSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(NoticeTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/Baseline/Subscriber/TestTriggeredPhpDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpDeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/Baseline/Subscriber/TestTriggeredPhpNoticeSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpNoticeTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/Baseline/Subscriber/TestTriggeredPhpWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpWarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/Baseline/Subscriber/TestTriggeredWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(WarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Runner/CodeCoverage.php">
     <InvalidNullableReturnType>
@@ -661,7 +2348,15 @@
       <code><![CDATA[Issue::from($file, $line, null, $description)]]></code>
     </MissingThrowsDocblock>
   </file>
+  <file src="src/Runner/Filter/ExcludeGroupFilterIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function doAccept(int $id): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Runner/Filter/GroupFilterIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function accept(): bool]]></code>
+    </MissingOverrideAttribute>
     <MissingTemplateParam>
       <code><![CDATA[GroupFilterIterator]]></code>
     </MissingTemplateParam>
@@ -672,11 +2367,19 @@
       <code><![CDATA[$this->groupTests]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/Runner/Filter/IncludeGroupFilterIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function doAccept(int $id): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Runner/Filter/NameFilterIterator.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$filter]]></code>
       <code><![CDATA[$this->filter]]></code>
     </ArgumentTypeCoercion>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function accept(): bool]]></code>
+    </MissingOverrideAttribute>
     <MissingTemplateParam>
       <code><![CDATA[NameFilterIterator]]></code>
     </MissingTemplateParam>
@@ -688,12 +2391,30 @@
     </PossiblyNullReference>
   </file>
   <file src="src/Runner/Filter/TestIdFilterIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function accept(): bool]]></code>
+    </MissingOverrideAttribute>
     <MissingTemplateParam>
       <code><![CDATA[TestIdFilterIterator]]></code>
     </MissingTemplateParam>
     <PossiblyNullReference>
       <code><![CDATA[current]]></code>
     </PossiblyNullReference>
+  </file>
+  <file src="src/Runner/GarbageCollection/Subscriber/ExecutionFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ExecutionFinished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/GarbageCollection/Subscriber/ExecutionStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ExecutionStarted $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/GarbageCollection/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Runner/PhptTestCase.php">
     <InternalClass>
@@ -704,12 +2425,27 @@
       <code><![CDATA[RawCodeCoverageData::fromXdebugWithoutPathCoverage([])]]></code>
       <code><![CDATA[RawCodeCoverageData::fromXdebugWithoutPathCoverage([])]]></code>
     </InternalMethod>
+    <InvalidOperand>
+      <code><![CDATA[$key]]></code>
+      <code><![CDATA[$key]]></code>
+    </InvalidOperand>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function provides(): array]]></code>
+      <code><![CDATA[public function requires(): array]]></code>
+      <code><![CDATA[public function run(): void]]></code>
+      <code><![CDATA[public function sortId(): string]]></code>
+      <code><![CDATA[public function toString(): string]]></code>
+    </MissingOverrideAttribute>
     <MissingThrowsDocblock>
       <code><![CDATA[bootstrap]]></code>
     </MissingThrowsDocblock>
     <PossiblyInvalidArgument>
       <code><![CDATA[$sections['FILEEOF']]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$sections[$section]]]></code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$trace[0]['file']]]></code>
       <code><![CDATA[$trace[0]['line']]]></code>
@@ -721,10 +2457,195 @@
       <code><![CDATA[empty($e[0])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/Runner/ResultCache/DefaultResultCache.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function load(): void]]></code>
+      <code><![CDATA[public function persist(): void]]></code>
+      <code><![CDATA[public function setStatus(string $id, TestStatus $status): void]]></code>
+      <code><![CDATA[public function setTime(string $id, float $time): void]]></code>
+      <code><![CDATA[public function status(string $id): TestStatus]]></code>
+      <code><![CDATA[public function time(string $id): float]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/NullResultCache.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function load(): void]]></code>
+      <code><![CDATA[public function persist(): void]]></code>
+      <code><![CDATA[public function setStatus(string $id, TestStatus $status): void]]></code>
+      <code><![CDATA[public function setTime(string $id, float $time): void]]></code>
+      <code><![CDATA[public function status(string $id): TestStatus]]></code>
+      <code><![CDATA[public function time(string $id): float]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestConsideredRiskySubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Errored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestFailedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Failed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestMarkedIncompleteSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestPreparedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Prepared $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestSuiteFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/ResultCache/Subscriber/TestSuiteStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Started $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/Runner/TestResult/Collector.php">
     <RedundantCondition>
       <code><![CDATA[assert($testSuite instanceof TestSuiteForTestMethodWithDataProvider)]]></code>
     </RedundantCondition>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/BeforeTestClassMethodErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(BeforeFirstTestMethodErrored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/ExecutionStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ExecutionStarted $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestConsideredRiskySubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Errored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestFailedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Failed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestMarkedIncompleteSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestPreparedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Prepared $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestRunnerTriggeredDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(DeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestRunnerTriggeredWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(WarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestSuiteFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestSuiteSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestSuiteStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Started $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(DeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredErrorSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ErrorTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredNoticeSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(NoticeTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpDeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpNoticeSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpNoticeTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpWarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpunitDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpunitDeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpunitErrorSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpunitErrorTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpunitWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpunitWarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/Runner/TestResult/Subscriber/TestTriggeredWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(WarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Runner/TestSuiteLoader.php">
     <UnresolvableInclude>
@@ -778,6 +2699,61 @@
     <UnresolvableInclude>
       <code><![CDATA[include_once $filename]]></code>
     </UnresolvableInclude>
+  </file>
+  <file src="src/TextUI/Command/Commands/AtLeastVersionCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/GenerateConfigurationCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/ListGroupsCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/ListTestSuitesCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/ListTestsAsTextCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/ListTestsAsXmlCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/MigrateConfigurationCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/ShowHelpCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/ShowVersionCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/VersionCheckCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Command/Commands/WarmCodeCoverageCacheCommand.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function execute(): Result]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/TextUI/Configuration/Builder.php">
     <MissingThrowsDocblock>
@@ -884,59 +2860,221 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Value/ConstantCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): ConstantCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$constants]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/ConstantCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): Constant]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/DirectoryCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): DirectoryCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$directories]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/DirectoryCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): Directory]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/ExtensionBootstrapCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getIterator(): ExtensionBootstrapCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$extensionBootstraps]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/ExtensionBootstrapCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): ExtensionBootstrap]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/FileCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): FileCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$files]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/FileCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): File]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/FilterDirectoryCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): FilterDirectoryCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$directories]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/FilterDirectoryCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): FilterDirectory]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/GroupCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function getIterator(): GroupCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$groups]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/GroupCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): Group]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/IniSettingCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): IniSettingCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$iniSettings]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/IniSettingCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): IniSetting]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/TestDirectoryCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): TestDirectoryCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$directories]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/TestDirectoryCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): TestDirectory]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/TestFileCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): TestFileCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$files]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/TestFileCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): TestFile]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/TestSuiteCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): TestSuiteCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$testSuites]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="src/TextUI/Configuration/Value/TestSuiteCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): TestSuite]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Value/VariableCollection.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): VariableCollectionIterator]]></code>
+    </MissingOverrideAttribute>
     <PropertyTypeCoercion>
       <code><![CDATA[$variables]]></code>
     </PropertyTypeCoercion>
+  </file>
+  <file src="src/TextUI/Configuration/Value/VariableCollectionIterator.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function current(): Variable]]></code>
+      <code><![CDATA[public function key(): int]]></code>
+      <code><![CDATA[public function next(): void]]></code>
+      <code><![CDATA[public function rewind(): void]]></code>
+      <code><![CDATA[public function valid(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/DefaultConfiguration.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function isDefault(): bool]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/LoadedFromFileConfiguration.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function wasLoadedFromFile(): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/TextUI/Configuration/Xml/Loader.php">
     <ArgumentTypeCoercion>
@@ -953,16 +3091,205 @@
       <code><![CDATA[$this->getBoolean($document->documentElement->getAttribute('colors'), false)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/ConvertLogTypes.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoverageCloverToReport.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function forType(): string]]></code>
+      <code><![CDATA[protected function toReportFormat(DOMElement $logNode): DOMElement]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoverageCrap4jToReport.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function forType(): string]]></code>
+      <code><![CDATA[protected function toReportFormat(DOMElement $logNode): DOMElement]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoverageHtmlToReport.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function forType(): string]]></code>
+      <code><![CDATA[protected function toReportFormat(DOMElement $logNode): DOMElement]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoveragePhpToReport.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function forType(): string]]></code>
+      <code><![CDATA[protected function toReportFormat(DOMElement $logNode): DOMElement]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoverageTextToReport.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function forType(): string]]></code>
+      <code><![CDATA[protected function toReportFormat(DOMElement $logNode): DOMElement]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/CoverageXmlToReport.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function forType(): string]]></code>
+      <code><![CDATA[protected function toReportFormat(DOMElement $logNode): DOMElement]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/IntroduceCacheDirectoryAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/IntroduceCoverageElement.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Xml/Migration/Migrations/LogToReportMigration.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
     <PossiblyNullReference>
       <code><![CDATA[removeChild]]></code>
     </PossiblyNullReference>
   </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/MoveAttributesFromFilterWhitelistToCoverage.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/MoveAttributesFromRootToCoverage.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/MoveCoverageDirectoriesToSource.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/MoveWhitelistExcludesToCoverage.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/MoveWhitelistIncludesToCoverage.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveBeStrictAboutResourceUsageDuringSmallTestsAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveBeStrictAboutTodoAnnotatedTestsAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCacheResultFileAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCacheTokensAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveConversionToExceptionsAttributes.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementCacheDirectoryAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementProcessUncoveredFilesAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveEmptyFilter.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
     <PossiblyNullReference>
       <code><![CDATA[removeChild]]></code>
       <code><![CDATA[removeChild]]></code>
     </PossiblyNullReference>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveListeners.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveLogTypes.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveLoggingElements.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveNoInteractionAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemovePrinterAttributes.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveTestDoxGroupsElement.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveTestSuiteLoaderAttributes.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RemoveVerboseAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RenameBackupStaticAttributesAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RenameBeStrictAboutCoversAnnotationAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/RenameForceCoversAnnotationAttribute.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/Migrations/UpdateSchemaLocation.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function migrate(DOMDocument $document): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/Migration/SnapshotNodeList.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function count(): int]]></code>
+      <code><![CDATA[public function getIterator(): ArrayIterator]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Configuration/Xml/SchemaDetector/SuccessfulSchemaDetectionResult.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function detected(): bool]]></code>
+      <code><![CDATA[public function version(): string]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/TextUI/Help.php">
     <PossiblyUndefinedArrayOffset>
@@ -970,11 +3297,116 @@
       <code><![CDATA[$option['desc']]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/ProgressPrinter.php">
+    <InvalidOperand>
+      <code><![CDATA[$this->numberOfTestsWidth]]></code>
+      <code><![CDATA[$this->numberOfTestsWidth]]></code>
+      <code><![CDATA[($this->numberOfTestsRun / $this->numberOfTests) * 100]]></code>
+    </InvalidOperand>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/BeforeTestClassMethodErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(BeforeFirstTestMethodErrored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestConsideredRiskySubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestErroredSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Errored $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestFailedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Failed $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestFinishedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Finished $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestMarkedIncompleteSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestPreparedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Prepared $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestRunnerExecutionStartedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ExecutionStarted $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestSkippedSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(Skipped $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(DeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredErrorSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(ErrorTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredNoticeSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(NoticeTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredPhpDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpDeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredPhpNoticeSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpNoticeTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredPhpWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpWarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredPhpunitDeprecationSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpunitDeprecationTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredPhpunitWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PhpunitWarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredWarningSubscriber.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(WarningTriggered $event): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
   <file src="src/TextUI/Output/Default/ResultPrinter.php">
+    <InvalidOperand>
+      <code><![CDATA[$triggeringTest['test']->line()]]></code>
+    </InvalidOperand>
     <RedundantCondition>
       <code><![CDATA[assert($test instanceof TestMethod)]]></code>
       <code><![CDATA[assert($test instanceof TestMethod)]]></code>
     </RedundantCondition>
+  </file>
+  <file src="src/TextUI/Output/Default/UnexpectedOutputPrinter.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function notify(PrintedUnexpectedOutput $event): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/TextUI/Output/Facade.php">
     <InvalidNullableReturnType>
@@ -1007,10 +3439,20 @@
     </NullableReturnStatement>
   </file>
   <file src="src/TextUI/Output/Printer/DefaultPrinter.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function flush(): void]]></code>
+      <code><![CDATA[public function print(string $buffer): void]]></code>
+    </MissingOverrideAttribute>
     <PossiblyInvalidArgument>
       <code><![CDATA[$this->stream]]></code>
       <code><![CDATA[$this->stream]]></code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="src/TextUI/Output/Printer/NullPrinter.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function flush(): void]]></code>
+      <code><![CDATA[public function print(string $buffer): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/TextUI/TestSuiteFilterProcessor.php">
     <ArgumentTypeCoercion>
@@ -1026,6 +3468,12 @@
       <code><![CDATA[self::$directories]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
+  <file src="src/Util/GlobalState.php">
+    <InvalidOperand>
+      <code><![CDATA[PHP_MAJOR_VERSION]]></code>
+      <code><![CDATA[PHP_MINOR_VERSION]]></code>
+    </InvalidOperand>
+  </file>
   <file src="src/Util/PHP/AbstractPhpProcess.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$file]]></code>
@@ -1037,6 +3485,9 @@
     <DocblockTypeContradiction>
       <code><![CDATA[is_array($envVar)]]></code>
     </DocblockTypeContradiction>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function runJob(string $job, array $settings = []): array]]></code>
+    </MissingOverrideAttribute>
     <RedundantCondition>
       <code><![CDATA[$_SERVER]]></code>
     </RedundantCondition>
@@ -1047,6 +3498,12 @@
     <TypeDoesNotContainNull>
       <code><![CDATA[[]]]></code>
     </TypeDoesNotContainNull>
+  </file>
+  <file src="src/Util/PHP/WindowsPhpProcess.php">
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function getHandles(): array]]></code>
+      <code><![CDATA[protected function useTemporaryFile(): bool]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/Util/Reflection.php">
     <ArgumentTypeCoercion>

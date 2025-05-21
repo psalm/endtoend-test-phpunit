@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@a3a13241a76d19e7e7f0f51bef973f8c9266d594">
+<files psalm-version="dev-master@1359b59ac1b1df71151410b2461f5341d9943a00">
   <file src="tests/static-analysis/TestUsingMocks.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[HelloWorldClass]]></code>
+    </ClassMustBeFinal>
     <DeprecatedMethod>
-      <code>createTestProxy</code>
+      <code><![CDATA[createTestProxy]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="tests/static-analysis/happy-path/assert-not-instance-of.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[A]]></code>
+      <code><![CDATA[B]]></code>
+    </ClassMustBeFinal>
   </file>
 </files>
