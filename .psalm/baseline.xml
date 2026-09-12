@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@f4a2cc7ff8c1987a76ffc03e95ebca94196107d2">
+<files psalm-version="dev-master@fba1673ef75388d8c011e539b37d172d4dc9813a">
   <file src="src/Event/Dispatcher/CollectingDispatcher.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function dispatch(Event $event): void]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[dispatch]]></code>
       <code><![CDATA[flush]]></code>
     </MissingPureAnnotation>
   </file>
@@ -28,6 +29,7 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[isThrowableFromThirdPartySubscriber]]></code>
+      <code><![CDATA[registerSubscriber]]></code>
       <code><![CDATA[registerTracer]]></code>
     </MissingPureAnnotation>
     <UndefinedInterfaceMethod>
@@ -289,6 +291,9 @@
     <MissingPureAnnotation>
       <code><![CDATA[add]]></code>
       <code><![CDATA[count]]></code>
+      <code><![CDATA[getIterator]]></code>
+      <code><![CDATA[isEmpty]]></code>
+      <code><![CDATA[isNotEmpty]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Event/Events/EventCollectionIterator.php">
@@ -1569,6 +1574,9 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[count]]></code>
+      <code><![CDATA[dataFromDataProvider]]></code>
+      <code><![CDATA[fromArray]]></code>
+      <code><![CDATA[getIterator]]></code>
       <code><![CDATA[hasDataFromDataProvider]]></code>
     </MissingPureAnnotation>
     <PropertyTypeCoercion>
@@ -1655,10 +1663,21 @@
   <file src="src/Framework/Assert.php">
     <MissingPureAnnotation>
       <code><![CDATA[anything]]></code>
+      <code><![CDATA[arrayHasKey]]></code>
+      <code><![CDATA[callback]]></code>
+      <code><![CDATA[containsEqual]]></code>
+      <code><![CDATA[containsIdentical]]></code>
+      <code><![CDATA[countOf]]></code>
       <code><![CDATA[directoryExists]]></code>
+      <code><![CDATA[equalTo]]></code>
+      <code><![CDATA[equalToCanonicalizing]]></code>
+      <code><![CDATA[equalToIgnoringCase]]></code>
+      <code><![CDATA[equalToWithDelta]]></code>
       <code><![CDATA[fail]]></code>
       <code><![CDATA[fileExists]]></code>
       <code><![CDATA[getCount]]></code>
+      <code><![CDATA[greaterThan]]></code>
+      <code><![CDATA[identicalTo]]></code>
       <code><![CDATA[isEmpty]]></code>
       <code><![CDATA[isFalse]]></code>
       <code><![CDATA[isFinite]]></code>
@@ -1670,10 +1689,20 @@
       <code><![CDATA[isNull]]></code>
       <code><![CDATA[isReadable]]></code>
       <code><![CDATA[isTrue]]></code>
+      <code><![CDATA[isType]]></code>
       <code><![CDATA[isWritable]]></code>
+      <code><![CDATA[lessThan]]></code>
+      <code><![CDATA[logicalNot]]></code>
       <code><![CDATA[markTestIncomplete]]></code>
       <code><![CDATA[markTestSkipped]]></code>
+      <code><![CDATA[matches]]></code>
+      <code><![CDATA[matchesRegularExpression]]></code>
+      <code><![CDATA[objectEquals]]></code>
       <code><![CDATA[resetCount]]></code>
+      <code><![CDATA[stringContains]]></code>
+      <code><![CDATA[stringEndsWith]]></code>
+      <code><![CDATA[stringEqualsStringIgnoringLineEndings]]></code>
+      <code><![CDATA[stringStartsWith]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Framework/Assert/Functions.php">
@@ -1683,8 +1712,54 @@
     </DeprecatedMethod>
     <MissingPureAnnotation>
       <code><![CDATA[any]]></code>
+      <code><![CDATA[anything]]></code>
+      <code><![CDATA[arrayHasKey]]></code>
+      <code><![CDATA[atLeast]]></code>
       <code><![CDATA[atLeastOnce]]></code>
+      <code><![CDATA[atMost]]></code>
+      <code><![CDATA[callback]]></code>
+      <code><![CDATA[containsEqual]]></code>
+      <code><![CDATA[containsIdentical]]></code>
+      <code><![CDATA[countOf]]></code>
+      <code><![CDATA[directoryExists]]></code>
+      <code><![CDATA[equalTo]]></code>
+      <code><![CDATA[equalToCanonicalizing]]></code>
+      <code><![CDATA[equalToIgnoringCase]]></code>
+      <code><![CDATA[equalToWithDelta]]></code>
+      <code><![CDATA[exactly]]></code>
+      <code><![CDATA[fileExists]]></code>
+      <code><![CDATA[greaterThan]]></code>
+      <code><![CDATA[identicalTo]]></code>
+      <code><![CDATA[isEmpty]]></code>
+      <code><![CDATA[isFalse]]></code>
+      <code><![CDATA[isFinite]]></code>
+      <code><![CDATA[isInfinite]]></code>
+      <code><![CDATA[isJson]]></code>
+      <code><![CDATA[isList]]></code>
+      <code><![CDATA[isNan]]></code>
+      <code><![CDATA[isNull]]></code>
+      <code><![CDATA[isReadable]]></code>
+      <code><![CDATA[isTrue]]></code>
+      <code><![CDATA[isType]]></code>
+      <code><![CDATA[isWritable]]></code>
+      <code><![CDATA[lessThan]]></code>
+      <code><![CDATA[logicalNot]]></code>
+      <code><![CDATA[matches]]></code>
+      <code><![CDATA[matchesRegularExpression]]></code>
+      <code><![CDATA[never]]></code>
+      <code><![CDATA[objectEquals]]></code>
+      <code><![CDATA[onConsecutiveCalls]]></code>
+      <code><![CDATA[once]]></code>
+      <code><![CDATA[returnArgument]]></code>
+      <code><![CDATA[returnCallback]]></code>
       <code><![CDATA[returnSelf]]></code>
+      <code><![CDATA[returnValue]]></code>
+      <code><![CDATA[returnValueMap]]></code>
+      <code><![CDATA[stringContains]]></code>
+      <code><![CDATA[stringEndsWith]]></code>
+      <code><![CDATA[stringEqualsStringIgnoringLineEndings]]></code>
+      <code><![CDATA[stringStartsWith]]></code>
+      <code><![CDATA[throwException]]></code>
     </MissingPureAnnotation>
     <TooManyArguments>
       <code><![CDATA[Assert::anything(...func_get_args())]]></code>
@@ -1764,6 +1839,7 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[failureDescription]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
     <TooManyArguments>
@@ -2000,6 +2076,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[failureDescription]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
     <MissingThrowsDocblock>
@@ -2017,6 +2094,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[failureDescription]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
     <MissingThrowsDocblock>
@@ -2065,7 +2143,6 @@
       <code><![CDATA[public function precedence(): int]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
-      <code><![CDATA[negate]]></code>
       <code><![CDATA[operator]]></code>
       <code><![CDATA[precedence]]></code>
     </MissingPureAnnotation>
@@ -2101,6 +2178,9 @@
       <code><![CDATA[operator]]></code>
       <code><![CDATA[precedence]]></code>
     </MissingAbstractPureAnnotation>
+    <MissingPureAnnotation>
+      <code><![CDATA[checkConstraint]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Framework/Constraint/Operator/UnaryOperator.php">
     <MissingOverrideAttribute>
@@ -2111,6 +2191,7 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
       <code><![CDATA[arity]]></code>
       <code><![CDATA[transformString]]></code>
     </MissingPureAnnotation>
@@ -2146,8 +2227,12 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
       <code><![CDATA[getDetectedEncoding]]></code>
+      <code><![CDATA[getHaystackLength]]></code>
+      <code><![CDATA[matches]]></code>
       <code><![CDATA[normalizeLineEndings]]></code>
+      <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$detectedEncoding]]></code>
@@ -2173,6 +2258,8 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[matches]]></code>
       <code><![CDATA[normalizeLineEndings]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
@@ -2194,6 +2281,7 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[convertNewlines]]></code>
       <code><![CDATA[failureDescription]]></code>
+      <code><![CDATA[matches]]></code>
       <code><![CDATA[regularExpressionForFormatDescription]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
@@ -2229,6 +2317,7 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[failureDescription]]></code>
       <code><![CDATA[matches]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
@@ -2274,6 +2363,7 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[failureDescription]]></code>
       <code><![CDATA[matches]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
@@ -2314,6 +2404,10 @@
       <code><![CDATA[public function provides(): array]]></code>
       <code><![CDATA[public function requires(): array]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[provides]]></code>
+      <code><![CDATA[setDependencies]]></code>
+    </MissingPureAnnotation>
     <MoreSpecificReturnType>
       <code><![CDATA[list<ExecutionOrderDependency>]]></code>
     </MoreSpecificReturnType>
@@ -2332,10 +2426,50 @@
       <code><![CDATA[__sleep]]></code>
     </MissingPureAnnotation>
   </file>
+  <file src="src/Framework/Exception/ExpectationFailedException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/GeneratorNotSupportedException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[fromParameterName]]></code>
+    </MissingPureAnnotation>
+  </file>
   <file src="src/Framework/Exception/Incomplete/IncompleteTest.php">
     <MissingInterfaceImmutableAnnotation>
       <code><![CDATA[IncompleteTest]]></code>
     </MissingInterfaceImmutableAnnotation>
+  </file>
+  <file src="src/Framework/Exception/ObjectEquals/ActualValueIsNotAnObjectException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotAcceptParameterTypeException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotDeclareBoolReturnTypeException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotDeclareExactlyOneParameterException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotDeclareParameterTypeException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotExistException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Framework/Exception/PhptAssertionFailedError.php">
     <ImpureMethodCall>
@@ -2347,12 +2481,27 @@
       <code><![CDATA[SkippedTest]]></code>
     </MissingInterfaceImmutableAnnotation>
   </file>
+  <file src="src/Framework/Exception/UnknownClassOrInterfaceException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/Exception/UnknownTypeException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
   <file src="src/Framework/ExecutionOrderDependency.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function __toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[__toString]]></code>
+      <code><![CDATA[forClass]]></code>
+      <code><![CDATA[forMethod]]></code>
+      <code><![CDATA[getTarget]]></code>
+      <code><![CDATA[invalid]]></code>
       <code><![CDATA[isValid]]></code>
       <code><![CDATA[targetIsClass]]></code>
     </MissingPureAnnotation>
@@ -2365,12 +2514,82 @@
       <code><![CDATA[__construct]]></code>
     </MissingPureAnnotation>
   </file>
+  <file src="src/Framework/MockObject/Exception/CannotUseAddMethodsException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/CannotUseOnlyMethodsException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
   <file src="src/Framework/MockObject/Exception/Exception.php">
     <MissingInterfaceImmutableAnnotation>
       <code><![CDATA[Exception]]></code>
     </MissingInterfaceImmutableAnnotation>
   </file>
+  <file src="src/Framework/MockObject/Exception/MatchBuilderNotFoundException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/MatcherAlreadyRegisteredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/MethodCannotBeConfiguredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/MethodNameAlreadyConfiguredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/MethodNameNotConfiguredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/MethodParametersAlreadyConfiguredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
   <file src="src/Framework/MockObject/Exception/NeverReturningMethodException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Exception/ReturnValueNotConfiguredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/ClassAlreadyExistsException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/ClassIsEnumerationException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/ClassIsFinalException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/ClassIsReadonlyException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/DuplicateMethodException.php">
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
     </MissingPureAnnotation>
@@ -2379,6 +2598,36 @@
     <MissingInterfaceImmutableAnnotation>
       <code><![CDATA[Exception]]></code>
     </MissingInterfaceImmutableAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/InvalidMethodNameException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/OriginalConstructorInvocationRequiredException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/SoapExtensionNotAvailableException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/UnknownClassException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/UnknownTraitException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Generator/Exception/UnknownTypeException.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Framework/MockObject/Generator/Generator.php">
     <ArgumentTypeCoercion>
@@ -2403,6 +2652,7 @@
       <code><![CDATA[generateTestDoubleClassDeclaration]]></code>
       <code><![CDATA[isMethodNameExcluded]]></code>
       <code><![CDATA[reflectClass]]></code>
+      <code><![CDATA[userDefinedInterfaceMethods]]></code>
     </MissingPureAnnotation>
     <MissingThrowsDocblock>
       <code><![CDATA[getMethod]]></code>
@@ -2454,6 +2704,7 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[exportDefaultValue]]></code>
+      <code><![CDATA[fromName]]></code>
       <code><![CDATA[methodParametersDefaultValues]]></code>
       <code><![CDATA[methodParametersForCall]]></code>
     </MissingPureAnnotation>
@@ -2549,6 +2800,18 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[after]]></code>
+      <code><![CDATA[ensureParametersCanBeConfigured]]></code>
+      <code><![CDATA[id]]></code>
+      <code><![CDATA[will]]></code>
+      <code><![CDATA[willReturnArgument]]></code>
+      <code><![CDATA[willReturnCallback]]></code>
+      <code><![CDATA[willReturnOnConsecutiveCalls]]></code>
+      <code><![CDATA[willReturnReference]]></code>
+      <code><![CDATA[willReturnSelf]]></code>
+      <code><![CDATA[willThrowException]]></code>
+      <code><![CDATA[with]]></code>
+      <code><![CDATA[withAnyParameters]]></code>
     </MissingPureAnnotation>
     <PropertyTypeCoercion>
       <code><![CDATA[$configurableMethods]]></code>
@@ -2635,11 +2898,16 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Framework/MockObject/Runtime/InvocationHandler.php">
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[addMatcher]]></code>
+      <code><![CDATA[expects]]></code>
+      <code><![CDATA[hasMatchers]]></code>
       <code><![CDATA[lookupMatcher]]></code>
       <code><![CDATA[registerMatcher]]></code>
     </MissingPureAnnotation>
@@ -2683,6 +2951,7 @@
     </LessSpecificReturnStatement>
     <MissingPureAnnotation>
       <code><![CDATA[onlyInterfaces]]></code>
+      <code><![CDATA[static function (): \Generator]]></code>
     </MissingPureAnnotation>
     <MoreSpecificReturnType>
       <code><![CDATA[MockObject]]></code>
@@ -2717,6 +2986,7 @@
     </MissingAbstractPureAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[hasBeenInvoked]]></code>
+      <code><![CDATA[invoked]]></code>
       <code><![CDATA[invokedDo]]></code>
       <code><![CDATA[numberOfInvocations]]></code>
     </MissingPureAnnotation>
@@ -2731,6 +3001,7 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[matches]]></code>
       <code><![CDATA[toString]]></code>
+      <code><![CDATA[verify]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Framework/MockObject/Runtime/Rule/InvokedAtLeastOnce.php">
@@ -2742,6 +3013,7 @@
     <MissingPureAnnotation>
       <code><![CDATA[matches]]></code>
       <code><![CDATA[toString]]></code>
+      <code><![CDATA[verify]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Framework/MockObject/Runtime/Rule/InvokedAtMostCount.php">
@@ -2754,6 +3026,7 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[matches]]></code>
       <code><![CDATA[toString]]></code>
+      <code><![CDATA[verify]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Framework/MockObject/Runtime/Rule/InvokedCount.php">
@@ -2768,6 +3041,12 @@
       <code><![CDATA[isNever]]></code>
       <code><![CDATA[matches]]></code>
       <code><![CDATA[toString]]></code>
+      <code><![CDATA[verify]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Framework/MockObject/Runtime/Rule/MethodName.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Framework/MockObject/Runtime/Rule/Parameters.php">
@@ -2776,6 +3055,7 @@
       <code><![CDATA[public function verify(): void]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
       <code><![CDATA[guardAgainstDuplicateEvaluationOfParameterConstraints]]></code>
     </MissingPureAnnotation>
     <PropertyNotSetInConstructor>
@@ -2894,6 +3174,11 @@
       <code><![CDATA[Test]]></code>
     </MissingInterfaceImmutableAnnotation>
   </file>
+  <file src="src/Framework/TestBuilder.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[configureTestCase]]></code>
+    </MissingPureAnnotation>
+  </file>
   <file src="src/Framework/TestCase.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$mockClassName]]></code>
@@ -2918,24 +3203,35 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
       <code><![CDATA[addToAssertionCount]]></code>
       <code><![CDATA[any]]></code>
       <code><![CDATA[assertPostConditions]]></code>
       <code><![CDATA[assertPreConditions]]></code>
+      <code><![CDATA[atLeast]]></code>
       <code><![CDATA[atLeastOnce]]></code>
+      <code><![CDATA[atMost]]></code>
       <code><![CDATA[count]]></code>
       <code><![CDATA[dataSetAsString]]></code>
+      <code><![CDATA[exactly]]></code>
       <code><![CDATA[expectException]]></code>
       <code><![CDATA[expectExceptionCode]]></code>
       <code><![CDATA[expectExceptionMessage]]></code>
       <code><![CDATA[expectExceptionMessageMatches]]></code>
+      <code><![CDATA[expectExceptionObject]]></code>
       <code><![CDATA[expectNotToPerformAssertions]]></code>
       <code><![CDATA[expectOutputRegex]]></code>
       <code><![CDATA[expectOutputString]]></code>
+      <code><![CDATA[expectsOutput]]></code>
+      <code><![CDATA[getMockBuilder]]></code>
       <code><![CDATA[hasDependencyInput]]></code>
       <code><![CDATA[hasExpectationOnOutput]]></code>
+      <code><![CDATA[hasUnexpectedOutput]]></code>
       <code><![CDATA[isRegisteredFailure]]></code>
+      <code><![CDATA[nameWithDataSet]]></code>
+      <code><![CDATA[never]]></code>
       <code><![CDATA[onNotSuccessfulTest]]></code>
+      <code><![CDATA[once]]></code>
       <code><![CDATA[registerFailureType]]></code>
       <code><![CDATA[registerMockObject]]></code>
       <code><![CDATA[registerMockObjectsFromTestArgumentsRecursively]]></code>
@@ -2948,6 +3244,7 @@
       <code><![CDATA[setDependencyInput]]></code>
       <code><![CDATA[setGroups]]></code>
       <code><![CDATA[setInIsolation]]></code>
+      <code><![CDATA[setName]]></code>
       <code><![CDATA[setPreserveGlobalState]]></code>
       <code><![CDATA[setResult]]></code>
       <code><![CDATA[setRunClassInSeparateProcess]]></code>
@@ -2955,8 +3252,11 @@
       <code><![CDATA[setUp]]></code>
       <code><![CDATA[setUpBeforeClass]]></code>
       <code><![CDATA[shouldExceptionExpectationsBeVerified]]></code>
+      <code><![CDATA[shouldRunInSeparateProcess]]></code>
+      <code><![CDATA[sortId]]></code>
       <code><![CDATA[tearDown]]></code>
       <code><![CDATA[tearDownAfterClass]]></code>
+      <code><![CDATA[throwException]]></code>
       <code><![CDATA[transformException]]></code>
       <code><![CDATA[usesDataProvider]]></code>
     </MissingPureAnnotation>
@@ -2981,6 +3281,9 @@
     <InvalidArgument>
       <code><![CDATA[$var]]></code>
     </InvalidArgument>
+    <MissingPureAnnotation>
+      <code><![CDATA[__construct]]></code>
+    </MissingPureAnnotation>
     <MissingThrowsDocblock>
       <code><![CDATA[bootstrap]]></code>
     </MissingThrowsDocblock>
@@ -3172,6 +3475,7 @@
       <code><![CDATA[deprecation]]></code>
       <code><![CDATA[error]]></code>
       <code><![CDATA[failure]]></code>
+      <code><![CDATA[from]]></code>
       <code><![CDATA[incomplete]]></code>
       <code><![CDATA[isDeprecation]]></code>
       <code><![CDATA[isError]]></code>
@@ -3237,6 +3541,7 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[clearCaches]]></code>
       <code><![CDATA[containsOnlyVirtualGroups]]></code>
+      <code><![CDATA[empty]]></code>
       <code><![CDATA[groups]]></code>
       <code><![CDATA[isEmpty]]></code>
       <code><![CDATA[markTestSuiteSkipped]]></code>
@@ -3263,6 +3568,8 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[current]]></code>
+      <code><![CDATA[getChildren]]></code>
+      <code><![CDATA[hasChildren]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
       <code><![CDATA[valid]]></code>
@@ -3284,6 +3591,8 @@
       <code><![CDATA[$this->testSuiteTimes]]></code>
     </InvalidPropertyAssignmentValue>
     <MissingPureAnnotation>
+      <code><![CDATA[name]]></code>
+      <code><![CDATA[testAsString]]></code>
       <code><![CDATA[testPrepared]]></code>
     </MissingPureAnnotation>
     <RedundantCondition>
@@ -3327,6 +3636,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Prepared $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/JUnit/Subscriber/TestRunnerExecutionFinishedSubscriber.php">
     <MissingOverrideAttribute>
@@ -3449,76 +3761,121 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectForAbstractClassSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MockObjectForAbstractClassCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectForTraitSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MockObjectForTraitCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectFromWsdlSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MockObjectFromWsdlCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedMockObjectSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MockObjectCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedPartialMockObjectSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(PartialMockObjectCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedTestProxySubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(TestProxyCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestCreatedTestStubSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(TestStubCreated $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestErroredSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Errored $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestFailedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Failed $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestFinishedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Finished $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestMarkedIncompleteSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestPassedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Passed $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestPreparedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Prepared $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/TestSkippedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Skipped $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/TestResultCollection.php">
     <ImpureMethodCall>
@@ -3987,6 +4344,7 @@
   <file src="src/Metadata/Parser/Annotation/Registry.php">
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[getInstance]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Metadata/Parser/AnnotationParser.php">
@@ -4058,8 +4416,13 @@
     </MissingPureAnnotation>
   </file>
   <file src="src/Metadata/Parser/Registry.php">
+    <MissingImmutableAnnotation>
+      <code><![CDATA[Registry]]></code>
+    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[build]]></code>
+      <code><![CDATA[parser]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Metadata/PostCondition.php">
@@ -4271,8 +4634,12 @@
     </MissingPureAnnotation>
   </file>
   <file src="src/Runner/Baseline/Baseline.php">
+    <MissingImmutableAnnotation>
+      <code><![CDATA[Baseline]]></code>
+    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[add]]></code>
+      <code><![CDATA[has]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Runner/Baseline/Exception/FileDoesNotHaveLineException.php">
@@ -4290,8 +4657,12 @@
     <LessSpecificReturnStatement>
       <code><![CDATA[array_merge(array_fill(0, $dotsCount, '..'), array_slice($filenameParts, $i))]]></code>
     </LessSpecificReturnStatement>
+    <MissingImmutableAnnotation>
+      <code><![CDATA[RelativePathCalculator]]></code>
+    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[calculate]]></code>
       <code><![CDATA[parts]]></code>
     </MissingPureAnnotation>
     <MoreSpecificReturnType>
@@ -4707,6 +5078,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Prepared $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/ResultCache/Subscriber/TestSkippedSubscriber.php">
     <MissingOverrideAttribute>
@@ -4722,6 +5096,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Started $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Collector.php">
     <MissingPureAnnotation>
@@ -4736,6 +5113,7 @@
       <code><![CDATA[hasSkippedTests]]></code>
       <code><![CDATA[hasWarnings]]></code>
       <code><![CDATA[issueId]]></code>
+      <code><![CDATA[result]]></code>
       <code><![CDATA[testConsideredRisky]]></code>
       <code><![CDATA[testErrored]]></code>
       <code><![CDATA[testFailed]]></code>
@@ -4747,6 +5125,7 @@
       <code><![CDATA[testSkipped]]></code>
       <code><![CDATA[testSuiteSkipped]]></code>
       <code><![CDATA[testSuiteStarted]]></code>
+      <code><![CDATA[testTriggeredError]]></code>
       <code><![CDATA[testTriggeredPhpunitDeprecation]]></code>
       <code><![CDATA[testTriggeredPhpunitError]]></code>
       <code><![CDATA[testTriggeredPhpunitWarning]]></code>
@@ -4756,8 +5135,12 @@
     </RedundantCondition>
   </file>
   <file src="src/Runner/TestResult/Issue.php">
+    <MissingImmutableAnnotation>
+      <code><![CDATA[Issue]]></code>
+    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[from]]></code>
       <code><![CDATA[triggeredBy]]></code>
     </MissingPureAnnotation>
   </file>
@@ -4776,11 +5159,17 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(BeforeFirstTestMethodErrored $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/ExecutionStartedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ExecutionStarted $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/Subscriber.php">
     <MissingImmutableAnnotation>
@@ -4794,46 +5183,73 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestErroredSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Errored $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestFailedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Failed $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestFinishedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Finished $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestMarkedIncompleteSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestPreparedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Prepared $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestRunnerTriggeredDeprecationSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(DeprecationTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestRunnerTriggeredWarningSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(WarningTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestSkippedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Skipped $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestSuiteFinishedSubscriber.php">
     <MissingOverrideAttribute>
@@ -4844,11 +5260,17 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Skipped $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestSuiteStartedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Started $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestTriggeredDeprecationSubscriber.php">
     <MissingOverrideAttribute>
@@ -4859,6 +5281,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ErrorTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestTriggeredNoticeSubscriber.php">
     <MissingOverrideAttribute>
@@ -4884,16 +5309,25 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(PhpunitDeprecationTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpunitErrorSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(PhpunitErrorTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestTriggeredPhpunitWarningSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(PhpunitWarningTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestResult/Subscriber/TestTriggeredWarningSubscriber.php">
     <MissingOverrideAttribute>
@@ -4901,14 +5335,34 @@
     </MissingOverrideAttribute>
   </file>
   <file src="src/Runner/TestResult/TestResult.php">
+    <MissingImmutableAnnotation>
+      <code><![CDATA[TestResult]]></code>
+    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[hasDeprecations]]></code>
+      <code><![CDATA[hasErrors]]></code>
       <code><![CDATA[hasIncompleteTests]]></code>
       <code><![CDATA[hasIssuesIgnoredByBaseline]]></code>
+      <code><![CDATA[hasNotices]]></code>
       <code><![CDATA[hasRiskyTests]]></code>
       <code><![CDATA[hasSkippedTests]]></code>
+      <code><![CDATA[hasTestConsideredRiskyEvents]]></code>
+      <code><![CDATA[hasTestErroredEvents]]></code>
+      <code><![CDATA[hasTestFailedEvents]]></code>
+      <code><![CDATA[hasTestMarkedIncompleteEvents]]></code>
+      <code><![CDATA[hasTestRunnerTriggeredDeprecationEvents]]></code>
+      <code><![CDATA[hasTestRunnerTriggeredWarningEvents]]></code>
+      <code><![CDATA[hasTestSkippedEvents]]></code>
+      <code><![CDATA[hasTestSuiteSkippedEvents]]></code>
+      <code><![CDATA[hasTestTriggeredPhpunitDeprecationEvents]]></code>
+      <code><![CDATA[hasTestTriggeredPhpunitErrorEvents]]></code>
+      <code><![CDATA[hasTestTriggeredPhpunitWarningEvents]]></code>
       <code><![CDATA[hasTests]]></code>
+      <code><![CDATA[hasTestsWithIssues]]></code>
+      <code><![CDATA[hasWarnings]]></code>
       <code><![CDATA[numberOfDeprecations]]></code>
+      <code><![CDATA[numberOfErrors]]></code>
       <code><![CDATA[numberOfNotices]]></code>
       <code><![CDATA[numberOfTestErroredEvents]]></code>
       <code><![CDATA[numberOfTestFailedEvents]]></code>
@@ -4922,6 +5376,9 @@
       <code><![CDATA[numberOfTestsWithTestTriggeredPhpunitErrorEvents]]></code>
       <code><![CDATA[numberOfTestsWithTestTriggeredPhpunitWarningEvents]]></code>
       <code><![CDATA[numberOfWarnings]]></code>
+      <code><![CDATA[wasSuccessful]]></code>
+      <code><![CDATA[wasSuccessfulAndNoTestHasIssues]]></code>
+      <code><![CDATA[wasSuccessfulIgnoringPhpunitWarnings]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Runner/TestSuiteLoader.php">
@@ -4945,6 +5402,7 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[randomize]]></code>
+      <code><![CDATA[resolveDependencies]]></code>
       <code><![CDATA[reverse]]></code>
     </MissingPureAnnotation>
   </file>
@@ -5019,6 +5477,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestSuitesCommand.php">
@@ -5027,6 +5486,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestsAsTextCommand.php">
@@ -5035,6 +5495,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestsAsXmlCommand.php">
@@ -5043,6 +5504,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/MigrateConfigurationCommand.php">
@@ -5577,6 +6039,7 @@
       <code><![CDATA[public function isDefault(): bool]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
+      <code><![CDATA[create]]></code>
       <code><![CDATA[isDefault]]></code>
     </MissingPureAnnotation>
   </file>
@@ -5910,8 +6373,14 @@
       <code><![CDATA[($this->numberOfTestsRun / $this->numberOfTests) * 100]]></code>
     </InvalidOperand>
     <MissingPureAnnotation>
+      <code><![CDATA[testConsideredRisky]]></code>
+      <code><![CDATA[testFailed]]></code>
+      <code><![CDATA[testMarkedIncomplete]]></code>
       <code><![CDATA[testPrepared]]></code>
       <code><![CDATA[testRunnerExecutionStarted]]></code>
+      <code><![CDATA[testTriggeredError]]></code>
+      <code><![CDATA[testTriggeredPhpunitDeprecation]]></code>
+      <code><![CDATA[testTriggeredPhpunitWarning]]></code>
       <code><![CDATA[updateTestStatus]]></code>
     </MissingPureAnnotation>
   </file>
@@ -5932,6 +6401,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ConsideredRisky $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestErroredSubscriber.php">
     <MissingOverrideAttribute>
@@ -5942,6 +6414,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Failed $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestFinishedSubscriber.php">
     <MissingOverrideAttribute>
@@ -5952,16 +6427,25 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(MarkedIncomplete $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestPreparedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(Prepared $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestRunnerExecutionStartedSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ExecutionStarted $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestSkippedSubscriber.php">
     <MissingOverrideAttribute>
@@ -5977,6 +6461,9 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(ErrorTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredNoticeSubscriber.php">
     <MissingOverrideAttribute>
@@ -6002,11 +6489,17 @@
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(PhpunitDeprecationTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredPhpunitWarningSubscriber.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function notify(PhpunitWarningTriggered $event): void]]></code>
     </MissingOverrideAttribute>
+    <MissingPureAnnotation>
+      <code><![CDATA[notify]]></code>
+    </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Output/Default/ProgressPrinter/Subscriber/TestTriggeredWarningSubscriber.php">
     <MissingOverrideAttribute>
@@ -6016,6 +6509,7 @@
   <file src="src/TextUI/Output/Default/ResultPrinter.php">
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
+      <code><![CDATA[mapTestsWithIssuesEventsToElements]]></code>
       <code><![CDATA[name]]></code>
       <code><![CDATA[reasonLocation]]></code>
       <code><![CDATA[reasonMessage]]></code>
@@ -6036,6 +6530,8 @@
       <code><![CDATA[Printer]]></code>
     </InvalidNullableReturnType>
     <MissingPureAnnotation>
+      <code><![CDATA[createResultPrinter]]></code>
+      <code><![CDATA[createSummaryPrinter]]></code>
       <code><![CDATA[useDefaultProgressPrinter]]></code>
     </MissingPureAnnotation>
     <MissingThrowsDocblock>
@@ -6103,8 +6599,16 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[colorFor]]></code>
       <code><![CDATA[messageColorFor]]></code>
-      <code><![CDATA[prefixLines]]></code>
+      <code><![CDATA[prefixFor]]></code>
       <code><![CDATA[symbolFor]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/TextUI/ShellExitCodeCalculator.php">
+    <MissingImmutableAnnotation>
+      <code><![CDATA[ShellExitCodeCalculator]]></code>
+    </MissingImmutableAnnotation>
+    <MissingPureAnnotation>
+      <code><![CDATA[calculate]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/TestSuiteFilterProcessor.php">
@@ -6127,6 +6631,8 @@
   </file>
   <file src="src/Util/Color.php">
     <MissingPureAnnotation>
+      <code><![CDATA[colorize]]></code>
+      <code><![CDATA[colorizeTextBox]]></code>
       <code><![CDATA[dim]]></code>
       <code><![CDATA[optimizeColor]]></code>
     </MissingPureAnnotation>
@@ -6222,6 +6728,8 @@
     </ArgumentTypeCoercion>
     <MissingPureAnnotation>
       <code><![CDATA[filterAndSortMethods]]></code>
+      <code><![CDATA[methodsInTestClass]]></code>
+      <code><![CDATA[publicMethodsInTestClass]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Util/VersionComparisonOperator.php">
@@ -6236,8 +6744,13 @@
     </NoValue>
   </file>
   <file src="src/Util/Xml/Xml.php">
+    <MissingImmutableAnnotation>
+      <code><![CDATA[Xml]]></code>
+    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
+      <code><![CDATA[convertToUtf8]]></code>
       <code><![CDATA[isUtf8]]></code>
+      <code><![CDATA[prepareString]]></code>
     </MissingPureAnnotation>
   </file>
 </files>
