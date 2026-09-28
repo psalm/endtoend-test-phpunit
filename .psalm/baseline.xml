@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@7a2d7840acbe75e6081224aed33e8a68034b1061">
+<files psalm-version="dev-master@1a72092f21dbb18d4e86c7c1e44fc8cde12ab279">
   <file src="src/Event/Dispatcher/CollectingDispatcher.php">
     <MissingOverrideAttribute>
       <code><![CDATA[public function dispatch(Event $event): void]]></code>
@@ -1473,10 +1473,6 @@
       <code><![CDATA[public function memoryUsage(): MemoryUsage]]></code>
       <code><![CDATA[public function peakMemoryUsage(): MemoryUsage]]></code>
     </MissingOverrideAttribute>
-    <MissingPureAnnotation>
-      <code><![CDATA[memoryUsage]]></code>
-      <code><![CDATA[peakMemoryUsage]]></code>
-    </MissingPureAnnotation>
   </file>
   <file src="src/Event/Value/Telemetry/SystemStopWatch.php">
     <MissingOverrideAttribute>
@@ -1673,9 +1669,7 @@
       <code><![CDATA[equalToCanonicalizing]]></code>
       <code><![CDATA[equalToIgnoringCase]]></code>
       <code><![CDATA[equalToWithDelta]]></code>
-      <code><![CDATA[fail]]></code>
       <code><![CDATA[fileExists]]></code>
-      <code><![CDATA[getCount]]></code>
       <code><![CDATA[greaterThan]]></code>
       <code><![CDATA[identicalTo]]></code>
       <code><![CDATA[isEmpty]]></code>
@@ -1698,7 +1692,6 @@
       <code><![CDATA[matches]]></code>
       <code><![CDATA[matchesRegularExpression]]></code>
       <code><![CDATA[objectEquals]]></code>
-      <code><![CDATA[resetCount]]></code>
       <code><![CDATA[stringContains]]></code>
       <code><![CDATA[stringEndsWith]]></code>
       <code><![CDATA[stringEqualsStringIgnoringLineEndings]]></code>
@@ -2281,7 +2274,6 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[convertNewlines]]></code>
       <code><![CDATA[failureDescription]]></code>
-      <code><![CDATA[matches]]></code>
       <code><![CDATA[regularExpressionForFormatDescription]]></code>
       <code><![CDATA[toString]]></code>
     </MissingPureAnnotation>
@@ -2804,13 +2796,7 @@
       <code><![CDATA[ensureParametersCanBeConfigured]]></code>
       <code><![CDATA[id]]></code>
       <code><![CDATA[will]]></code>
-      <code><![CDATA[willReturnArgument]]></code>
-      <code><![CDATA[willReturnCallback]]></code>
-      <code><![CDATA[willReturnOnConsecutiveCalls]]></code>
-      <code><![CDATA[willReturnReference]]></code>
       <code><![CDATA[willReturnSelf]]></code>
-      <code><![CDATA[willThrowException]]></code>
-      <code><![CDATA[with]]></code>
       <code><![CDATA[withAnyParameters]]></code>
     </MissingPureAnnotation>
     <PropertyTypeCoercion>
@@ -2906,7 +2892,6 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[addMatcher]]></code>
-      <code><![CDATA[expects]]></code>
       <code><![CDATA[hasMatchers]]></code>
       <code><![CDATA[lookupMatcher]]></code>
       <code><![CDATA[registerMatcher]]></code>
@@ -3174,11 +3159,6 @@
       <code><![CDATA[Test]]></code>
     </MissingInterfaceImmutableAnnotation>
   </file>
-  <file src="src/Framework/TestBuilder.php">
-    <MissingPureAnnotation>
-      <code><![CDATA[configureTestCase]]></code>
-    </MissingPureAnnotation>
-  </file>
   <file src="src/Framework/TestCase.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$mockClassName]]></code>
@@ -3203,7 +3183,6 @@
       <code><![CDATA[public function toString(): string]]></code>
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
-      <code><![CDATA[__construct]]></code>
       <code><![CDATA[addToAssertionCount]]></code>
       <code><![CDATA[any]]></code>
       <code><![CDATA[assertPostConditions]]></code>
@@ -3244,7 +3223,6 @@
       <code><![CDATA[setDependencyInput]]></code>
       <code><![CDATA[setGroups]]></code>
       <code><![CDATA[setInIsolation]]></code>
-      <code><![CDATA[setName]]></code>
       <code><![CDATA[setPreserveGlobalState]]></code>
       <code><![CDATA[setResult]]></code>
       <code><![CDATA[setRunClassInSeparateProcess]]></code>
@@ -3252,7 +3230,6 @@
       <code><![CDATA[setUp]]></code>
       <code><![CDATA[setUpBeforeClass]]></code>
       <code><![CDATA[shouldExceptionExpectationsBeVerified]]></code>
-      <code><![CDATA[shouldRunInSeparateProcess]]></code>
       <code><![CDATA[sortId]]></code>
       <code><![CDATA[tearDown]]></code>
       <code><![CDATA[tearDownAfterClass]]></code>
@@ -3281,9 +3258,6 @@
     <InvalidArgument>
       <code><![CDATA[$var]]></code>
     </InvalidArgument>
-    <MissingPureAnnotation>
-      <code><![CDATA[__construct]]></code>
-    </MissingPureAnnotation>
     <MissingThrowsDocblock>
       <code><![CDATA[bootstrap]]></code>
     </MissingThrowsDocblock>
@@ -3568,7 +3542,6 @@
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[current]]></code>
-      <code><![CDATA[getChildren]]></code>
       <code><![CDATA[hasChildren]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -3745,9 +3718,6 @@
     <InvalidCast>
       <code><![CDATA[$value]]></code>
     </InvalidCast>
-    <MissingPureAnnotation>
-      <code><![CDATA[prettifyTestMethodName]]></code>
-    </MissingPureAnnotation>
   </file>
   <file src="src/Logging/TestDox/TestMethod/Subscriber/Subscriber.php">
     <MissingImmutableAnnotation>
@@ -4344,7 +4314,6 @@
   <file src="src/Metadata/Parser/Annotation/Registry.php">
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[getInstance]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Metadata/Parser/AnnotationParser.php">
@@ -4416,13 +4385,8 @@
     </MissingPureAnnotation>
   </file>
   <file src="src/Metadata/Parser/Registry.php">
-    <MissingImmutableAnnotation>
-      <code><![CDATA[Registry]]></code>
-    </MissingImmutableAnnotation>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[build]]></code>
-      <code><![CDATA[parser]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Metadata/PostCondition.php">
@@ -4715,7 +4679,6 @@
     <MissingPureAnnotation>
       <code><![CDATA[deactivate]]></code>
       <code><![CDATA[ignoreLines]]></code>
-      <code><![CDATA[instance]]></code>
       <code><![CDATA[isActive]]></code>
       <code><![CDATA[timer]]></code>
     </MissingPureAnnotation>
@@ -4758,7 +4721,6 @@
       <code><![CDATA[$errorString]]></code>
     </ArgumentTypeCoercion>
     <MissingPureAnnotation>
-      <code><![CDATA[instance]]></code>
       <code><![CDATA[use]]></code>
     </MissingPureAnnotation>
     <MissingThrowsDocblock>
@@ -4836,6 +4798,9 @@
     </MissingPureAnnotation>
   </file>
   <file src="src/Runner/Extension/ParameterCollection.php">
+    <ImpureMethodCall>
+      <code><![CDATA[new ParameterDoesNotExistException($name)]]></code>
+    </ImpureMethodCall>
     <MissingPureAnnotation>
       <code><![CDATA[fromArray]]></code>
     </MissingPureAnnotation>
@@ -5149,7 +5114,6 @@
       <code><![CDATA[hasTestClassPassed]]></code>
       <code><![CDATA[hasTestMethodPassed]]></code>
       <code><![CDATA[import]]></code>
-      <code><![CDATA[instance]]></code>
       <code><![CDATA[isGreaterThan]]></code>
       <code><![CDATA[returnValue]]></code>
       <code><![CDATA[testClassPassed]]></code>
@@ -5401,7 +5365,6 @@
     </ArgumentTypeCoercion>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[randomize]]></code>
       <code><![CDATA[resolveDependencies]]></code>
       <code><![CDATA[reverse]]></code>
     </MissingPureAnnotation>
@@ -5486,7 +5449,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestSuitesCommand.php">
@@ -5495,7 +5457,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestsAsTextCommand.php">
@@ -5504,7 +5465,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/ListTestsAsXmlCommand.php">
@@ -5513,7 +5473,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[warnAboutConflictingOptions]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Command/Commands/MigrateConfigurationCommand.php">
@@ -5600,7 +5559,6 @@
   <file src="src/TextUI/Configuration/CodeCoverageFilterRegistry.php">
     <MissingPureAnnotation>
       <code><![CDATA[get]]></code>
-      <code><![CDATA[instance]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Configuration/Configuration.php">
@@ -5646,9 +5604,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TextUI/Configuration/Registry.php">
-    <MissingPureAnnotation>
-      <code><![CDATA[get]]></code>
-    </MissingPureAnnotation>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$result]]></code>
     </RiskyTruthyFalsyComparison>
@@ -5702,7 +5657,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5735,7 +5689,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5767,7 +5720,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5800,7 +5752,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5833,7 +5784,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5865,7 +5815,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5898,7 +5847,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5931,7 +5879,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5964,7 +5911,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -5997,7 +5943,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -6030,7 +5975,6 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[__construct]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[current]]></code>
       <code><![CDATA[next]]></code>
       <code><![CDATA[rewind]]></code>
@@ -6539,8 +6483,6 @@
       <code><![CDATA[Printer]]></code>
     </InvalidNullableReturnType>
     <MissingPureAnnotation>
-      <code><![CDATA[createResultPrinter]]></code>
-      <code><![CDATA[createSummaryPrinter]]></code>
       <code><![CDATA[useDefaultProgressPrinter]]></code>
     </MissingPureAnnotation>
     <MissingThrowsDocblock>
@@ -6608,7 +6550,6 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[colorFor]]></code>
       <code><![CDATA[messageColorFor]]></code>
-      <code><![CDATA[prefixFor]]></code>
       <code><![CDATA[symbolFor]]></code>
     </MissingPureAnnotation>
   </file>
@@ -6640,8 +6581,6 @@
   </file>
   <file src="src/Util/Color.php">
     <MissingPureAnnotation>
-      <code><![CDATA[colorize]]></code>
-      <code><![CDATA[colorizeTextBox]]></code>
       <code><![CDATA[dim]]></code>
       <code><![CDATA[optimizeColor]]></code>
     </MissingPureAnnotation>
@@ -6680,6 +6619,11 @@
     <MissingPureAnnotation>
       <code><![CDATA[arrayOnlyContainsScalars]]></code>
       <code><![CDATA[isIniSettingDeprecated]]></code>
+    </MissingPureAnnotation>
+  </file>
+  <file src="src/Util/Json.php">
+    <MissingPureAnnotation>
+      <code><![CDATA[recursiveSort]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/Util/PHP/AbstractPhpProcess.php">
@@ -6751,6 +6695,9 @@
     <DocblockTypeContradiction>
       <code><![CDATA[in_array($operator, ['<', 'lt', '<=', 'le', '>', 'gt', '>=', 'ge', '==', '=', 'eq', '!=', '<>', 'ne'], true)]]></code>
     </DocblockTypeContradiction>
+    <ImpureMethodCall>
+      <code><![CDATA[new InvalidVersionOperatorException($operator)]]></code>
+    </ImpureMethodCall>
     <MissingPureAnnotation>
       <code><![CDATA[ensureOperatorIsValid]]></code>
     </MissingPureAnnotation>
