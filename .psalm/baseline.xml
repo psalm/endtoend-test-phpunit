@@ -5405,6 +5405,7 @@
       <code><![CDATA[!$configurationFile]]></code>
     </RiskyTruthyFalsyComparison>
     <TaintedHtml>
+      <code><![CDATA[$message]]></code>
       <code><![CDATA[$t->getTraceAsString()]]></code>
       <code><![CDATA[print Version::getVersionString() . PHP_EOL . PHP_EOL . $message . PHP_EOL]]></code>
     </TaintedHtml>
@@ -5632,6 +5633,12 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$argument]]></code>
     </RiskyTruthyFalsyComparison>
+    <TaintedHtml>
+      <code><![CDATA[print $e->getMessage() . PHP_EOL]]></code>
+    </TaintedHtml>
+    <TaintedTextWithQuotes>
+      <code><![CDATA[print $e->getMessage() . PHP_EOL]]></code>
+    </TaintedTextWithQuotes>
   </file>
   <file src="src/TextUI/Configuration/Value/ConstantCollection.php">
     <ImpureMethodCall>
