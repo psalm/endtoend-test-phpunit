@@ -6267,6 +6267,7 @@
     </MissingOverrideAttribute>
     <MissingPureAnnotation>
       <code><![CDATA[count]]></code>
+      <code><![CDATA[getIterator]]></code>
     </MissingPureAnnotation>
   </file>
   <file src="src/TextUI/Configuration/Xml/SchemaDetector/SchemaDetectionResult.php">
