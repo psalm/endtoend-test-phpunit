@@ -4970,6 +4970,17 @@
       <code><![CDATA[status]]></code>
       <code><![CDATA[time]]></code>
     </MissingPureAnnotation>
+    <TaintedFile>
+      <code><![CDATA[file_get_contents($this->cacheFilename)]]></code>
+      <code><![CDATA[file_put_contents(
+            $this->cacheFilename,
+            json_encode($data),
+            LOCK_EX,
+        )]]></code>
+    </TaintedFile>
+    <TaintedSSRF>
+      <code><![CDATA[file_get_contents($this->cacheFilename)]]></code>
+    </TaintedSSRF>
   </file>
   <file src="src/Runner/ResultCache/NullResultCache.php">
     <MissingOverrideAttribute>
@@ -6625,6 +6636,11 @@
     <MissingPureAnnotation>
       <code><![CDATA[isScalarOrArrayOfScalars]]></code>
     </MissingPureAnnotation>
+  </file>
+  <file src="src/Util/Filesystem.php">
+    <TaintedFile>
+      <code><![CDATA[mkdir($directory, 0o777, true)]]></code>
+    </TaintedFile>
   </file>
   <file src="src/Util/GlobalState.php">
     <MissingPureAnnotation>
