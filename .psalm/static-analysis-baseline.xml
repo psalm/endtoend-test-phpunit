@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="dev-master@d24775ed17b5a638d68ba792f0985ec6a7cc1e0d">
+<files psalm-version="dev-master@">
   <file src="tests/static-analysis/TestUsingCallbacks.php">
     <MissingAbstractPureAnnotation>
       <code><![CDATA[hey]]></code>
