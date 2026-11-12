@@ -1320,6 +1320,10 @@
       <code><![CDATA[MockObject&MockedType]]></code>
       <code><![CDATA[MockObject&MockedType]]></code>
     </InvalidReturnType>
+    <RedundantCondition>
+      <code><![CDATA[assert($object instanceof MockObject)]]></code>
+      <code><![CDATA[assert($object instanceof MockObject)]]></code>
+    </RedundantCondition>
   </file>
   <file src="src/Framework/MockObject/Runtime/Builder/InvocationMocker.php">
     <MissingOverrideAttribute>
@@ -1506,6 +1510,10 @@
       <code><![CDATA[$backupGlobalsExcludeList]]></code>
       <code><![CDATA[$groups]]></code>
     </PropertyTypeCoercion>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[assert($mockObject instanceof MockObject)]]></code>
+      <code><![CDATA[assert($stub instanceof Stub)]]></code>
+    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[!$context->contains($testArgument)]]></code>
     </RiskyTruthyFalsyComparison>
